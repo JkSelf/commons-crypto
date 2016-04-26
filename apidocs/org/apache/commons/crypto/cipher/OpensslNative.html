@@ -62,13 +62,13 @@
 <li>Summary:&nbsp;</li>
 <li>Nested&nbsp;|&nbsp;</li>
 <li>Field&nbsp;|&nbsp;</li>
-<li><a href="#constructor_summary">Constr</a>&nbsp;|&nbsp;</li>
+<li>Constr&nbsp;|&nbsp;</li>
 <li><a href="#method_summary">Method</a></li>
 </ul>
 <ul class="subNavList">
 <li>Detail:&nbsp;</li>
 <li>Field&nbsp;|&nbsp;</li>
-<li><a href="#constructor_detail">Constr</a>&nbsp;|&nbsp;</li>
+<li>Constr&nbsp;|&nbsp;</li>
 <li><a href="#method_detail">Method</a></li>
 </ul>
 </div>
@@ -105,23 +105,6 @@ extends <a href="http://download.oracle.com/javase/6/docs/api/java/lang/Object.h
 <div class="summary">
 <ul class="blockList">
 <li class="blockList">
-<!-- ======== CONSTRUCTOR SUMMARY ======== -->
-<ul class="blockList">
-<li class="blockList"><a name="constructor_summary">
-<!--   -->
-</a>
-<h3>Constructor Summary</h3>
-<table class="overviewSummary" border="0" cellpadding="3" cellspacing="0" summary="Constructor Summary table, listing constructors, and an explanation">
-<caption><span>Constructors</span><span class="tabEnd">&nbsp;</span></caption>
-<tr>
-<th class="colOne" scope="col">Constructor and Description</th>
-</tr>
-<tr class="altColor">
-<td class="colOne"><code><strong><a href="../../../../../org/apache/commons/crypto/cipher/OpensslNative.html#OpensslNative()">OpensslNative</a></strong>()</code>&nbsp;</td>
-</tr>
-</table>
-</li>
-</ul>
 <!-- ========== METHOD SUMMARY =========== -->
 <ul class="blockList">
 <li class="blockList"><a name="method_summary">
@@ -222,23 +205,6 @@ extends <a href="http://download.oracle.com/javase/6/docs/api/java/lang/Object.h
 <div class="details">
 <ul class="blockList">
 <li class="blockList">
-<!-- ========= CONSTRUCTOR DETAIL ======== -->
-<ul class="blockList">
-<li class="blockList"><a name="constructor_detail">
-<!--   -->
-</a>
-<h3>Constructor Detail</h3>
-<a name="OpensslNative()">
-<!--   -->
-</a>
-<ul class="blockListLast">
-<li class="blockList">
-<h4>OpensslNative</h4>
-<pre>public&nbsp;<a href="../../../../../src-html/org/apache/commons/crypto/cipher/OpensslNative.html#line.26">OpensslNative</a>()</pre>
-</li>
-</ul>
-</li>
-</ul>
 <!-- ============ METHOD DETAIL ========== -->
 <ul class="blockList">
 <li class="blockList"><a name="method_detail">
@@ -251,7 +217,7 @@ extends <a href="http://download.oracle.com/javase/6/docs/api/java/lang/Object.h
 <ul class="blockList">
 <li class="blockList">
 <h4>initIDs</h4>
-<pre>public static&nbsp;void&nbsp;<a href="../../../../../src-html/org/apache/commons/crypto/cipher/OpensslNative.html#line.31">initIDs</a>()</pre>
+<pre>public static&nbsp;void&nbsp;<a href="../../../../../src-html/org/apache/commons/crypto/cipher/OpensslNative.html#line.33">initIDs</a>()</pre>
 <div class="block">Declares a native method to initialize JNI field and method IDs.</div>
 </li>
 </ul>
@@ -261,7 +227,7 @@ extends <a href="http://download.oracle.com/javase/6/docs/api/java/lang/Object.h
 <ul class="blockList">
 <li class="blockList">
 <h4>initContext</h4>
-<pre>public static&nbsp;long&nbsp;<a href="../../../../../src-html/org/apache/commons/crypto/cipher/OpensslNative.html#line.40">initContext</a>(int&nbsp;algorithm,
+<pre>public static&nbsp;long&nbsp;<a href="../../../../../src-html/org/apache/commons/crypto/cipher/OpensslNative.html#line.42">initContext</a>(int&nbsp;algorithm,
                int&nbsp;padding)</pre>
 <div class="block">Declares a native method to initialize the cipher context.</div>
 <dl><dt><span class="strong">Parameters:</span></dt><dd><code>algorithm</code> - The algorithm name of cipher</dd><dd><code>padding</code> - The padding name of cipher</dd>
@@ -274,7 +240,7 @@ extends <a href="http://download.oracle.com/javase/6/docs/api/java/lang/Object.h
 <ul class="blockList">
 <li class="blockList">
 <h4>init</h4>
-<pre>public static&nbsp;long&nbsp;<a href="../../../../../src-html/org/apache/commons/crypto/cipher/OpensslNative.html#line.47">init</a>(long&nbsp;context,
+<pre>public static&nbsp;long&nbsp;<a href="../../../../../src-html/org/apache/commons/crypto/cipher/OpensslNative.html#line.49">init</a>(long&nbsp;context,
         int&nbsp;mode,
         int&nbsp;alg,
         int&nbsp;padding,
@@ -290,7 +256,7 @@ extends <a href="http://download.oracle.com/javase/6/docs/api/java/lang/Object.h
 <ul class="blockList">
 <li class="blockList">
 <h4>update</h4>
-<pre>public static&nbsp;int&nbsp;<a href="../../../../../src-html/org/apache/commons/crypto/cipher/OpensslNative.html#line.63">update</a>(long&nbsp;context,
+<pre>public static&nbsp;int&nbsp;<a href="../../../../../src-html/org/apache/commons/crypto/cipher/OpensslNative.html#line.65">update</a>(long&nbsp;context,
          <a href="http://download.oracle.com/javase/6/docs/api/java/nio/ByteBuffer.html?is-external=true" title="class or interface in java.nio">ByteBuffer</a>&nbsp;input,
          int&nbsp;inputOffset,
          int&nbsp;inputLength,
@@ -309,7 +275,7 @@ extends <a href="http://download.oracle.com/javase/6/docs/api/java/lang/Object.h
 <ul class="blockList">
 <li class="blockList">
 <h4>updateByteArray</h4>
-<pre>public static&nbsp;int&nbsp;<a href="../../../../../src-html/org/apache/commons/crypto/cipher/OpensslNative.html#line.80">updateByteArray</a>(long&nbsp;context,
+<pre>public static&nbsp;int&nbsp;<a href="../../../../../src-html/org/apache/commons/crypto/cipher/OpensslNative.html#line.82">updateByteArray</a>(long&nbsp;context,
                   byte[]&nbsp;input,
                   int&nbsp;inputOffset,
                   int&nbsp;inputLength,
@@ -328,7 +294,7 @@ extends <a href="http://download.oracle.com/javase/6/docs/api/java/lang/Object.h
 <ul class="blockList">
 <li class="blockList">
 <h4>doFinal</h4>
-<pre>public static&nbsp;int&nbsp;<a href="../../../../../src-html/org/apache/commons/crypto/cipher/OpensslNative.html#line.94">doFinal</a>(long&nbsp;context,
+<pre>public static&nbsp;int&nbsp;<a href="../../../../../src-html/org/apache/commons/crypto/cipher/OpensslNative.html#line.96">doFinal</a>(long&nbsp;context,
           <a href="http://download.oracle.com/javase/6/docs/api/java/nio/ByteBuffer.html?is-external=true" title="class or interface in java.nio">ByteBuffer</a>&nbsp;output,
           int&nbsp;offset,
           int&nbsp;maxOutputLength)</pre>
@@ -344,7 +310,7 @@ extends <a href="http://download.oracle.com/javase/6/docs/api/java/lang/Object.h
 <ul class="blockList">
 <li class="blockList">
 <h4>doFinalByteArray</h4>
-<pre>public static&nbsp;int&nbsp;<a href="../../../../../src-html/org/apache/commons/crypto/cipher/OpensslNative.html#line.107">doFinalByteArray</a>(long&nbsp;context,
+<pre>public static&nbsp;int&nbsp;<a href="../../../../../src-html/org/apache/commons/crypto/cipher/OpensslNative.html#line.109">doFinalByteArray</a>(long&nbsp;context,
                    byte[]&nbsp;output,
                    int&nbsp;offset,
                    int&nbsp;maxOutputLength)</pre>
@@ -360,7 +326,7 @@ extends <a href="http://download.oracle.com/javase/6/docs/api/java/lang/Object.h
 <ul class="blockListLast">
 <li class="blockList">
 <h4>clean</h4>
-<pre>public static&nbsp;void&nbsp;<a href="../../../../../src-html/org/apache/commons/crypto/cipher/OpensslNative.html#line.115">clean</a>(long&nbsp;context)</pre>
+<pre>public static&nbsp;void&nbsp;<a href="../../../../../src-html/org/apache/commons/crypto/cipher/OpensslNative.html#line.117">clean</a>(long&nbsp;context)</pre>
 <div class="block">Cleans the context at native.</div>
 <dl><dt><span class="strong">Parameters:</span></dt><dd><code>context</code> - The cipher context address</dd></dl>
 </li>
@@ -418,13 +384,13 @@ extends <a href="http://download.oracle.com/javase/6/docs/api/java/lang/Object.h
 <li>Summary:&nbsp;</li>
 <li>Nested&nbsp;|&nbsp;</li>
 <li>Field&nbsp;|&nbsp;</li>
-<li><a href="#constructor_summary">Constr</a>&nbsp;|&nbsp;</li>
+<li>Constr&nbsp;|&nbsp;</li>
 <li><a href="#method_summary">Method</a></li>
 </ul>
 <ul class="subNavList">
 <li>Detail:&nbsp;</li>
 <li>Field&nbsp;|&nbsp;</li>
-<li><a href="#constructor_detail">Constr</a>&nbsp;|&nbsp;</li>
+<li>Constr&nbsp;|&nbsp;</li>
 <li><a href="#method_detail">Method</a></li>
 </ul>
 </div>

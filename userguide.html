@@ -241,12 +241,12 @@
 <tr class="a">
             
 <td width="150">
-              <a href="apidocs/index.html">cipher
+              <a href="apidocs/index.html">random
               </a>
             </td>
             
 <td>
-              The interface of cryptographic cipher for encryption and decryption.
+              The interface for SecureRandom.
             </td>
           </tr>
 
@@ -254,12 +254,12 @@
 <tr class="b">
             
 <td width="150">
-              <a href="apidocs/index.html">random
+              <a href="apidocs/index.html">cipher
               </a>
             </td>
             
 <td>
-              The interface for SecureRandom.
+              The interface of cryptographic cipher for encryption and decryption.
             </td>
           </tr>
 
@@ -287,20 +287,22 @@
 <div class="section">
 <h4><a name="Usage_of_Random_API"></a>Usage of Random API</h4>
         
+<p> SecureRandom provides a cryptographically strong random number generators. The default implementation will use Intel&#xae; Digital Random Number Generator (DRNG) for accelerating the random generation.</p>
+        
 <table border="0" class="bodyTable">
         
 <tr class="a">
         
 <td>
         //Constructs a byte array to store random data.<br />
-        byte[] data = new byte[16];<br />
+        byte[] key = new byte[16];<br />
+        byte[] iv = new byte[16];<br />
         Properties properties = new Properties();<br />
-        // Default value is com.intel.chimera.random.JavaSecureRandom.<br />
-        properties.setProperty(&quot;chimera.crypto.secure.random.classes&quot;, &quot;com.intel.chimera.random.OpensslSecureRandom,com.intel.chimera.random.OsSecureRandom&quot;);<br />
         //Gets the 'SecureRandom' instance.<br />
         SecureRandom secureRandom = SecureRandomFactory.getSecureRandom(properties);<br />
         //Generates random bytes and places them into the byte array.<br />
-        secureRandom.nextBytes(data);<br />
+        secureRandom.nextBytes(key);<br />
+        secureRandom.nextBytes(iv);<br />
         //Closes the SecureRandom.<br />
         secureRandom.close();<br />
         </td>
@@ -312,37 +314,7 @@
 <div class="section">
 <h4><a name="Usage_of_Cipher_API"></a>Usage of Cipher API</h4>
         
-<table border="0" class="bodyTable">
-        
-<tr class="a">
-        
-<td>
-        Properties properties = new Properties();<br />
-        // Default value is com.intel.chimera.crypto.JceCipher.<br />
-        properties.setProperty(&quot;chimera.crypto.cipher.classes&quot;, &quot;com.intel.chimera.crypto.OpensslCipher,com.intel.chimera.crypto.JceCipher&quot;);<br />
-        Cipher cipher = Utils.getCipherInstance(CipherTransformation.AES_CTR_NOPADDING, properties);<br /><br />
-        properties = new Properties();<br />
-        // Default value is com.intel.chimera.random.JavaSecureRandom.<br />
-        properties.setProperty(&quot;chimera.crypto.secure.random.classes&quot;, &quot;com.intel.chimera.random.OpensslSecureRandom,com.intel.chimera.random.OsSecureRandom&quot;);<br />
-        //Gets the 'SecureRandom' instance.<br />
-        SecureRandom secureRandom = SecureRandomFactory.getSecureRandom(properties);<br />
-        // Available key length is: 16, 24, 32 bytes.<br />
-        //Constructs the crypto key for cipher.<br />
-        byte[] key = new byte[16];<br />
-        //Generates random bytes and places them into the byte array.<br />
-        secureRandom.nextBytes(key);<br />
-        // IV length is always 16 bytes.<br />
-        //Constructs the crypto iv for cipher.<br />
-        byte[] iv = new byte[16];<br />
-        //Generates random bytes and places them into the byte array.<br />
-        secureRandom.nextBytes(iv);<br />
-        //Closes the SecureRandom.<br />
-        secureRandom.close();<br />
-        </td>
-        </tr>
-        </table>
-
-
+<p>Cipher provides an cryptographic interface for encryption and decryption. We provide two kind of implementations: JCE Cipher and Openssl Cipher. The JCE implementation uses JCE provider and the Openssl implementation uses Intel&#xae; AES New Instructions (Intel&#xae; AES NI). </p>
         
 <div class="section">
 <h5><a name="Usage_of_Byte_Array_EncryptionDecryption"></a>Usage of Byte Array Encryption/Decryption</h5>
@@ -352,6 +324,9 @@
 <tr class="a">
         
 <td>
+        Properties properties = new Properties();<br />
+        //Creates a Cipher instance with the transformation and properties.<br />
+        Cipher cipher = Utils.getCipherInstance(CipherTransformation.AES_CTR_NOPADDING, properties);<br /><br />
         String input = &quot;hello world!&quot;;<br />
         int inputOffset = 0;<br />
         int inputLen = input.length();<br />
@@ -369,7 +344,6 @@
         </tr>
         </table>
 
-
         </div>
 <div class="section">
 <h5><a name="Usage_of_ByteBuffer_EncryptionDecryption"></a>Usage of ByteBuffer Encryption/Decryption</h5>
@@ -379,6 +353,9 @@
 <tr class="a">
         
 <td>
+        Properties properties = new Properties();<br />
+        //Creates a Cipher instance with the transformation and properties.<br />
+        Cipher cipher = Utils.getCipherInstance(CipherTransformation.AES_CTR_NOPADDING, properties);<br /><br />
         int bufferSize = 4096;<br />
         ByteBuffer inBuffer = ByteBuffer.allocateDirect(bufferSize);<br />
         ByteBuffer outBuffer = ByteBuffer.allocateDirect(bufferSize);<br />
@@ -400,32 +377,16 @@
 <div class="section">
 <h4><a name="Usage_of_Stream_API"></a>Usage of Stream API</h4>
         
+<p>Stream provides the encryption and decryption data in stream manner. We provide CrypoInputStream,CTRCryptoInputStream and PositionedCryptoInputstream implementations for InputStream and CrypoOutputStream and CTRCryptoOutputStream implementations for OutputStream. </p>
+        
+<div class="section">
+<h5><a name="Usage_of_stream_encryption"></a>Usage of stream encryption</h5>
+        
 <table border="0" class="bodyTable">
         
 <tr class="a">
         
 <td>
-        Properties properties = new Properties();<br />
-        // Default value is com.intel.chimera.random.JavaSecureRandom.<br />
-        properties.setProperty(&quot;chimera.crypto.secure.random.classes&quot;, &quot;com.intel.chimera.random.OpensslSecureRandom,com.intel.chimera.random.OsSecureRandom&quot;);<br />
-        //Gets the 'SecureRandom' instance.<br />
-        SecureRandom secureRandom = SecureRandomFactory.getSecureRandom(properties);<br />
-        // Available key length is: 16, 24, 32 bytes.<br />
-        //Constructs the crypto key for cipher.<br />
-        byte[] key = new byte[16];<br />
-        //Generates random bytes and places them into the byte array.<br />
-        secureRandom.nextBytes(key);<br />
-        // IV length is always 16 bytes<br />
-        //Constructs the crypto iv for cipher.<br />
-        byte[] iv = new byte[16];<br />
-        //Generates random bytes and places them into the byte array.<br />
-        secureRandom.nextBytes(iv);<br />
-        //Closes the SecureRandom.<br />
-        secureRandom.close();<br />
-        properties = new Properties();<br />
-        // Default value is com.intel.chimera.crypto.JceCipher.<br />
-        properties.setProperty(&quot;chimera.crypto.cipher.classes&quot;, &quot;com.intel.chimera.crypto.OpensslCipher,com.intel.chimera.crypto.JceCipher&quot;);<br />
-        Cipher cipher = Utils.getCipherInstance(CipherTransformation.AES_CTR_NOPADDING, properties);<br />
         int bufferSize = 4096;<br />
         String input = &quot;hello world!&quot;;<br />
         byte[] decryptedData = new byte[1024];<br />
@@ -440,6 +401,19 @@
         cos.flush();<br />
         cos.close();<br />
         // Decryption with CryptoInputStream.<br />
+
+        </td>
+        </tr>
+        </table>
+        </div>
+<div class="section">
+<h5><a name="Usage_of_stream_decryption"></a>Usage of stream decryption</h5>
+        
+<table border="0" class="bodyTable">
+        
+<tr class="a">
+        
+<td>
         //Initializes the cipher with DECRYPT_MODE,key and iv.<br />
         cipher.init(Cipher.DECRYPT_MODE, key, iv);<br />
         //Constructs the original InputStream.<br />
@@ -452,7 +426,7 @@
         </tr>
         </table>
         </ol>
-      </div></div>
+      </div></div></div>
 
     </div>
     <!-- ================================================== -->

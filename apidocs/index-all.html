@@ -68,7 +68,7 @@
 <dl>
 <dt><span class="strong"><a href="./org/apache/commons/crypto/utils/Utils.html#AES_CTR_NOPADDING">AES_CTR_NOPADDING</a></span> - Static variable in class org.apache.commons.crypto.utils.<a href="./org/apache/commons/crypto/utils/Utils.html" title="class in org.apache.commons.crypto.utils">Utils</a></dt>
 <dd>&nbsp;</dd>
-<dt><span class="strong"><a href="./org/apache/commons/crypto/stream/CryptoInputStream.html#available()">available()</a></span> - Method in class org.apache.commons.crypto.stream.<a href="./org/apache/commons/crypto/stream/CryptoInputStream.html" title="class in org.apache.commons.crypto.stream">CryptoInputStream</a></dt>
+<dt><span class="strong"><a href="./org/apache/commons/crypto/stream/CipherInputStream.html#available()">available()</a></span> - Method in class org.apache.commons.crypto.stream.<a href="./org/apache/commons/crypto/stream/CipherInputStream.html" title="class in org.apache.commons.crypto.stream">CipherInputStream</a></dt>
 <dd>&nbsp;</dd>
 <dt><span class="strong"><a href="./org/apache/commons/crypto/stream/input/ChannelInput.html#available()">available()</a></span> - Method in class org.apache.commons.crypto.stream.input.<a href="./org/apache/commons/crypto/stream/input/ChannelInput.html" title="class in org.apache.commons.crypto.stream.input">ChannelInput</a></dt>
 <dd>
@@ -90,9 +90,9 @@
 </a>
 <h2 class="title">B</h2>
 <dl>
-<dt><span class="strong"><a href="./org/apache/commons/crypto/stream/CryptoInputStream.html#bufferSize">bufferSize</a></span> - Variable in class org.apache.commons.crypto.stream.<a href="./org/apache/commons/crypto/stream/CryptoInputStream.html" title="class in org.apache.commons.crypto.stream">CryptoInputStream</a></dt>
+<dt><span class="strong"><a href="./org/apache/commons/crypto/stream/CipherInputStream.html#bufferSize">bufferSize</a></span> - Variable in class org.apache.commons.crypto.stream.<a href="./org/apache/commons/crypto/stream/CipherInputStream.html" title="class in org.apache.commons.crypto.stream">CipherInputStream</a></dt>
 <dd>&nbsp;</dd>
-<dt><span class="strong"><a href="./org/apache/commons/crypto/stream/CryptoOutputStream.html#bufferSize">bufferSize</a></span> - Variable in class org.apache.commons.crypto.stream.<a href="./org/apache/commons/crypto/stream/CryptoOutputStream.html" title="class in org.apache.commons.crypto.stream">CryptoOutputStream</a></dt>
+<dt><span class="strong"><a href="./org/apache/commons/crypto/stream/CipherOutputStream.html#bufferSize">bufferSize</a></span> - Variable in class org.apache.commons.crypto.stream.<a href="./org/apache/commons/crypto/stream/CipherOutputStream.html" title="class in org.apache.commons.crypto.stream">CipherOutputStream</a></dt>
 <dd>&nbsp;</dd>
 </dl>
 <a name="_C_">
@@ -107,7 +107,7 @@
 <dt><a href="./org/apache/commons/crypto/stream/input/ChannelInput.html" title="class in org.apache.commons.crypto.stream.input"><span class="strong">ChannelInput</span></a> - Class in <a href="./org/apache/commons/crypto/stream/input/package-summary.html">org.apache.commons.crypto.stream.input</a></dt>
 <dd>
 <div class="block">The ChannelInput class takes a <code>ReadableByteChannel</code> object and
- wraps it as <code>Input</code> object acceptable by <code>CryptoInputStream</code>.</div>
+ wraps it as <code>Input</code> object acceptable by <code>CipherInputStream</code>.</div>
 </dd>
 <dt><span class="strong"><a href="./org/apache/commons/crypto/stream/input/ChannelInput.html#ChannelInput(java.nio.channels.ReadableByteChannel)">ChannelInput(ReadableByteChannel)</a></span> - Constructor for class org.apache.commons.crypto.stream.input.<a href="./org/apache/commons/crypto/stream/input/ChannelInput.html" title="class in org.apache.commons.crypto.stream.input">ChannelInput</a></dt>
 <dd>
@@ -116,7 +116,7 @@
 <dt><a href="./org/apache/commons/crypto/stream/output/ChannelOutput.html" title="class in org.apache.commons.crypto.stream.output"><span class="strong">ChannelOutput</span></a> - Class in <a href="./org/apache/commons/crypto/stream/output/package-summary.html">org.apache.commons.crypto.stream.output</a></dt>
 <dd>
 <div class="block">The ChannelOutput class takes a <code>WritableByteChannel</code> object and wraps it as 
- <code>Output</code> object acceptable by <code>CryptoOutputStream</code> as the output target.</div>
+ <code>Output</code> object acceptable by <code>CipherOutputStream</code> as the output target.</div>
 </dd>
 <dt><span class="strong"><a href="./org/apache/commons/crypto/stream/output/ChannelOutput.html#ChannelOutput(java.nio.channels.WritableByteChannel)">ChannelOutput(WritableByteChannel)</a></span> - Constructor for class org.apache.commons.crypto.stream.output.<a href="./org/apache/commons/crypto/stream/output/ChannelOutput.html" title="class in org.apache.commons.crypto.stream.output">ChannelOutput</a></dt>
 <dd>
@@ -145,87 +145,53 @@
 <div class="block">Ensures the truth of an expression involving the state of the calling
  instance, but not involving any parameters to the calling method.</div>
 </dd>
-<dt><span class="strong"><a href="./org/apache/commons/crypto/stream/CryptoInputStream.html#checkStream()">checkStream()</a></span> - Method in class org.apache.commons.crypto.stream.<a href="./org/apache/commons/crypto/stream/CryptoInputStream.html" title="class in org.apache.commons.crypto.stream">CryptoInputStream</a></dt>
+<dt><span class="strong"><a href="./org/apache/commons/crypto/stream/CipherInputStream.html#checkStream()">checkStream()</a></span> - Method in class org.apache.commons.crypto.stream.<a href="./org/apache/commons/crypto/stream/CipherInputStream.html" title="class in org.apache.commons.crypto.stream">CipherInputStream</a></dt>
 <dd>&nbsp;</dd>
-<dt><span class="strong"><a href="./org/apache/commons/crypto/stream/CryptoOutputStream.html#checkStream()">checkStream()</a></span> - Method in class org.apache.commons.crypto.stream.<a href="./org/apache/commons/crypto/stream/CryptoOutputStream.html" title="class in org.apache.commons.crypto.stream">CryptoOutputStream</a></dt>
+<dt><span class="strong"><a href="./org/apache/commons/crypto/stream/CipherOutputStream.html#checkStream()">checkStream()</a></span> - Method in class org.apache.commons.crypto.stream.<a href="./org/apache/commons/crypto/stream/CipherOutputStream.html" title="class in org.apache.commons.crypto.stream">CipherOutputStream</a></dt>
 <dd>&nbsp;</dd>
 <dt><span class="strong"><a href="./org/apache/commons/crypto/utils/Utils.html#checkStreamCipher(org.apache.commons.crypto.cipher.Cipher)">checkStreamCipher(Cipher)</a></span> - Static method in class org.apache.commons.crypto.utils.<a href="./org/apache/commons/crypto/utils/Utils.html" title="class in org.apache.commons.crypto.utils">Utils</a></dt>
 <dd>
 <div class="block">Checks whether the cipher is supported streaming.</div>
 </dd>
-<dt><span class="strong"><a href="./org/apache/commons/crypto/conf/ConfigurationKeys.html#CHIMERA_CRYPTO_CIPHER_CLASSES_DEFAULT">CHIMERA_CRYPTO_CIPHER_CLASSES_DEFAULT</a></span> - Static variable in class org.apache.commons.crypto.conf.<a href="./org/apache/commons/crypto/conf/ConfigurationKeys.html" title="class in org.apache.commons.crypto.conf">ConfigurationKeys</a></dt>
-<dd>
-<div class="block">The default value for crypto cipher.</div>
-</dd>
-<dt><span class="strong"><a href="./org/apache/commons/crypto/conf/ConfigurationKeys.html#CHIMERA_CRYPTO_CIPHER_CLASSES_KEY">CHIMERA_CRYPTO_CIPHER_CLASSES_KEY</a></span> - Static variable in class org.apache.commons.crypto.conf.<a href="./org/apache/commons/crypto/conf/ConfigurationKeys.html" title="class in org.apache.commons.crypto.conf">ConfigurationKeys</a></dt>
-<dd>
-<div class="block">The configuration key of implementation class for crypto cipher.</div>
-</dd>
-<dt><span class="strong"><a href="./org/apache/commons/crypto/conf/ConfigurationKeys.html#CHIMERA_CRYPTO_CIPHER_JCE_PROVIDER_KEY">CHIMERA_CRYPTO_CIPHER_JCE_PROVIDER_KEY</a></span> - Static variable in class org.apache.commons.crypto.conf.<a href="./org/apache/commons/crypto/conf/ConfigurationKeys.html" title="class in org.apache.commons.crypto.conf">ConfigurationKeys</a></dt>
-<dd>
-<div class="block">The configuration key of the provider class for JCE cipher.</div>
-</dd>
-<dt><span class="strong"><a href="./org/apache/commons/crypto/conf/ConfigurationKeys.html#CHIMERA_CRYPTO_LIB_NAME_KEY">CHIMERA_CRYPTO_LIB_NAME_KEY</a></span> - Static variable in class org.apache.commons.crypto.conf.<a href="./org/apache/commons/crypto/conf/ConfigurationKeys.html" title="class in org.apache.commons.crypto.conf">ConfigurationKeys</a></dt>
-<dd>
-<div class="block">The configuration key of the file name for loading crypto library.</div>
-</dd>
-<dt><span class="strong"><a href="./org/apache/commons/crypto/conf/ConfigurationKeys.html#CHIMERA_CRYPTO_LIB_PATH_KEY">CHIMERA_CRYPTO_LIB_PATH_KEY</a></span> - Static variable in class org.apache.commons.crypto.conf.<a href="./org/apache/commons/crypto/conf/ConfigurationKeys.html" title="class in org.apache.commons.crypto.conf">ConfigurationKeys</a></dt>
-<dd>
-<div class="block">The configuration key of the path for loading crypto library.</div>
-</dd>
-<dt><span class="strong"><a href="./org/apache/commons/crypto/conf/ConfigurationKeys.html#CHIMERA_CRYPTO_LIB_TEMPDIR_KEY">CHIMERA_CRYPTO_LIB_TEMPDIR_KEY</a></span> - Static variable in class org.apache.commons.crypto.conf.<a href="./org/apache/commons/crypto/conf/ConfigurationKeys.html" title="class in org.apache.commons.crypto.conf">ConfigurationKeys</a></dt>
-<dd>
-<div class="block">The configuration key of temp directory for extracting crypto library.</div>
-</dd>
-<dt><span class="strong"><a href="./org/apache/commons/crypto/conf/ConfigurationKeys.html#CHIMERA_CRYPTO_SECURE_RANDOM_CLASSES_KEY">CHIMERA_CRYPTO_SECURE_RANDOM_CLASSES_KEY</a></span> - Static variable in class org.apache.commons.crypto.conf.<a href="./org/apache/commons/crypto/conf/ConfigurationKeys.html" title="class in org.apache.commons.crypto.conf">ConfigurationKeys</a></dt>
-<dd>
-<div class="block">The configuration key of the implementation class for secure random.</div>
-</dd>
-<dt><span class="strong"><a href="./org/apache/commons/crypto/conf/ConfigurationKeys.html#CHIMERA_CRYPTO_SECURE_RANDOM_DEVICE_FILE_PATH_DEFAULT">CHIMERA_CRYPTO_SECURE_RANDOM_DEVICE_FILE_PATH_DEFAULT</a></span> - Static variable in class org.apache.commons.crypto.conf.<a href="./org/apache/commons/crypto/conf/ConfigurationKeys.html" title="class in org.apache.commons.crypto.conf">ConfigurationKeys</a></dt>
-<dd>
-<div class="block">The default value of the file path for secure random device.</div>
-</dd>
-<dt><span class="strong"><a href="./org/apache/commons/crypto/conf/ConfigurationKeys.html#CHIMERA_CRYPTO_SECURE_RANDOM_DEVICE_FILE_PATH_KEY">CHIMERA_CRYPTO_SECURE_RANDOM_DEVICE_FILE_PATH_KEY</a></span> - Static variable in class org.apache.commons.crypto.conf.<a href="./org/apache/commons/crypto/conf/ConfigurationKeys.html" title="class in org.apache.commons.crypto.conf">ConfigurationKeys</a></dt>
-<dd>
-<div class="block">The configuration key of the file path for secure random device.</div>
-</dd>
-<dt><span class="strong"><a href="./org/apache/commons/crypto/conf/ConfigurationKeys.html#CHIMERA_CRYPTO_SECURE_RANDOM_JAVA_ALGORITHM_DEFAULT">CHIMERA_CRYPTO_SECURE_RANDOM_JAVA_ALGORITHM_DEFAULT</a></span> - Static variable in class org.apache.commons.crypto.conf.<a href="./org/apache/commons/crypto/conf/ConfigurationKeys.html" title="class in org.apache.commons.crypto.conf">ConfigurationKeys</a></dt>
-<dd>
-<div class="block">The default value of the algorithm of secure random.</div>
-</dd>
-<dt><span class="strong"><a href="./org/apache/commons/crypto/conf/ConfigurationKeys.html#CHIMERA_CRYPTO_SECURE_RANDOM_JAVA_ALGORITHM_KEY">CHIMERA_CRYPTO_SECURE_RANDOM_JAVA_ALGORITHM_KEY</a></span> - Static variable in class org.apache.commons.crypto.conf.<a href="./org/apache/commons/crypto/conf/ConfigurationKeys.html" title="class in org.apache.commons.crypto.conf">ConfigurationKeys</a></dt>
-<dd>
-<div class="block">The configuration key of the algorithm of secure random.</div>
-</dd>
-<dt><span class="strong"><a href="./org/apache/commons/crypto/conf/ConfigurationKeys.html#CHIMERA_CRYPTO_STREAM_BUFFER_SIZE_DEFAULT">CHIMERA_CRYPTO_STREAM_BUFFER_SIZE_DEFAULT</a></span> - Static variable in class org.apache.commons.crypto.conf.<a href="./org/apache/commons/crypto/conf/ConfigurationKeys.html" title="class in org.apache.commons.crypto.conf">ConfigurationKeys</a></dt>
-<dd>
-<div class="block">The default value of the buffer size for stream.</div>
-</dd>
-<dt><span class="strong"><a href="./org/apache/commons/crypto/conf/ConfigurationKeys.html#CHIMERA_CRYPTO_STREAM_BUFFER_SIZE_KEY">CHIMERA_CRYPTO_STREAM_BUFFER_SIZE_KEY</a></span> - Static variable in class org.apache.commons.crypto.conf.<a href="./org/apache/commons/crypto/conf/ConfigurationKeys.html" title="class in org.apache.commons.crypto.conf">ConfigurationKeys</a></dt>
-<dd>
-<div class="block">The configuration key of the buffer size for stream.</div>
-</dd>
-<dt><span class="strong"><a href="./org/apache/commons/crypto/conf/ConfigurationKeys.html#CHIMERA_PREFIX">CHIMERA_PREFIX</a></span> - Static variable in class org.apache.commons.crypto.conf.<a href="./org/apache/commons/crypto/conf/ConfigurationKeys.html" title="class in org.apache.commons.crypto.conf">ConfigurationKeys</a></dt>
-<dd>
-<div class="block">The prefix named with project name.</div>
-</dd>
-<dt><span class="strong"><a href="./org/apache/commons/crypto/conf/ConfigurationKeys.html#CHIMERA_SYSTEM_PROPERTIES_FILE">CHIMERA_SYSTEM_PROPERTIES_FILE</a></span> - Static variable in class org.apache.commons.crypto.conf.<a href="./org/apache/commons/crypto/conf/ConfigurationKeys.html" title="class in org.apache.commons.crypto.conf">ConfigurationKeys</a></dt>
-<dd>
-<div class="block">The filename of configuration file.</div>
-</dd>
 <dt><a href="./org/apache/commons/crypto/cipher/Cipher.html" title="interface in org.apache.commons.crypto.cipher"><span class="strong">Cipher</span></a> - Interface in <a href="./org/apache/commons/crypto/cipher/package-summary.html">org.apache.commons.crypto.cipher</a></dt>
 <dd>
 <div class="block">The interface of cryptographic cipher for encryption and decryption.</div>
 </dd>
-<dt><span class="strong"><a href="./org/apache/commons/crypto/stream/CryptoInputStream.html#cipher">cipher</a></span> - Variable in class org.apache.commons.crypto.stream.<a href="./org/apache/commons/crypto/stream/CryptoInputStream.html" title="class in org.apache.commons.crypto.stream">CryptoInputStream</a></dt>
+<dt><span class="strong"><a href="./org/apache/commons/crypto/stream/CipherInputStream.html#cipher">cipher</a></span> - Variable in class org.apache.commons.crypto.stream.<a href="./org/apache/commons/crypto/stream/CipherInputStream.html" title="class in org.apache.commons.crypto.stream">CipherInputStream</a></dt>
 <dd>&nbsp;</dd>
-<dt><span class="strong"><a href="./org/apache/commons/crypto/stream/CryptoOutputStream.html#cipher">cipher</a></span> - Variable in class org.apache.commons.crypto.stream.<a href="./org/apache/commons/crypto/stream/CryptoOutputStream.html" title="class in org.apache.commons.crypto.stream">CryptoOutputStream</a></dt>
+<dt><span class="strong"><a href="./org/apache/commons/crypto/stream/CipherOutputStream.html#cipher">cipher</a></span> - Variable in class org.apache.commons.crypto.stream.<a href="./org/apache/commons/crypto/stream/CipherOutputStream.html" title="class in org.apache.commons.crypto.stream">CipherOutputStream</a></dt>
 <dd>&nbsp;</dd>
 <dt><a href="./org/apache/commons/crypto/cipher/CipherFactory.html" title="class in org.apache.commons.crypto.cipher"><span class="strong">CipherFactory</span></a> - Class in <a href="./org/apache/commons/crypto/cipher/package-summary.html">org.apache.commons.crypto.cipher</a></dt>
 <dd>
 <div class="block">This is the factory class used for creating cipher class</div>
 </dd>
-<dt><span class="strong"><a href="./org/apache/commons/crypto/cipher/CipherFactory.html#CipherFactory()">CipherFactory()</a></span> - Constructor for class org.apache.commons.crypto.cipher.<a href="./org/apache/commons/crypto/cipher/CipherFactory.html" title="class in org.apache.commons.crypto.cipher">CipherFactory</a></dt>
+<dt><a href="./org/apache/commons/crypto/stream/CipherInputStream.html" title="class in org.apache.commons.crypto.stream"><span class="strong">CipherInputStream</span></a> - Class in <a href="./org/apache/commons/crypto/stream/package-summary.html">org.apache.commons.crypto.stream</a></dt>
+<dd>
+<div class="block">CipherInputStream reads input data and decrypts data in stream manner.</div>
+</dd>
+<dt><span class="strong"><a href="./org/apache/commons/crypto/stream/CipherInputStream.html#CipherInputStream(org.apache.commons.crypto.cipher.CipherTransformation,%20java.util.Properties,%20java.io.InputStream,%20byte[],%20byte[])">CipherInputStream(CipherTransformation, Properties, InputStream, byte[], byte[])</a></span> - Constructor for class org.apache.commons.crypto.stream.<a href="./org/apache/commons/crypto/stream/CipherInputStream.html" title="class in org.apache.commons.crypto.stream">CipherInputStream</a></dt>
+<dd>&nbsp;</dd>
+<dt><span class="strong"><a href="./org/apache/commons/crypto/stream/CipherInputStream.html#CipherInputStream(org.apache.commons.crypto.cipher.CipherTransformation,%20java.util.Properties,%20java.nio.channels.ReadableByteChannel,%20byte[],%20byte[])">CipherInputStream(CipherTransformation, Properties, ReadableByteChannel, byte[], byte[])</a></span> - Constructor for class org.apache.commons.crypto.stream.<a href="./org/apache/commons/crypto/stream/CipherInputStream.html" title="class in org.apache.commons.crypto.stream">CipherInputStream</a></dt>
+<dd>&nbsp;</dd>
+<dt><span class="strong"><a href="./org/apache/commons/crypto/stream/CipherInputStream.html#CipherInputStream(java.io.InputStream,%20org.apache.commons.crypto.cipher.Cipher,%20int,%20byte[],%20byte[])">CipherInputStream(InputStream, Cipher, int, byte[], byte[])</a></span> - Constructor for class org.apache.commons.crypto.stream.<a href="./org/apache/commons/crypto/stream/CipherInputStream.html" title="class in org.apache.commons.crypto.stream">CipherInputStream</a></dt>
+<dd>&nbsp;</dd>
+<dt><span class="strong"><a href="./org/apache/commons/crypto/stream/CipherInputStream.html#CipherInputStream(java.nio.channels.ReadableByteChannel,%20org.apache.commons.crypto.cipher.Cipher,%20int,%20byte[],%20byte[])">CipherInputStream(ReadableByteChannel, Cipher, int, byte[], byte[])</a></span> - Constructor for class org.apache.commons.crypto.stream.<a href="./org/apache/commons/crypto/stream/CipherInputStream.html" title="class in org.apache.commons.crypto.stream">CipherInputStream</a></dt>
+<dd>&nbsp;</dd>
+<dt><span class="strong"><a href="./org/apache/commons/crypto/stream/CipherInputStream.html#CipherInputStream(org.apache.commons.crypto.stream.input.Input,%20org.apache.commons.crypto.cipher.Cipher,%20int,%20byte[],%20byte[])">CipherInputStream(Input, Cipher, int, byte[], byte[])</a></span> - Constructor for class org.apache.commons.crypto.stream.<a href="./org/apache/commons/crypto/stream/CipherInputStream.html" title="class in org.apache.commons.crypto.stream">CipherInputStream</a></dt>
+<dd>&nbsp;</dd>
+<dt><a href="./org/apache/commons/crypto/stream/CipherOutputStream.html" title="class in org.apache.commons.crypto.stream"><span class="strong">CipherOutputStream</span></a> - Class in <a href="./org/apache/commons/crypto/stream/package-summary.html">org.apache.commons.crypto.stream</a></dt>
+<dd>
+<div class="block">CipherOutputStream encrypts data and writes to the under layer output.</div>
+</dd>
+<dt><span class="strong"><a href="./org/apache/commons/crypto/stream/CipherOutputStream.html#CipherOutputStream(org.apache.commons.crypto.cipher.CipherTransformation,%20java.util.Properties,%20java.io.OutputStream,%20byte[],%20byte[])">CipherOutputStream(CipherTransformation, Properties, OutputStream, byte[], byte[])</a></span> - Constructor for class org.apache.commons.crypto.stream.<a href="./org/apache/commons/crypto/stream/CipherOutputStream.html" title="class in org.apache.commons.crypto.stream">CipherOutputStream</a></dt>
+<dd>&nbsp;</dd>
+<dt><span class="strong"><a href="./org/apache/commons/crypto/stream/CipherOutputStream.html#CipherOutputStream(org.apache.commons.crypto.cipher.CipherTransformation,%20java.util.Properties,%20java.nio.channels.WritableByteChannel,%20byte[],%20byte[])">CipherOutputStream(CipherTransformation, Properties, WritableByteChannel, byte[], byte[])</a></span> - Constructor for class org.apache.commons.crypto.stream.<a href="./org/apache/commons/crypto/stream/CipherOutputStream.html" title="class in org.apache.commons.crypto.stream">CipherOutputStream</a></dt>
+<dd>&nbsp;</dd>
+<dt><span class="strong"><a href="./org/apache/commons/crypto/stream/CipherOutputStream.html#CipherOutputStream(java.io.OutputStream,%20org.apache.commons.crypto.cipher.Cipher,%20int,%20byte[],%20byte[])">CipherOutputStream(OutputStream, Cipher, int, byte[], byte[])</a></span> - Constructor for class org.apache.commons.crypto.stream.<a href="./org/apache/commons/crypto/stream/CipherOutputStream.html" title="class in org.apache.commons.crypto.stream">CipherOutputStream</a></dt>
+<dd>&nbsp;</dd>
+<dt><span class="strong"><a href="./org/apache/commons/crypto/stream/CipherOutputStream.html#CipherOutputStream(java.nio.channels.WritableByteChannel,%20org.apache.commons.crypto.cipher.Cipher,%20int,%20byte[],%20byte[])">CipherOutputStream(WritableByteChannel, Cipher, int, byte[], byte[])</a></span> - Constructor for class org.apache.commons.crypto.stream.<a href="./org/apache/commons/crypto/stream/CipherOutputStream.html" title="class in org.apache.commons.crypto.stream">CipherOutputStream</a></dt>
+<dd>&nbsp;</dd>
+<dt><span class="strong"><a href="./org/apache/commons/crypto/stream/CipherOutputStream.html#CipherOutputStream(org.apache.commons.crypto.stream.output.Output,%20org.apache.commons.crypto.cipher.Cipher,%20int,%20byte[],%20byte[])">CipherOutputStream(Output, Cipher, int, byte[], byte[])</a></span> - Constructor for class org.apache.commons.crypto.stream.<a href="./org/apache/commons/crypto/stream/CipherOutputStream.html" title="class in org.apache.commons.crypto.stream">CipherOutputStream</a></dt>
 <dd>&nbsp;</dd>
 <dt><a href="./org/apache/commons/crypto/cipher/CipherTransformation.html" title="enum in org.apache.commons.crypto.cipher"><span class="strong">CipherTransformation</span></a> - Enum in <a href="./org/apache/commons/crypto/cipher/package-summary.html">org.apache.commons.crypto.cipher</a></dt>
 <dd>
@@ -264,9 +230,9 @@
 <dd>
 <div class="block">Overrides <a href="http://download.oracle.com/javase/6/docs/api/java/lang/AutoCloseable.html?is-external=true#close()" title="class or interface in java.lang"><code>AutoCloseable.close()</code></a>.</div>
 </dd>
-<dt><span class="strong"><a href="./org/apache/commons/crypto/stream/CryptoInputStream.html#close()">close()</a></span> - Method in class org.apache.commons.crypto.stream.<a href="./org/apache/commons/crypto/stream/CryptoInputStream.html" title="class in org.apache.commons.crypto.stream">CryptoInputStream</a></dt>
+<dt><span class="strong"><a href="./org/apache/commons/crypto/stream/CipherInputStream.html#close()">close()</a></span> - Method in class org.apache.commons.crypto.stream.<a href="./org/apache/commons/crypto/stream/CipherInputStream.html" title="class in org.apache.commons.crypto.stream">CipherInputStream</a></dt>
 <dd>&nbsp;</dd>
-<dt><span class="strong"><a href="./org/apache/commons/crypto/stream/CryptoOutputStream.html#close()">close()</a></span> - Method in class org.apache.commons.crypto.stream.<a href="./org/apache/commons/crypto/stream/CryptoOutputStream.html" title="class in org.apache.commons.crypto.stream">CryptoOutputStream</a></dt>
+<dt><span class="strong"><a href="./org/apache/commons/crypto/stream/CipherOutputStream.html#close()">close()</a></span> - Method in class org.apache.commons.crypto.stream.<a href="./org/apache/commons/crypto/stream/CipherOutputStream.html" title="class in org.apache.commons.crypto.stream">CipherOutputStream</a></dt>
 <dd>&nbsp;</dd>
 <dt><span class="strong"><a href="./org/apache/commons/crypto/stream/input/ChannelInput.html#close()">close()</a></span> - Method in class org.apache.commons.crypto.stream.input.<a href="./org/apache/commons/crypto/stream/input/ChannelInput.html" title="class in org.apache.commons.crypto.stream.input">ChannelInput</a></dt>
 <dd>
@@ -294,12 +260,68 @@
 <dd>
 <div class="block">Overrides the <a href="./org/apache/commons/crypto/stream/output/Output.html#close()"><code>Output.close()</code></a>.</div>
 </dd>
-<dt><span class="strong"><a href="./org/apache/commons/crypto/stream/PositionedCryptoInputStream.html#close()">close()</a></span> - Method in class org.apache.commons.crypto.stream.<a href="./org/apache/commons/crypto/stream/PositionedCryptoInputStream.html" title="class in org.apache.commons.crypto.stream">PositionedCryptoInputStream</a></dt>
+<dt><span class="strong"><a href="./org/apache/commons/crypto/stream/PositionedCipherInputStream.html#close()">close()</a></span> - Method in class org.apache.commons.crypto.stream.<a href="./org/apache/commons/crypto/stream/PositionedCipherInputStream.html" title="class in org.apache.commons.crypto.stream">PositionedCipherInputStream</a></dt>
 <dd>&nbsp;</dd>
-<dt><span class="strong"><a href="./org/apache/commons/crypto/stream/CryptoInputStream.html#closed">closed</a></span> - Variable in class org.apache.commons.crypto.stream.<a href="./org/apache/commons/crypto/stream/CryptoInputStream.html" title="class in org.apache.commons.crypto.stream">CryptoInputStream</a></dt>
+<dt><span class="strong"><a href="./org/apache/commons/crypto/stream/CipherInputStream.html#closed">closed</a></span> - Variable in class org.apache.commons.crypto.stream.<a href="./org/apache/commons/crypto/stream/CipherInputStream.html" title="class in org.apache.commons.crypto.stream">CipherInputStream</a></dt>
 <dd>&nbsp;</dd>
-<dt><span class="strong"><a href="./org/apache/commons/crypto/stream/CryptoOutputStream.html#closed">closed</a></span> - Variable in class org.apache.commons.crypto.stream.<a href="./org/apache/commons/crypto/stream/CryptoOutputStream.html" title="class in org.apache.commons.crypto.stream">CryptoOutputStream</a></dt>
+<dt><span class="strong"><a href="./org/apache/commons/crypto/stream/CipherOutputStream.html#closed">closed</a></span> - Variable in class org.apache.commons.crypto.stream.<a href="./org/apache/commons/crypto/stream/CipherOutputStream.html" title="class in org.apache.commons.crypto.stream">CipherOutputStream</a></dt>
 <dd>&nbsp;</dd>
+<dt><span class="strong"><a href="./org/apache/commons/crypto/conf/ConfigurationKeys.html#COMMONS_CRYPTO_CIPHER_CLASSES_DEFAULT">COMMONS_CRYPTO_CIPHER_CLASSES_DEFAULT</a></span> - Static variable in class org.apache.commons.crypto.conf.<a href="./org/apache/commons/crypto/conf/ConfigurationKeys.html" title="class in org.apache.commons.crypto.conf">ConfigurationKeys</a></dt>
+<dd>
+<div class="block">The default value for crypto cipher.</div>
+</dd>
+<dt><span class="strong"><a href="./org/apache/commons/crypto/conf/ConfigurationKeys.html#COMMONS_CRYPTO_CIPHER_CLASSES_KEY">COMMONS_CRYPTO_CIPHER_CLASSES_KEY</a></span> - Static variable in class org.apache.commons.crypto.conf.<a href="./org/apache/commons/crypto/conf/ConfigurationKeys.html" title="class in org.apache.commons.crypto.conf">ConfigurationKeys</a></dt>
+<dd>
+<div class="block">The configuration key of implementation class for crypto cipher.</div>
+</dd>
+<dt><span class="strong"><a href="./org/apache/commons/crypto/conf/ConfigurationKeys.html#COMMONS_CRYPTO_CIPHER_JCE_PROVIDER_KEY">COMMONS_CRYPTO_CIPHER_JCE_PROVIDER_KEY</a></span> - Static variable in class org.apache.commons.crypto.conf.<a href="./org/apache/commons/crypto/conf/ConfigurationKeys.html" title="class in org.apache.commons.crypto.conf">ConfigurationKeys</a></dt>
+<dd>
+<div class="block">The configuration key of the provider class for JCE cipher.</div>
+</dd>
+<dt><span class="strong"><a href="./org/apache/commons/crypto/conf/ConfigurationKeys.html#COMMONS_CRYPTO_LIB_NAME_KEY">COMMONS_CRYPTO_LIB_NAME_KEY</a></span> - Static variable in class org.apache.commons.crypto.conf.<a href="./org/apache/commons/crypto/conf/ConfigurationKeys.html" title="class in org.apache.commons.crypto.conf">ConfigurationKeys</a></dt>
+<dd>
+<div class="block">The configuration key of the file name for loading crypto library.</div>
+</dd>
+<dt><span class="strong"><a href="./org/apache/commons/crypto/conf/ConfigurationKeys.html#COMMONS_CRYPTO_LIB_PATH_KEY">COMMONS_CRYPTO_LIB_PATH_KEY</a></span> - Static variable in class org.apache.commons.crypto.conf.<a href="./org/apache/commons/crypto/conf/ConfigurationKeys.html" title="class in org.apache.commons.crypto.conf">ConfigurationKeys</a></dt>
+<dd>
+<div class="block">The configuration key of the path for loading crypto library.</div>
+</dd>
+<dt><span class="strong"><a href="./org/apache/commons/crypto/conf/ConfigurationKeys.html#COMMONS_CRYPTO_LIB_TEMPDIR_KEY">COMMONS_CRYPTO_LIB_TEMPDIR_KEY</a></span> - Static variable in class org.apache.commons.crypto.conf.<a href="./org/apache/commons/crypto/conf/ConfigurationKeys.html" title="class in org.apache.commons.crypto.conf">ConfigurationKeys</a></dt>
+<dd>
+<div class="block">The configuration key of temp directory for extracting crypto library.</div>
+</dd>
+<dt><span class="strong"><a href="./org/apache/commons/crypto/conf/ConfigurationKeys.html#COMMONS_CRYPTO_SECURE_RANDOM_CLASSES_KEY">COMMONS_CRYPTO_SECURE_RANDOM_CLASSES_KEY</a></span> - Static variable in class org.apache.commons.crypto.conf.<a href="./org/apache/commons/crypto/conf/ConfigurationKeys.html" title="class in org.apache.commons.crypto.conf">ConfigurationKeys</a></dt>
+<dd>
+<div class="block">The configuration key of the implementation class for secure random.</div>
+</dd>
+<dt><span class="strong"><a href="./org/apache/commons/crypto/conf/ConfigurationKeys.html#COMMONS_CRYPTO_SECURE_RANDOM_DEVICE_FILE_PATH_DEFAULT">COMMONS_CRYPTO_SECURE_RANDOM_DEVICE_FILE_PATH_DEFAULT</a></span> - Static variable in class org.apache.commons.crypto.conf.<a href="./org/apache/commons/crypto/conf/ConfigurationKeys.html" title="class in org.apache.commons.crypto.conf">ConfigurationKeys</a></dt>
+<dd>
+<div class="block">The default value of the file path for secure random device.</div>
+</dd>
+<dt><span class="strong"><a href="./org/apache/commons/crypto/conf/ConfigurationKeys.html#COMMONS_CRYPTO_SECURE_RANDOM_DEVICE_FILE_PATH_KEY">COMMONS_CRYPTO_SECURE_RANDOM_DEVICE_FILE_PATH_KEY</a></span> - Static variable in class org.apache.commons.crypto.conf.<a href="./org/apache/commons/crypto/conf/ConfigurationKeys.html" title="class in org.apache.commons.crypto.conf">ConfigurationKeys</a></dt>
+<dd>
+<div class="block">The configuration key of the file path for secure random device.</div>
+</dd>
+<dt><span class="strong"><a href="./org/apache/commons/crypto/conf/ConfigurationKeys.html#COMMONS_CRYPTO_SECURE_RANDOM_JAVA_ALGORITHM_DEFAULT">COMMONS_CRYPTO_SECURE_RANDOM_JAVA_ALGORITHM_DEFAULT</a></span> - Static variable in class org.apache.commons.crypto.conf.<a href="./org/apache/commons/crypto/conf/ConfigurationKeys.html" title="class in org.apache.commons.crypto.conf">ConfigurationKeys</a></dt>
+<dd>
+<div class="block">The default value of the algorithm of secure random.</div>
+</dd>
+<dt><span class="strong"><a href="./org/apache/commons/crypto/conf/ConfigurationKeys.html#COMMONS_CRYPTO_SECURE_RANDOM_JAVA_ALGORITHM_KEY">COMMONS_CRYPTO_SECURE_RANDOM_JAVA_ALGORITHM_KEY</a></span> - Static variable in class org.apache.commons.crypto.conf.<a href="./org/apache/commons/crypto/conf/ConfigurationKeys.html" title="class in org.apache.commons.crypto.conf">ConfigurationKeys</a></dt>
+<dd>
+<div class="block">The configuration key of the algorithm of secure random.</div>
+</dd>
+<dt><span class="strong"><a href="./org/apache/commons/crypto/conf/ConfigurationKeys.html#COMMONS_CRYPTO_STREAM_BUFFER_SIZE_DEFAULT">COMMONS_CRYPTO_STREAM_BUFFER_SIZE_DEFAULT</a></span> - Static variable in class org.apache.commons.crypto.conf.<a href="./org/apache/commons/crypto/conf/ConfigurationKeys.html" title="class in org.apache.commons.crypto.conf">ConfigurationKeys</a></dt>
+<dd>
+<div class="block">The default value of the buffer size for stream.</div>
+</dd>
+<dt><span class="strong"><a href="./org/apache/commons/crypto/conf/ConfigurationKeys.html#COMMONS_CRYPTO_STREAM_BUFFER_SIZE_KEY">COMMONS_CRYPTO_STREAM_BUFFER_SIZE_KEY</a></span> - Static variable in class org.apache.commons.crypto.conf.<a href="./org/apache/commons/crypto/conf/ConfigurationKeys.html" title="class in org.apache.commons.crypto.conf">ConfigurationKeys</a></dt>
+<dd>
+<div class="block">The configuration key of the buffer size for stream.</div>
+</dd>
+<dt><span class="strong"><a href="./org/apache/commons/crypto/conf/ConfigurationKeys.html#COMMONS_CRYPTO_SYSTEM_PROPERTIES_FILE">COMMONS_CRYPTO_SYSTEM_PROPERTIES_FILE</a></span> - Static variable in class org.apache.commons.crypto.conf.<a href="./org/apache/commons/crypto/conf/ConfigurationKeys.html" title="class in org.apache.commons.crypto.conf">ConfigurationKeys</a></dt>
+<dd>
+<div class="block">The filename of configuration file.</div>
+</dd>
 <dt><span class="strong"><a href="./org/apache/commons/crypto/conf/ConfigurationKeys.html#CONF_PREFIX">CONF_PREFIX</a></span> - Static variable in class org.apache.commons.crypto.conf.<a href="./org/apache/commons/crypto/conf/ConfigurationKeys.html" title="class in org.apache.commons.crypto.conf">ConfigurationKeys</a></dt>
 <dd>
 <div class="block">The prefix of crypto configuration.</div>
@@ -308,83 +330,53 @@
 <dd>
 <div class="block">The ConfigurationKeys contains Configuration keys and default values.</div>
 </dd>
-<dt><span class="strong"><a href="./org/apache/commons/crypto/conf/ConfigurationKeys.html#ConfigurationKeys()">ConfigurationKeys()</a></span> - Constructor for class org.apache.commons.crypto.conf.<a href="./org/apache/commons/crypto/conf/ConfigurationKeys.html" title="class in org.apache.commons.crypto.conf">ConfigurationKeys</a></dt>
-<dd>&nbsp;</dd>
-<dt><a href="./org/apache/commons/crypto/stream/CryptoInputStream.html" title="class in org.apache.commons.crypto.stream"><span class="strong">CryptoInputStream</span></a> - Class in <a href="./org/apache/commons/crypto/stream/package-summary.html">org.apache.commons.crypto.stream</a></dt>
+<dt><a href="./org/apache/commons/crypto/stream/CTRCipherInputStream.html" title="class in org.apache.commons.crypto.stream"><span class="strong">CTRCipherInputStream</span></a> - Class in <a href="./org/apache/commons/crypto/stream/package-summary.html">org.apache.commons.crypto.stream</a></dt>
 <dd>
-<div class="block">CryptoInputStream reads input data and decrypts data in stream manner.</div>
+<div class="block">CTRCipherInputStream decrypts data.</div>
 </dd>
-<dt><span class="strong"><a href="./org/apache/commons/crypto/stream/CryptoInputStream.html#CryptoInputStream(org.apache.commons.crypto.cipher.CipherTransformation,%20java.util.Properties,%20java.io.InputStream,%20byte[],%20byte[])">CryptoInputStream(CipherTransformation, Properties, InputStream, byte[], byte[])</a></span> - Constructor for class org.apache.commons.crypto.stream.<a href="./org/apache/commons/crypto/stream/CryptoInputStream.html" title="class in org.apache.commons.crypto.stream">CryptoInputStream</a></dt>
+<dt><span class="strong"><a href="./org/apache/commons/crypto/stream/CTRCipherInputStream.html#CTRCipherInputStream(java.util.Properties,%20java.io.InputStream,%20byte[],%20byte[])">CTRCipherInputStream(Properties, InputStream, byte[], byte[])</a></span> - Constructor for class org.apache.commons.crypto.stream.<a href="./org/apache/commons/crypto/stream/CTRCipherInputStream.html" title="class in org.apache.commons.crypto.stream">CTRCipherInputStream</a></dt>
 <dd>&nbsp;</dd>
-<dt><span class="strong"><a href="./org/apache/commons/crypto/stream/CryptoInputStream.html#CryptoInputStream(org.apache.commons.crypto.cipher.CipherTransformation,%20java.util.Properties,%20java.nio.channels.ReadableByteChannel,%20byte[],%20byte[])">CryptoInputStream(CipherTransformation, Properties, ReadableByteChannel, byte[], byte[])</a></span> - Constructor for class org.apache.commons.crypto.stream.<a href="./org/apache/commons/crypto/stream/CryptoInputStream.html" title="class in org.apache.commons.crypto.stream">CryptoInputStream</a></dt>
+<dt><span class="strong"><a href="./org/apache/commons/crypto/stream/CTRCipherInputStream.html#CTRCipherInputStream(java.util.Properties,%20java.nio.channels.ReadableByteChannel,%20byte[],%20byte[])">CTRCipherInputStream(Properties, ReadableByteChannel, byte[], byte[])</a></span> - Constructor for class org.apache.commons.crypto.stream.<a href="./org/apache/commons/crypto/stream/CTRCipherInputStream.html" title="class in org.apache.commons.crypto.stream">CTRCipherInputStream</a></dt>
 <dd>&nbsp;</dd>
-<dt><span class="strong"><a href="./org/apache/commons/crypto/stream/CryptoInputStream.html#CryptoInputStream(java.io.InputStream,%20org.apache.commons.crypto.cipher.Cipher,%20int,%20byte[],%20byte[])">CryptoInputStream(InputStream, Cipher, int, byte[], byte[])</a></span> - Constructor for class org.apache.commons.crypto.stream.<a href="./org/apache/commons/crypto/stream/CryptoInputStream.html" title="class in org.apache.commons.crypto.stream">CryptoInputStream</a></dt>
+<dt><span class="strong"><a href="./org/apache/commons/crypto/stream/CTRCipherInputStream.html#CTRCipherInputStream(java.io.InputStream,%20org.apache.commons.crypto.cipher.Cipher,%20int,%20byte[],%20byte[])">CTRCipherInputStream(InputStream, Cipher, int, byte[], byte[])</a></span> - Constructor for class org.apache.commons.crypto.stream.<a href="./org/apache/commons/crypto/stream/CTRCipherInputStream.html" title="class in org.apache.commons.crypto.stream">CTRCipherInputStream</a></dt>
 <dd>&nbsp;</dd>
-<dt><span class="strong"><a href="./org/apache/commons/crypto/stream/CryptoInputStream.html#CryptoInputStream(java.nio.channels.ReadableByteChannel,%20org.apache.commons.crypto.cipher.Cipher,%20int,%20byte[],%20byte[])">CryptoInputStream(ReadableByteChannel, Cipher, int, byte[], byte[])</a></span> - Constructor for class org.apache.commons.crypto.stream.<a href="./org/apache/commons/crypto/stream/CryptoInputStream.html" title="class in org.apache.commons.crypto.stream">CryptoInputStream</a></dt>
+<dt><span class="strong"><a href="./org/apache/commons/crypto/stream/CTRCipherInputStream.html#CTRCipherInputStream(java.nio.channels.ReadableByteChannel,%20org.apache.commons.crypto.cipher.Cipher,%20int,%20byte[],%20byte[])">CTRCipherInputStream(ReadableByteChannel, Cipher, int, byte[], byte[])</a></span> - Constructor for class org.apache.commons.crypto.stream.<a href="./org/apache/commons/crypto/stream/CTRCipherInputStream.html" title="class in org.apache.commons.crypto.stream">CTRCipherInputStream</a></dt>
 <dd>&nbsp;</dd>
-<dt><span class="strong"><a href="./org/apache/commons/crypto/stream/CryptoInputStream.html#CryptoInputStream(org.apache.commons.crypto.stream.input.Input,%20org.apache.commons.crypto.cipher.Cipher,%20int,%20byte[],%20byte[])">CryptoInputStream(Input, Cipher, int, byte[], byte[])</a></span> - Constructor for class org.apache.commons.crypto.stream.<a href="./org/apache/commons/crypto/stream/CryptoInputStream.html" title="class in org.apache.commons.crypto.stream">CryptoInputStream</a></dt>
+<dt><span class="strong"><a href="./org/apache/commons/crypto/stream/CTRCipherInputStream.html#CTRCipherInputStream(org.apache.commons.crypto.stream.input.Input,%20org.apache.commons.crypto.cipher.Cipher,%20int,%20byte[],%20byte[])">CTRCipherInputStream(Input, Cipher, int, byte[], byte[])</a></span> - Constructor for class org.apache.commons.crypto.stream.<a href="./org/apache/commons/crypto/stream/CTRCipherInputStream.html" title="class in org.apache.commons.crypto.stream">CTRCipherInputStream</a></dt>
 <dd>&nbsp;</dd>
-<dt><a href="./org/apache/commons/crypto/stream/CryptoOutputStream.html" title="class in org.apache.commons.crypto.stream"><span class="strong">CryptoOutputStream</span></a> - Class in <a href="./org/apache/commons/crypto/stream/package-summary.html">org.apache.commons.crypto.stream</a></dt>
+<dt><span class="strong"><a href="./org/apache/commons/crypto/stream/CTRCipherInputStream.html#CTRCipherInputStream(java.util.Properties,%20java.io.InputStream,%20byte[],%20byte[],%20long)">CTRCipherInputStream(Properties, InputStream, byte[], byte[], long)</a></span> - Constructor for class org.apache.commons.crypto.stream.<a href="./org/apache/commons/crypto/stream/CTRCipherInputStream.html" title="class in org.apache.commons.crypto.stream">CTRCipherInputStream</a></dt>
+<dd>&nbsp;</dd>
+<dt><span class="strong"><a href="./org/apache/commons/crypto/stream/CTRCipherInputStream.html#CTRCipherInputStream(java.util.Properties,%20java.nio.channels.ReadableByteChannel,%20byte[],%20byte[],%20long)">CTRCipherInputStream(Properties, ReadableByteChannel, byte[], byte[], long)</a></span> - Constructor for class org.apache.commons.crypto.stream.<a href="./org/apache/commons/crypto/stream/CTRCipherInputStream.html" title="class in org.apache.commons.crypto.stream">CTRCipherInputStream</a></dt>
+<dd>&nbsp;</dd>
+<dt><span class="strong"><a href="./org/apache/commons/crypto/stream/CTRCipherInputStream.html#CTRCipherInputStream(java.io.InputStream,%20org.apache.commons.crypto.cipher.Cipher,%20int,%20byte[],%20byte[],%20long)">CTRCipherInputStream(InputStream, Cipher, int, byte[], byte[], long)</a></span> - Constructor for class org.apache.commons.crypto.stream.<a href="./org/apache/commons/crypto/stream/CTRCipherInputStream.html" title="class in org.apache.commons.crypto.stream">CTRCipherInputStream</a></dt>
+<dd>&nbsp;</dd>
+<dt><span class="strong"><a href="./org/apache/commons/crypto/stream/CTRCipherInputStream.html#CTRCipherInputStream(java.nio.channels.ReadableByteChannel,%20org.apache.commons.crypto.cipher.Cipher,%20int,%20byte[],%20byte[],%20long)">CTRCipherInputStream(ReadableByteChannel, Cipher, int, byte[], byte[], long)</a></span> - Constructor for class org.apache.commons.crypto.stream.<a href="./org/apache/commons/crypto/stream/CTRCipherInputStream.html" title="class in org.apache.commons.crypto.stream">CTRCipherInputStream</a></dt>
+<dd>&nbsp;</dd>
+<dt><span class="strong"><a href="./org/apache/commons/crypto/stream/CTRCipherInputStream.html#CTRCipherInputStream(org.apache.commons.crypto.stream.input.Input,%20org.apache.commons.crypto.cipher.Cipher,%20int,%20byte[],%20byte[],%20long)">CTRCipherInputStream(Input, Cipher, int, byte[], byte[], long)</a></span> - Constructor for class org.apache.commons.crypto.stream.<a href="./org/apache/commons/crypto/stream/CTRCipherInputStream.html" title="class in org.apache.commons.crypto.stream">CTRCipherInputStream</a></dt>
+<dd>&nbsp;</dd>
+<dt><a href="./org/apache/commons/crypto/stream/CTRCipherOutputStream.html" title="class in org.apache.commons.crypto.stream"><span class="strong">CTRCipherOutputStream</span></a> - Class in <a href="./org/apache/commons/crypto/stream/package-summary.html">org.apache.commons.crypto.stream</a></dt>
 <dd>
-<div class="block">CryptoOutputStream encrypts data and writes to the under layer output.</div>
+<div class="block">CTRCipherOutputStream encrypts data.</div>
 </dd>
-<dt><span class="strong"><a href="./org/apache/commons/crypto/stream/CryptoOutputStream.html#CryptoOutputStream(org.apache.commons.crypto.cipher.CipherTransformation,%20java.util.Properties,%20java.io.OutputStream,%20byte[],%20byte[])">CryptoOutputStream(CipherTransformation, Properties, OutputStream, byte[], byte[])</a></span> - Constructor for class org.apache.commons.crypto.stream.<a href="./org/apache/commons/crypto/stream/CryptoOutputStream.html" title="class in org.apache.commons.crypto.stream">CryptoOutputStream</a></dt>
+<dt><span class="strong"><a href="./org/apache/commons/crypto/stream/CTRCipherOutputStream.html#CTRCipherOutputStream(java.util.Properties,%20java.io.OutputStream,%20byte[],%20byte[])">CTRCipherOutputStream(Properties, OutputStream, byte[], byte[])</a></span> - Constructor for class org.apache.commons.crypto.stream.<a href="./org/apache/commons/crypto/stream/CTRCipherOutputStream.html" title="class in org.apache.commons.crypto.stream">CTRCipherOutputStream</a></dt>
 <dd>&nbsp;</dd>
-<dt><span class="strong"><a href="./org/apache/commons/crypto/stream/CryptoOutputStream.html#CryptoOutputStream(org.apache.commons.crypto.cipher.CipherTransformation,%20java.util.Properties,%20java.nio.channels.WritableByteChannel,%20byte[],%20byte[])">CryptoOutputStream(CipherTransformation, Properties, WritableByteChannel, byte[], byte[])</a></span> - Constructor for class org.apache.commons.crypto.stream.<a href="./org/apache/commons/crypto/stream/CryptoOutputStream.html" title="class in org.apache.commons.crypto.stream">CryptoOutputStream</a></dt>
+<dt><span class="strong"><a href="./org/apache/commons/crypto/stream/CTRCipherOutputStream.html#CTRCipherOutputStream(java.util.Properties,%20java.nio.channels.WritableByteChannel,%20byte[],%20byte[])">CTRCipherOutputStream(Properties, WritableByteChannel, byte[], byte[])</a></span> - Constructor for class org.apache.commons.crypto.stream.<a href="./org/apache/commons/crypto/stream/CTRCipherOutputStream.html" title="class in org.apache.commons.crypto.stream">CTRCipherOutputStream</a></dt>
 <dd>&nbsp;</dd>
-<dt><span class="strong"><a href="./org/apache/commons/crypto/stream/CryptoOutputStream.html#CryptoOutputStream(java.io.OutputStream,%20org.apache.commons.crypto.cipher.Cipher,%20int,%20byte[],%20byte[])">CryptoOutputStream(OutputStream, Cipher, int, byte[], byte[])</a></span> - Constructor for class org.apache.commons.crypto.stream.<a href="./org/apache/commons/crypto/stream/CryptoOutputStream.html" title="class in org.apache.commons.crypto.stream">CryptoOutputStream</a></dt>
+<dt><span class="strong"><a href="./org/apache/commons/crypto/stream/CTRCipherOutputStream.html#CTRCipherOutputStream(java.io.OutputStream,%20org.apache.commons.crypto.cipher.Cipher,%20int,%20byte[],%20byte[])">CTRCipherOutputStream(OutputStream, Cipher, int, byte[], byte[])</a></span> - Constructor for class org.apache.commons.crypto.stream.<a href="./org/apache/commons/crypto/stream/CTRCipherOutputStream.html" title="class in org.apache.commons.crypto.stream">CTRCipherOutputStream</a></dt>
 <dd>&nbsp;</dd>
-<dt><span class="strong"><a href="./org/apache/commons/crypto/stream/CryptoOutputStream.html#CryptoOutputStream(java.nio.channels.WritableByteChannel,%20org.apache.commons.crypto.cipher.Cipher,%20int,%20byte[],%20byte[])">CryptoOutputStream(WritableByteChannel, Cipher, int, byte[], byte[])</a></span> - Constructor for class org.apache.commons.crypto.stream.<a href="./org/apache/commons/crypto/stream/CryptoOutputStream.html" title="class in org.apache.commons.crypto.stream">CryptoOutputStream</a></dt>
+<dt><span class="strong"><a href="./org/apache/commons/crypto/stream/CTRCipherOutputStream.html#CTRCipherOutputStream(java.nio.channels.WritableByteChannel,%20org.apache.commons.crypto.cipher.Cipher,%20int,%20byte[],%20byte[])">CTRCipherOutputStream(WritableByteChannel, Cipher, int, byte[], byte[])</a></span> - Constructor for class org.apache.commons.crypto.stream.<a href="./org/apache/commons/crypto/stream/CTRCipherOutputStream.html" title="class in org.apache.commons.crypto.stream">CTRCipherOutputStream</a></dt>
 <dd>&nbsp;</dd>
-<dt><span class="strong"><a href="./org/apache/commons/crypto/stream/CryptoOutputStream.html#CryptoOutputStream(org.apache.commons.crypto.stream.output.Output,%20org.apache.commons.crypto.cipher.Cipher,%20int,%20byte[],%20byte[])">CryptoOutputStream(Output, Cipher, int, byte[], byte[])</a></span> - Constructor for class org.apache.commons.crypto.stream.<a href="./org/apache/commons/crypto/stream/CryptoOutputStream.html" title="class in org.apache.commons.crypto.stream">CryptoOutputStream</a></dt>
+<dt><span class="strong"><a href="./org/apache/commons/crypto/stream/CTRCipherOutputStream.html#CTRCipherOutputStream(org.apache.commons.crypto.stream.output.Output,%20org.apache.commons.crypto.cipher.Cipher,%20int,%20byte[],%20byte[])">CTRCipherOutputStream(Output, Cipher, int, byte[], byte[])</a></span> - Constructor for class org.apache.commons.crypto.stream.<a href="./org/apache/commons/crypto/stream/CTRCipherOutputStream.html" title="class in org.apache.commons.crypto.stream">CTRCipherOutputStream</a></dt>
 <dd>&nbsp;</dd>
-<dt><a href="./org/apache/commons/crypto/stream/CTRCryptoInputStream.html" title="class in org.apache.commons.crypto.stream"><span class="strong">CTRCryptoInputStream</span></a> - Class in <a href="./org/apache/commons/crypto/stream/package-summary.html">org.apache.commons.crypto.stream</a></dt>
-<dd>
-<div class="block">CTRCryptoInputStream decrypts data.</div>
-</dd>
-<dt><span class="strong"><a href="./org/apache/commons/crypto/stream/CTRCryptoInputStream.html#CTRCryptoInputStream(java.util.Properties,%20java.io.InputStream,%20byte[],%20byte[])">CTRCryptoInputStream(Properties, InputStream, byte[], byte[])</a></span> - Constructor for class org.apache.commons.crypto.stream.<a href="./org/apache/commons/crypto/stream/CTRCryptoInputStream.html" title="class in org.apache.commons.crypto.stream">CTRCryptoInputStream</a></dt>
+<dt><span class="strong"><a href="./org/apache/commons/crypto/stream/CTRCipherOutputStream.html#CTRCipherOutputStream(java.util.Properties,%20java.io.OutputStream,%20byte[],%20byte[],%20long)">CTRCipherOutputStream(Properties, OutputStream, byte[], byte[], long)</a></span> - Constructor for class org.apache.commons.crypto.stream.<a href="./org/apache/commons/crypto/stream/CTRCipherOutputStream.html" title="class in org.apache.commons.crypto.stream">CTRCipherOutputStream</a></dt>
 <dd>&nbsp;</dd>
-<dt><span class="strong"><a href="./org/apache/commons/crypto/stream/CTRCryptoInputStream.html#CTRCryptoInputStream(java.util.Properties,%20java.nio.channels.ReadableByteChannel,%20byte[],%20byte[])">CTRCryptoInputStream(Properties, ReadableByteChannel, byte[], byte[])</a></span> - Constructor for class org.apache.commons.crypto.stream.<a href="./org/apache/commons/crypto/stream/CTRCryptoInputStream.html" title="class in org.apache.commons.crypto.stream">CTRCryptoInputStream</a></dt>
+<dt><span class="strong"><a href="./org/apache/commons/crypto/stream/CTRCipherOutputStream.html#CTRCipherOutputStream(java.util.Properties,%20java.nio.channels.WritableByteChannel,%20byte[],%20byte[],%20long)">CTRCipherOutputStream(Properties, WritableByteChannel, byte[], byte[], long)</a></span> - Constructor for class org.apache.commons.crypto.stream.<a href="./org/apache/commons/crypto/stream/CTRCipherOutputStream.html" title="class in org.apache.commons.crypto.stream">CTRCipherOutputStream</a></dt>
 <dd>&nbsp;</dd>
-<dt><span class="strong"><a href="./org/apache/commons/crypto/stream/CTRCryptoInputStream.html#CTRCryptoInputStream(java.io.InputStream,%20org.apache.commons.crypto.cipher.Cipher,%20int,%20byte[],%20byte[])">CTRCryptoInputStream(InputStream, Cipher, int, byte[], byte[])</a></span> - Constructor for class org.apache.commons.crypto.stream.<a href="./org/apache/commons/crypto/stream/CTRCryptoInputStream.html" title="class in org.apache.commons.crypto.stream">CTRCryptoInputStream</a></dt>
+<dt><span class="strong"><a href="./org/apache/commons/crypto/stream/CTRCipherOutputStream.html#CTRCipherOutputStream(java.io.OutputStream,%20org.apache.commons.crypto.cipher.Cipher,%20int,%20byte[],%20byte[],%20long)">CTRCipherOutputStream(OutputStream, Cipher, int, byte[], byte[], long)</a></span> - Constructor for class org.apache.commons.crypto.stream.<a href="./org/apache/commons/crypto/stream/CTRCipherOutputStream.html" title="class in org.apache.commons.crypto.stream">CTRCipherOutputStream</a></dt>
 <dd>&nbsp;</dd>
-<dt><span class="strong"><a href="./org/apache/commons/crypto/stream/CTRCryptoInputStream.html#CTRCryptoInputStream(java.nio.channels.ReadableByteChannel,%20org.apache.commons.crypto.cipher.Cipher,%20int,%20byte[],%20byte[])">CTRCryptoInputStream(ReadableByteChannel, Cipher, int, byte[], byte[])</a></span> - Constructor for class org.apache.commons.crypto.stream.<a href="./org/apache/commons/crypto/stream/CTRCryptoInputStream.html" title="class in org.apache.commons.crypto.stream">CTRCryptoInputStream</a></dt>
+<dt><span class="strong"><a href="./org/apache/commons/crypto/stream/CTRCipherOutputStream.html#CTRCipherOutputStream(java.nio.channels.WritableByteChannel,%20org.apache.commons.crypto.cipher.Cipher,%20int,%20byte[],%20byte[],%20long)">CTRCipherOutputStream(WritableByteChannel, Cipher, int, byte[], byte[], long)</a></span> - Constructor for class org.apache.commons.crypto.stream.<a href="./org/apache/commons/crypto/stream/CTRCipherOutputStream.html" title="class in org.apache.commons.crypto.stream">CTRCipherOutputStream</a></dt>
 <dd>&nbsp;</dd>
-<dt><span class="strong"><a href="./org/apache/commons/crypto/stream/CTRCryptoInputStream.html#CTRCryptoInputStream(org.apache.commons.crypto.stream.input.Input,%20org.apache.commons.crypto.cipher.Cipher,%20int,%20byte[],%20byte[])">CTRCryptoInputStream(Input, Cipher, int, byte[], byte[])</a></span> - Constructor for class org.apache.commons.crypto.stream.<a href="./org/apache/commons/crypto/stream/CTRCryptoInputStream.html" title="class in org.apache.commons.crypto.stream">CTRCryptoInputStream</a></dt>
-<dd>&nbsp;</dd>
-<dt><span class="strong"><a href="./org/apache/commons/crypto/stream/CTRCryptoInputStream.html#CTRCryptoInputStream(java.util.Properties,%20java.io.InputStream,%20byte[],%20byte[],%20long)">CTRCryptoInputStream(Properties, InputStream, byte[], byte[], long)</a></span> - Constructor for class org.apache.commons.crypto.stream.<a href="./org/apache/commons/crypto/stream/CTRCryptoInputStream.html" title="class in org.apache.commons.crypto.stream">CTRCryptoInputStream</a></dt>
-<dd>&nbsp;</dd>
-<dt><span class="strong"><a href="./org/apache/commons/crypto/stream/CTRCryptoInputStream.html#CTRCryptoInputStream(java.util.Properties,%20java.nio.channels.ReadableByteChannel,%20byte[],%20byte[],%20long)">CTRCryptoInputStream(Properties, ReadableByteChannel, byte[], byte[], long)</a></span> - Constructor for class org.apache.commons.crypto.stream.<a href="./org/apache/commons/crypto/stream/CTRCryptoInputStream.html" title="class in org.apache.commons.crypto.stream">CTRCryptoInputStream</a></dt>
-<dd>&nbsp;</dd>
-<dt><span class="strong"><a href="./org/apache/commons/crypto/stream/CTRCryptoInputStream.html#CTRCryptoInputStream(java.io.InputStream,%20org.apache.commons.crypto.cipher.Cipher,%20int,%20byte[],%20byte[],%20long)">CTRCryptoInputStream(InputStream, Cipher, int, byte[], byte[], long)</a></span> - Constructor for class org.apache.commons.crypto.stream.<a href="./org/apache/commons/crypto/stream/CTRCryptoInputStream.html" title="class in org.apache.commons.crypto.stream">CTRCryptoInputStream</a></dt>
-<dd>&nbsp;</dd>
-<dt><span class="strong"><a href="./org/apache/commons/crypto/stream/CTRCryptoInputStream.html#CTRCryptoInputStream(java.nio.channels.ReadableByteChannel,%20org.apache.commons.crypto.cipher.Cipher,%20int,%20byte[],%20byte[],%20long)">CTRCryptoInputStream(ReadableByteChannel, Cipher, int, byte[], byte[], long)</a></span> - Constructor for class org.apache.commons.crypto.stream.<a href="./org/apache/commons/crypto/stream/CTRCryptoInputStream.html" title="class in org.apache.commons.crypto.stream">CTRCryptoInputStream</a></dt>
-<dd>&nbsp;</dd>
-<dt><span class="strong"><a href="./org/apache/commons/crypto/stream/CTRCryptoInputStream.html#CTRCryptoInputStream(org.apache.commons.crypto.stream.input.Input,%20org.apache.commons.crypto.cipher.Cipher,%20int,%20byte[],%20byte[],%20long)">CTRCryptoInputStream(Input, Cipher, int, byte[], byte[], long)</a></span> - Constructor for class org.apache.commons.crypto.stream.<a href="./org/apache/commons/crypto/stream/CTRCryptoInputStream.html" title="class in org.apache.commons.crypto.stream">CTRCryptoInputStream</a></dt>
-<dd>&nbsp;</dd>
-<dt><a href="./org/apache/commons/crypto/stream/CTRCryptoOutputStream.html" title="class in org.apache.commons.crypto.stream"><span class="strong">CTRCryptoOutputStream</span></a> - Class in <a href="./org/apache/commons/crypto/stream/package-summary.html">org.apache.commons.crypto.stream</a></dt>
-<dd>
-<div class="block">CTRCryptoOutputStream encrypts data.</div>
-</dd>
-<dt><span class="strong"><a href="./org/apache/commons/crypto/stream/CTRCryptoOutputStream.html#CTRCryptoOutputStream(java.util.Properties,%20java.io.OutputStream,%20byte[],%20byte[])">CTRCryptoOutputStream(Properties, OutputStream, byte[], byte[])</a></span> - Constructor for class org.apache.commons.crypto.stream.<a href="./org/apache/commons/crypto/stream/CTRCryptoOutputStream.html" title="class in org.apache.commons.crypto.stream">CTRCryptoOutputStream</a></dt>
-<dd>&nbsp;</dd>
-<dt><span class="strong"><a href="./org/apache/commons/crypto/stream/CTRCryptoOutputStream.html#CTRCryptoOutputStream(java.util.Properties,%20java.nio.channels.WritableByteChannel,%20byte[],%20byte[])">CTRCryptoOutputStream(Properties, WritableByteChannel, byte[], byte[])</a></span> - Constructor for class org.apache.commons.crypto.stream.<a href="./org/apache/commons/crypto/stream/CTRCryptoOutputStream.html" title="class in org.apache.commons.crypto.stream">CTRCryptoOutputStream</a></dt>
-<dd>&nbsp;</dd>
-<dt><span class="strong"><a href="./org/apache/commons/crypto/stream/CTRCryptoOutputStream.html#CTRCryptoOutputStream(java.io.OutputStream,%20org.apache.commons.crypto.cipher.Cipher,%20int,%20byte[],%20byte[])">CTRCryptoOutputStream(OutputStream, Cipher, int, byte[], byte[])</a></span> - Constructor for class org.apache.commons.crypto.stream.<a href="./org/apache/commons/crypto/stream/CTRCryptoOutputStream.html" title="class in org.apache.commons.crypto.stream">CTRCryptoOutputStream</a></dt>
-<dd>&nbsp;</dd>
-<dt><span class="strong"><a href="./org/apache/commons/crypto/stream/CTRCryptoOutputStream.html#CTRCryptoOutputStream(java.nio.channels.WritableByteChannel,%20org.apache.commons.crypto.cipher.Cipher,%20int,%20byte[],%20byte[])">CTRCryptoOutputStream(WritableByteChannel, Cipher, int, byte[], byte[])</a></span> - Constructor for class org.apache.commons.crypto.stream.<a href="./org/apache/commons/crypto/stream/CTRCryptoOutputStream.html" title="class in org.apache.commons.crypto.stream">CTRCryptoOutputStream</a></dt>
-<dd>&nbsp;</dd>
-<dt><span class="strong"><a href="./org/apache/commons/crypto/stream/CTRCryptoOutputStream.html#CTRCryptoOutputStream(org.apache.commons.crypto.stream.output.Output,%20org.apache.commons.crypto.cipher.Cipher,%20int,%20byte[],%20byte[])">CTRCryptoOutputStream(Output, Cipher, int, byte[], byte[])</a></span> - Constructor for class org.apache.commons.crypto.stream.<a href="./org/apache/commons/crypto/stream/CTRCryptoOutputStream.html" title="class in org.apache.commons.crypto.stream">CTRCryptoOutputStream</a></dt>
-<dd>&nbsp;</dd>
-<dt><span class="strong"><a href="./org/apache/commons/crypto/stream/CTRCryptoOutputStream.html#CTRCryptoOutputStream(java.util.Properties,%20java.io.OutputStream,%20byte[],%20byte[],%20long)">CTRCryptoOutputStream(Properties, OutputStream, byte[], byte[], long)</a></span> - Constructor for class org.apache.commons.crypto.stream.<a href="./org/apache/commons/crypto/stream/CTRCryptoOutputStream.html" title="class in org.apache.commons.crypto.stream">CTRCryptoOutputStream</a></dt>
-<dd>&nbsp;</dd>
-<dt><span class="strong"><a href="./org/apache/commons/crypto/stream/CTRCryptoOutputStream.html#CTRCryptoOutputStream(java.util.Properties,%20java.nio.channels.WritableByteChannel,%20byte[],%20byte[],%20long)">CTRCryptoOutputStream(Properties, WritableByteChannel, byte[], byte[], long)</a></span> - Constructor for class org.apache.commons.crypto.stream.<a href="./org/apache/commons/crypto/stream/CTRCryptoOutputStream.html" title="class in org.apache.commons.crypto.stream">CTRCryptoOutputStream</a></dt>
-<dd>&nbsp;</dd>
-<dt><span class="strong"><a href="./org/apache/commons/crypto/stream/CTRCryptoOutputStream.html#CTRCryptoOutputStream(java.io.OutputStream,%20org.apache.commons.crypto.cipher.Cipher,%20int,%20byte[],%20byte[],%20long)">CTRCryptoOutputStream(OutputStream, Cipher, int, byte[], byte[], long)</a></span> - Constructor for class org.apache.commons.crypto.stream.<a href="./org/apache/commons/crypto/stream/CTRCryptoOutputStream.html" title="class in org.apache.commons.crypto.stream">CTRCryptoOutputStream</a></dt>
-<dd>&nbsp;</dd>
-<dt><span class="strong"><a href="./org/apache/commons/crypto/stream/CTRCryptoOutputStream.html#CTRCryptoOutputStream(java.nio.channels.WritableByteChannel,%20org.apache.commons.crypto.cipher.Cipher,%20int,%20byte[],%20byte[],%20long)">CTRCryptoOutputStream(WritableByteChannel, Cipher, int, byte[], byte[], long)</a></span> - Constructor for class org.apache.commons.crypto.stream.<a href="./org/apache/commons/crypto/stream/CTRCryptoOutputStream.html" title="class in org.apache.commons.crypto.stream">CTRCryptoOutputStream</a></dt>
-<dd>&nbsp;</dd>
-<dt><span class="strong"><a href="./org/apache/commons/crypto/stream/CTRCryptoOutputStream.html#CTRCryptoOutputStream(org.apache.commons.crypto.stream.output.Output,%20org.apache.commons.crypto.cipher.Cipher,%20int,%20byte[],%20byte[],%20long)">CTRCryptoOutputStream(Output, Cipher, int, byte[], byte[], long)</a></span> - Constructor for class org.apache.commons.crypto.stream.<a href="./org/apache/commons/crypto/stream/CTRCryptoOutputStream.html" title="class in org.apache.commons.crypto.stream">CTRCryptoOutputStream</a></dt>
+<dt><span class="strong"><a href="./org/apache/commons/crypto/stream/CTRCipherOutputStream.html#CTRCipherOutputStream(org.apache.commons.crypto.stream.output.Output,%20org.apache.commons.crypto.cipher.Cipher,%20int,%20byte[],%20byte[],%20long)">CTRCipherOutputStream(Output, Cipher, int, byte[], byte[], long)</a></span> - Constructor for class org.apache.commons.crypto.stream.<a href="./org/apache/commons/crypto/stream/CTRCipherOutputStream.html" title="class in org.apache.commons.crypto.stream">CTRCipherOutputStream</a></dt>
 <dd>&nbsp;</dd>
 </dl>
 <a name="_D_">
@@ -392,19 +384,19 @@
 </a>
 <h2 class="title">D</h2>
 <dl>
-<dt><span class="strong"><a href="./org/apache/commons/crypto/stream/CryptoInputStream.html#decrypt()">decrypt()</a></span> - Method in class org.apache.commons.crypto.stream.<a href="./org/apache/commons/crypto/stream/CryptoInputStream.html" title="class in org.apache.commons.crypto.stream">CryptoInputStream</a></dt>
+<dt><span class="strong"><a href="./org/apache/commons/crypto/stream/CipherInputStream.html#decrypt()">decrypt()</a></span> - Method in class org.apache.commons.crypto.stream.<a href="./org/apache/commons/crypto/stream/CipherInputStream.html" title="class in org.apache.commons.crypto.stream">CipherInputStream</a></dt>
 <dd>
 <div class="block">Do the decryption using inBuffer as input and outBuffer as output.</div>
 </dd>
-<dt><span class="strong"><a href="./org/apache/commons/crypto/stream/CTRCryptoInputStream.html#decrypt()">decrypt()</a></span> - Method in class org.apache.commons.crypto.stream.<a href="./org/apache/commons/crypto/stream/CTRCryptoInputStream.html" title="class in org.apache.commons.crypto.stream">CTRCryptoInputStream</a></dt>
+<dt><span class="strong"><a href="./org/apache/commons/crypto/stream/CTRCipherInputStream.html#decrypt()">decrypt()</a></span> - Method in class org.apache.commons.crypto.stream.<a href="./org/apache/commons/crypto/stream/CTRCipherInputStream.html" title="class in org.apache.commons.crypto.stream">CTRCipherInputStream</a></dt>
 <dd>
 <div class="block">Do the decryption using inBuffer as input and outBuffer as output.</div>
 </dd>
-<dt><span class="strong"><a href="./org/apache/commons/crypto/stream/CTRCryptoInputStream.html#decrypt(java.nio.ByteBuffer,%20int,%20int)">decrypt(ByteBuffer, int, int)</a></span> - Method in class org.apache.commons.crypto.stream.<a href="./org/apache/commons/crypto/stream/CTRCryptoInputStream.html" title="class in org.apache.commons.crypto.stream">CTRCryptoInputStream</a></dt>
+<dt><span class="strong"><a href="./org/apache/commons/crypto/stream/CTRCipherInputStream.html#decrypt(java.nio.ByteBuffer,%20int,%20int)">decrypt(ByteBuffer, int, int)</a></span> - Method in class org.apache.commons.crypto.stream.<a href="./org/apache/commons/crypto/stream/CTRCipherInputStream.html" title="class in org.apache.commons.crypto.stream">CTRCipherInputStream</a></dt>
 <dd>
 <div class="block">Decrypt all data in buf: total n bytes from given start position.</div>
 </dd>
-<dt><span class="strong"><a href="./org/apache/commons/crypto/stream/PositionedCryptoInputStream.html#decrypt(long,%20byte[],%20int,%20int)">decrypt(long, byte[], int, int)</a></span> - Method in class org.apache.commons.crypto.stream.<a href="./org/apache/commons/crypto/stream/PositionedCryptoInputStream.html" title="class in org.apache.commons.crypto.stream">PositionedCryptoInputStream</a></dt>
+<dt><span class="strong"><a href="./org/apache/commons/crypto/stream/PositionedCipherInputStream.html#decrypt(long,%20byte[],%20int,%20int)">decrypt(long, byte[], int, int)</a></span> - Method in class org.apache.commons.crypto.stream.<a href="./org/apache/commons/crypto/stream/PositionedCipherInputStream.html" title="class in org.apache.commons.crypto.stream">PositionedCipherInputStream</a></dt>
 <dd>
 <div class="block">Decrypt length bytes in buffer starting at offset.</div>
 </dd>
@@ -414,21 +406,21 @@
 </dd>
 <dt><span class="strong"><a href="./org/apache/commons/crypto/cipher/Openssl.html#DECRYPT_MODE">DECRYPT_MODE</a></span> - Static variable in class org.apache.commons.crypto.cipher.<a href="./org/apache/commons/crypto/cipher/Openssl.html" title="class in org.apache.commons.crypto.cipher">Openssl</a></dt>
 <dd>&nbsp;</dd>
-<dt><span class="strong"><a href="./org/apache/commons/crypto/stream/CTRCryptoInputStream.html#decryptBuffer(java.nio.ByteBuffer)">decryptBuffer(ByteBuffer)</a></span> - Method in class org.apache.commons.crypto.stream.<a href="./org/apache/commons/crypto/stream/CTRCryptoInputStream.html" title="class in org.apache.commons.crypto.stream">CTRCryptoInputStream</a></dt>
+<dt><span class="strong"><a href="./org/apache/commons/crypto/stream/CTRCipherInputStream.html#decryptBuffer(java.nio.ByteBuffer)">decryptBuffer(ByteBuffer)</a></span> - Method in class org.apache.commons.crypto.stream.<a href="./org/apache/commons/crypto/stream/CTRCipherInputStream.html" title="class in org.apache.commons.crypto.stream">CTRCipherInputStream</a></dt>
 <dd>&nbsp;</dd>
-<dt><span class="strong"><a href="./org/apache/commons/crypto/stream/CryptoInputStream.html#decryptFinal()">decryptFinal()</a></span> - Method in class org.apache.commons.crypto.stream.<a href="./org/apache/commons/crypto/stream/CryptoInputStream.html" title="class in org.apache.commons.crypto.stream">CryptoInputStream</a></dt>
+<dt><span class="strong"><a href="./org/apache/commons/crypto/stream/CipherInputStream.html#decryptFinal()">decryptFinal()</a></span> - Method in class org.apache.commons.crypto.stream.<a href="./org/apache/commons/crypto/stream/CipherInputStream.html" title="class in org.apache.commons.crypto.stream">CipherInputStream</a></dt>
 <dd>
 <div class="block">Do final of the cipher to end the decrypting stream</div>
 </dd>
-<dt><span class="strong"><a href="./org/apache/commons/crypto/stream/CTRCryptoInputStream.html#decryptInPlace(java.nio.ByteBuffer)">decryptInPlace(ByteBuffer)</a></span> - Method in class org.apache.commons.crypto.stream.<a href="./org/apache/commons/crypto/stream/CTRCryptoInputStream.html" title="class in org.apache.commons.crypto.stream">CTRCryptoInputStream</a></dt>
+<dt><span class="strong"><a href="./org/apache/commons/crypto/stream/CTRCipherInputStream.html#decryptInPlace(java.nio.ByteBuffer)">decryptInPlace(ByteBuffer)</a></span> - Method in class org.apache.commons.crypto.stream.<a href="./org/apache/commons/crypto/stream/CTRCipherInputStream.html" title="class in org.apache.commons.crypto.stream">CTRCipherInputStream</a></dt>
 <dd>
 <div class="block">Do the decryption using inBuffer as input and buf as output.</div>
 </dd>
-<dt><span class="strong"><a href="./org/apache/commons/crypto/stream/CryptoInputStream.html#decryptMore()">decryptMore()</a></span> - Method in class org.apache.commons.crypto.stream.<a href="./org/apache/commons/crypto/stream/CryptoInputStream.html" title="class in org.apache.commons.crypto.stream">CryptoInputStream</a></dt>
+<dt><span class="strong"><a href="./org/apache/commons/crypto/stream/CipherInputStream.html#decryptMore()">decryptMore()</a></span> - Method in class org.apache.commons.crypto.stream.<a href="./org/apache/commons/crypto/stream/CipherInputStream.html" title="class in org.apache.commons.crypto.stream">CipherInputStream</a></dt>
 <dd>
 <div class="block">Decrypt more data by reading the under layer stream.</div>
 </dd>
-<dt><span class="strong"><a href="./org/apache/commons/crypto/stream/CTRCryptoInputStream.html#decryptMore()">decryptMore()</a></span> - Method in class org.apache.commons.crypto.stream.<a href="./org/apache/commons/crypto/stream/CTRCryptoInputStream.html" title="class in org.apache.commons.crypto.stream">CTRCryptoInputStream</a></dt>
+<dt><span class="strong"><a href="./org/apache/commons/crypto/stream/CTRCipherInputStream.html#decryptMore()">decryptMore()</a></span> - Method in class org.apache.commons.crypto.stream.<a href="./org/apache/commons/crypto/stream/CTRCipherInputStream.html" title="class in org.apache.commons.crypto.stream">CTRCipherInputStream</a></dt>
 <dd>
 <div class="block">Decrypt more data by reading the under layer stream.</div>
 </dd>
@@ -485,15 +477,15 @@
 </a>
 <h2 class="title">E</h2>
 <dl>
-<dt><span class="strong"><a href="./org/apache/commons/crypto/stream/CryptoOutputStream.html#encrypt()">encrypt()</a></span> - Method in class org.apache.commons.crypto.stream.<a href="./org/apache/commons/crypto/stream/CryptoOutputStream.html" title="class in org.apache.commons.crypto.stream">CryptoOutputStream</a></dt>
+<dt><span class="strong"><a href="./org/apache/commons/crypto/stream/CipherOutputStream.html#encrypt()">encrypt()</a></span> - Method in class org.apache.commons.crypto.stream.<a href="./org/apache/commons/crypto/stream/CipherOutputStream.html" title="class in org.apache.commons.crypto.stream">CipherOutputStream</a></dt>
 <dd>
-<div class="block">Do the encryption, input is <a href="./org/apache/commons/crypto/stream/CryptoOutputStream.html#inBuffer"><code>CryptoOutputStream.inBuffer</code></a> and output is
- <a href="./org/apache/commons/crypto/stream/CryptoOutputStream.html#outBuffer"><code>CryptoOutputStream.outBuffer</code></a>.</div>
+<div class="block">Do the encryption, input is <a href="./org/apache/commons/crypto/stream/CipherOutputStream.html#inBuffer"><code>CipherOutputStream.inBuffer</code></a> and output is
+ <a href="./org/apache/commons/crypto/stream/CipherOutputStream.html#outBuffer"><code>CipherOutputStream.outBuffer</code></a>.</div>
 </dd>
-<dt><span class="strong"><a href="./org/apache/commons/crypto/stream/CTRCryptoOutputStream.html#encrypt()">encrypt()</a></span> - Method in class org.apache.commons.crypto.stream.<a href="./org/apache/commons/crypto/stream/CTRCryptoOutputStream.html" title="class in org.apache.commons.crypto.stream">CTRCryptoOutputStream</a></dt>
+<dt><span class="strong"><a href="./org/apache/commons/crypto/stream/CTRCipherOutputStream.html#encrypt()">encrypt()</a></span> - Method in class org.apache.commons.crypto.stream.<a href="./org/apache/commons/crypto/stream/CTRCipherOutputStream.html" title="class in org.apache.commons.crypto.stream">CTRCipherOutputStream</a></dt>
 <dd>
-<div class="block">Do the encryption, input is <a href="./org/apache/commons/crypto/stream/CryptoOutputStream.html#inBuffer"><code>CryptoOutputStream.inBuffer</code></a> and output is
- <a href="./org/apache/commons/crypto/stream/CryptoOutputStream.html#outBuffer"><code>CryptoOutputStream.outBuffer</code></a>.</div>
+<div class="block">Do the encryption, input is <a href="./org/apache/commons/crypto/stream/CipherOutputStream.html#inBuffer"><code>CipherOutputStream.inBuffer</code></a> and output is
+ <a href="./org/apache/commons/crypto/stream/CipherOutputStream.html#outBuffer"><code>CipherOutputStream.outBuffer</code></a>.</div>
 </dd>
 <dt><span class="strong"><a href="./org/apache/commons/crypto/cipher/Cipher.html#ENCRYPT_MODE">ENCRYPT_MODE</a></span> - Static variable in interface org.apache.commons.crypto.cipher.<a href="./org/apache/commons/crypto/cipher/Cipher.html" title="interface in org.apache.commons.crypto.cipher">Cipher</a></dt>
 <dd>
@@ -501,11 +493,11 @@
 </dd>
 <dt><span class="strong"><a href="./org/apache/commons/crypto/cipher/Openssl.html#ENCRYPT_MODE">ENCRYPT_MODE</a></span> - Static variable in class org.apache.commons.crypto.cipher.<a href="./org/apache/commons/crypto/cipher/Openssl.html" title="class in org.apache.commons.crypto.cipher">Openssl</a></dt>
 <dd>&nbsp;</dd>
-<dt><span class="strong"><a href="./org/apache/commons/crypto/stream/CryptoOutputStream.html#encryptFinal()">encryptFinal()</a></span> - Method in class org.apache.commons.crypto.stream.<a href="./org/apache/commons/crypto/stream/CryptoOutputStream.html" title="class in org.apache.commons.crypto.stream">CryptoOutputStream</a></dt>
+<dt><span class="strong"><a href="./org/apache/commons/crypto/stream/CipherOutputStream.html#encryptFinal()">encryptFinal()</a></span> - Method in class org.apache.commons.crypto.stream.<a href="./org/apache/commons/crypto/stream/CipherOutputStream.html" title="class in org.apache.commons.crypto.stream">CipherOutputStream</a></dt>
 <dd>
 <div class="block">Do final encryption of the last data</div>
 </dd>
-<dt><span class="strong"><a href="./org/apache/commons/crypto/stream/CTRCryptoOutputStream.html#encryptFinal()">encryptFinal()</a></span> - Method in class org.apache.commons.crypto.stream.<a href="./org/apache/commons/crypto/stream/CTRCryptoOutputStream.html" title="class in org.apache.commons.crypto.stream">CTRCryptoOutputStream</a></dt>
+<dt><span class="strong"><a href="./org/apache/commons/crypto/stream/CTRCipherOutputStream.html#encryptFinal()">encryptFinal()</a></span> - Method in class org.apache.commons.crypto.stream.<a href="./org/apache/commons/crypto/stream/CTRCipherOutputStream.html" title="class in org.apache.commons.crypto.stream">CTRCipherOutputStream</a></dt>
 <dd>
 <div class="block">Do final encryption of the last data</div>
 </dd>
@@ -515,11 +507,11 @@
 </a>
 <h2 class="title">F</h2>
 <dl>
-<dt><span class="strong"><a href="./org/apache/commons/crypto/stream/CryptoInputStream.html#finalDone">finalDone</a></span> - Variable in class org.apache.commons.crypto.stream.<a href="./org/apache/commons/crypto/stream/CryptoInputStream.html" title="class in org.apache.commons.crypto.stream">CryptoInputStream</a></dt>
+<dt><span class="strong"><a href="./org/apache/commons/crypto/stream/CipherInputStream.html#finalDone">finalDone</a></span> - Variable in class org.apache.commons.crypto.stream.<a href="./org/apache/commons/crypto/stream/CipherInputStream.html" title="class in org.apache.commons.crypto.stream">CipherInputStream</a></dt>
 <dd>&nbsp;</dd>
 <dt><span class="strong"><a href="./org/apache/commons/crypto/cipher/Openssl.html#finalize()">finalize()</a></span> - Method in class org.apache.commons.crypto.cipher.<a href="./org/apache/commons/crypto/cipher/Openssl.html" title="class in org.apache.commons.crypto.cipher">Openssl</a></dt>
 <dd>&nbsp;</dd>
-<dt><span class="strong"><a href="./org/apache/commons/crypto/stream/CryptoOutputStream.html#flush()">flush()</a></span> - Method in class org.apache.commons.crypto.stream.<a href="./org/apache/commons/crypto/stream/CryptoOutputStream.html" title="class in org.apache.commons.crypto.stream">CryptoOutputStream</a></dt>
+<dt><span class="strong"><a href="./org/apache/commons/crypto/stream/CipherOutputStream.html#flush()">flush()</a></span> - Method in class org.apache.commons.crypto.stream.<a href="./org/apache/commons/crypto/stream/CipherOutputStream.html" title="class in org.apache.commons.crypto.stream">CipherOutputStream</a></dt>
 <dd>
 <div class="block">To flush, we need to encrypt the data in the buffer and write to the
  underlying stream, then do the flush.</div>
@@ -537,11 +529,11 @@
 <dd>
 <div class="block">Overrides the <a href="./org/apache/commons/crypto/stream/output/Output.html#flush()"><code>Output.flush()</code></a>.</div>
 </dd>
-<dt><span class="strong"><a href="./org/apache/commons/crypto/stream/CryptoInputStream.html#freeBuffers()">freeBuffers()</a></span> - Method in class org.apache.commons.crypto.stream.<a href="./org/apache/commons/crypto/stream/CryptoInputStream.html" title="class in org.apache.commons.crypto.stream">CryptoInputStream</a></dt>
+<dt><span class="strong"><a href="./org/apache/commons/crypto/stream/CipherInputStream.html#freeBuffers()">freeBuffers()</a></span> - Method in class org.apache.commons.crypto.stream.<a href="./org/apache/commons/crypto/stream/CipherInputStream.html" title="class in org.apache.commons.crypto.stream">CipherInputStream</a></dt>
 <dd>
 <div class="block">Forcibly free the direct buffers.</div>
 </dd>
-<dt><span class="strong"><a href="./org/apache/commons/crypto/stream/CryptoOutputStream.html#freeBuffers()">freeBuffers()</a></span> - Method in class org.apache.commons.crypto.stream.<a href="./org/apache/commons/crypto/stream/CryptoOutputStream.html" title="class in org.apache.commons.crypto.stream">CryptoOutputStream</a></dt>
+<dt><span class="strong"><a href="./org/apache/commons/crypto/stream/CipherOutputStream.html#freeBuffers()">freeBuffers()</a></span> - Method in class org.apache.commons.crypto.stream.<a href="./org/apache/commons/crypto/stream/CipherOutputStream.html" title="class in org.apache.commons.crypto.stream">CipherOutputStream</a></dt>
 <dd>
 <div class="block">Forcibly free the direct buffers.</div>
 </dd>
@@ -568,7 +560,7 @@
 <dd>
 <div class="block">Gets the architecture name.</div>
 </dd>
-<dt><span class="strong"><a href="./org/apache/commons/crypto/stream/CryptoInputStream.html#getBufferSize()">getBufferSize()</a></span> - Method in class org.apache.commons.crypto.stream.<a href="./org/apache/commons/crypto/stream/CryptoInputStream.html" title="class in org.apache.commons.crypto.stream">CryptoInputStream</a></dt>
+<dt><span class="strong"><a href="./org/apache/commons/crypto/stream/CipherInputStream.html#getBufferSize()">getBufferSize()</a></span> - Method in class org.apache.commons.crypto.stream.<a href="./org/apache/commons/crypto/stream/CipherInputStream.html" title="class in org.apache.commons.crypto.stream">CipherInputStream</a></dt>
 <dd>
 <div class="block">Get the buffer size</div>
 </dd>
@@ -576,7 +568,7 @@
 <dd>
 <div class="block">Reads crypto buffer size.</div>
 </dd>
-<dt><span class="strong"><a href="./org/apache/commons/crypto/stream/CryptoInputStream.html#getCipher()">getCipher()</a></span> - Method in class org.apache.commons.crypto.stream.<a href="./org/apache/commons/crypto/stream/CryptoInputStream.html" title="class in org.apache.commons.crypto.stream">CryptoInputStream</a></dt>
+<dt><span class="strong"><a href="./org/apache/commons/crypto/stream/CipherInputStream.html#getCipher()">getCipher()</a></span> - Method in class org.apache.commons.crypto.stream.<a href="./org/apache/commons/crypto/stream/CipherInputStream.html" title="class in org.apache.commons.crypto.stream">CipherInputStream</a></dt>
 <dd>
 <div class="block">Get the internal Cipher</div>
 </dd>
@@ -601,9 +593,9 @@
 <dd>
 <div class="block">Loads a class by name.</div>
 </dd>
-<dt><span class="strong"><a href="./org/apache/commons/crypto/stream/CTRCryptoInputStream.html#getCounter(long)">getCounter(long)</a></span> - Method in class org.apache.commons.crypto.stream.<a href="./org/apache/commons/crypto/stream/CTRCryptoInputStream.html" title="class in org.apache.commons.crypto.stream">CTRCryptoInputStream</a></dt>
+<dt><span class="strong"><a href="./org/apache/commons/crypto/stream/CTRCipherInputStream.html#getCounter(long)">getCounter(long)</a></span> - Method in class org.apache.commons.crypto.stream.<a href="./org/apache/commons/crypto/stream/CTRCipherInputStream.html" title="class in org.apache.commons.crypto.stream">CTRCipherInputStream</a></dt>
 <dd>&nbsp;</dd>
-<dt><span class="strong"><a href="./org/apache/commons/crypto/stream/CryptoInputStream.html#getInitIV()">getInitIV()</a></span> - Method in class org.apache.commons.crypto.stream.<a href="./org/apache/commons/crypto/stream/CryptoInputStream.html" title="class in org.apache.commons.crypto.stream">CryptoInputStream</a></dt>
+<dt><span class="strong"><a href="./org/apache/commons/crypto/stream/CipherInputStream.html#getInitIV()">getInitIV()</a></span> - Method in class org.apache.commons.crypto.stream.<a href="./org/apache/commons/crypto/stream/CipherInputStream.html" title="class in org.apache.commons.crypto.stream">CipherInputStream</a></dt>
 <dd>
 <div class="block">Get the initialization vector</div>
 </dd>
@@ -614,7 +606,7 @@
 <dt><span class="strong"><a href="./org/apache/commons/crypto/cipher/CipherFactory.html#getInstance(org.apache.commons.crypto.cipher.CipherTransformation)">getInstance(CipherTransformation)</a></span> - Static method in class org.apache.commons.crypto.cipher.<a href="./org/apache/commons/crypto/cipher/CipherFactory.html" title="class in org.apache.commons.crypto.cipher">CipherFactory</a></dt>
 <dd>
 <div class="block">Gets a cipher for algorithm/mode/padding in config value
- chimera.crypto.cipher.transformation</div>
+ commons.crypto.cipher.transformation</div>
 </dd>
 <dt><span class="strong"><a href="./org/apache/commons/crypto/cipher/Openssl.html#getInstance(java.lang.String)">getInstance(String)</a></span> - Static method in class org.apache.commons.crypto.cipher.<a href="./org/apache/commons/crypto/cipher/Openssl.html" title="class in org.apache.commons.crypto.cipher">Openssl</a></dt>
 <dd>
@@ -625,7 +617,7 @@
 <dd>
 <div class="block">Gets the Jce provider.</div>
 </dd>
-<dt><span class="strong"><a href="./org/apache/commons/crypto/stream/CryptoInputStream.html#getKey()">getKey()</a></span> - Method in class org.apache.commons.crypto.stream.<a href="./org/apache/commons/crypto/stream/CryptoInputStream.html" title="class in org.apache.commons.crypto.stream">CryptoInputStream</a></dt>
+<dt><span class="strong"><a href="./org/apache/commons/crypto/stream/CipherInputStream.html#getKey()">getKey()</a></span> - Method in class org.apache.commons.crypto.stream.<a href="./org/apache/commons/crypto/stream/CipherInputStream.html" title="class in org.apache.commons.crypto.stream">CipherInputStream</a></dt>
 <dd>
 <div class="block">Get the key</div>
 </dd>
@@ -653,7 +645,7 @@
 <dd>
 <div class="block">Gets the OS name.</div>
 </dd>
-<dt><span class="strong"><a href="./org/apache/commons/crypto/stream/CTRCryptoInputStream.html#getPadding(long)">getPadding(long)</a></span> - Method in class org.apache.commons.crypto.stream.<a href="./org/apache/commons/crypto/stream/CTRCryptoInputStream.html" title="class in org.apache.commons.crypto.stream">CTRCryptoInputStream</a></dt>
+<dt><span class="strong"><a href="./org/apache/commons/crypto/stream/CTRCipherInputStream.html#getPadding(long)">getPadding(long)</a></span> - Method in class org.apache.commons.crypto.stream.<a href="./org/apache/commons/crypto/stream/CTRCipherInputStream.html" title="class in org.apache.commons.crypto.stream">CTRCipherInputStream</a></dt>
 <dd>&nbsp;</dd>
 <dt><span class="strong"><a href="./org/apache/commons/crypto/cipher/Cipher.html#getProperties()">getProperties()</a></span> - Method in interface org.apache.commons.crypto.cipher.<a href="./org/apache/commons/crypto/cipher/Cipher.html" title="interface in org.apache.commons.crypto.cipher">Cipher</a></dt>
 <dd>
@@ -675,9 +667,9 @@
 <dd>
 <div class="block">Gets a SecureRandom instance for specified props.</div>
 </dd>
-<dt><span class="strong"><a href="./org/apache/commons/crypto/stream/CTRCryptoInputStream.html#getStreamOffset()">getStreamOffset()</a></span> - Method in class org.apache.commons.crypto.stream.<a href="./org/apache/commons/crypto/stream/CTRCryptoInputStream.html" title="class in org.apache.commons.crypto.stream">CTRCryptoInputStream</a></dt>
+<dt><span class="strong"><a href="./org/apache/commons/crypto/stream/CTRCipherInputStream.html#getStreamOffset()">getStreamOffset()</a></span> - Method in class org.apache.commons.crypto.stream.<a href="./org/apache/commons/crypto/stream/CTRCipherInputStream.html" title="class in org.apache.commons.crypto.stream">CTRCipherInputStream</a></dt>
 <dd>&nbsp;</dd>
-<dt><span class="strong"><a href="./org/apache/commons/crypto/stream/CTRCryptoInputStream.html#getStreamPosition()">getStreamPosition()</a></span> - Method in class org.apache.commons.crypto.stream.<a href="./org/apache/commons/crypto/stream/CTRCryptoInputStream.html" title="class in org.apache.commons.crypto.stream">CTRCryptoInputStream</a></dt>
+<dt><span class="strong"><a href="./org/apache/commons/crypto/stream/CTRCipherInputStream.html#getStreamPosition()">getStreamPosition()</a></span> - Method in class org.apache.commons.crypto.stream.<a href="./org/apache/commons/crypto/stream/CTRCipherInputStream.html" title="class in org.apache.commons.crypto.stream">CTRCipherInputStream</a></dt>
 <dd>&nbsp;</dd>
 <dt><span class="strong"><a href="./org/apache/commons/crypto/utils/Utils.html#getTmpDir()">getTmpDir()</a></span> - Static method in class org.apache.commons.crypto.utils.<a href="./org/apache/commons/crypto/utils/Utils.html" title="class in org.apache.commons.crypto.utils">Utils</a></dt>
 <dd>
@@ -713,11 +705,11 @@
 <dd>
 <div class="block">The constant string represents for IA64_32 architecture, the value is:"ia64_32".</div>
 </dd>
-<dt><span class="strong"><a href="./org/apache/commons/crypto/stream/CryptoInputStream.html#inBuffer">inBuffer</a></span> - Variable in class org.apache.commons.crypto.stream.<a href="./org/apache/commons/crypto/stream/CryptoInputStream.html" title="class in org.apache.commons.crypto.stream">CryptoInputStream</a></dt>
+<dt><span class="strong"><a href="./org/apache/commons/crypto/stream/CipherInputStream.html#inBuffer">inBuffer</a></span> - Variable in class org.apache.commons.crypto.stream.<a href="./org/apache/commons/crypto/stream/CipherInputStream.html" title="class in org.apache.commons.crypto.stream">CipherInputStream</a></dt>
 <dd>
 <div class="block">Input data buffer.</div>
 </dd>
-<dt><span class="strong"><a href="./org/apache/commons/crypto/stream/CryptoOutputStream.html#inBuffer">inBuffer</a></span> - Variable in class org.apache.commons.crypto.stream.<a href="./org/apache/commons/crypto/stream/CryptoOutputStream.html" title="class in org.apache.commons.crypto.stream">CryptoOutputStream</a></dt>
+<dt><span class="strong"><a href="./org/apache/commons/crypto/stream/CipherOutputStream.html#inBuffer">inBuffer</a></span> - Variable in class org.apache.commons.crypto.stream.<a href="./org/apache/commons/crypto/stream/CipherOutputStream.html" title="class in org.apache.commons.crypto.stream">CipherOutputStream</a></dt>
 <dd>
 <div class="block">Input data buffer.</div>
 </dd>
@@ -741,19 +733,19 @@
 <dd>
 <div class="block">Declares a native method to initialize the cipher context.</div>
 </dd>
-<dt><span class="strong"><a href="./org/apache/commons/crypto/stream/CryptoInputStream.html#initCipher()">initCipher()</a></span> - Method in class org.apache.commons.crypto.stream.<a href="./org/apache/commons/crypto/stream/CryptoInputStream.html" title="class in org.apache.commons.crypto.stream">CryptoInputStream</a></dt>
+<dt><span class="strong"><a href="./org/apache/commons/crypto/stream/CipherInputStream.html#initCipher()">initCipher()</a></span> - Method in class org.apache.commons.crypto.stream.<a href="./org/apache/commons/crypto/stream/CipherInputStream.html" title="class in org.apache.commons.crypto.stream">CipherInputStream</a></dt>
 <dd>
 <div class="block">Initialize the cipher.</div>
 </dd>
-<dt><span class="strong"><a href="./org/apache/commons/crypto/stream/CryptoOutputStream.html#initCipher()">initCipher()</a></span> - Method in class org.apache.commons.crypto.stream.<a href="./org/apache/commons/crypto/stream/CryptoOutputStream.html" title="class in org.apache.commons.crypto.stream">CryptoOutputStream</a></dt>
+<dt><span class="strong"><a href="./org/apache/commons/crypto/stream/CipherOutputStream.html#initCipher()">initCipher()</a></span> - Method in class org.apache.commons.crypto.stream.<a href="./org/apache/commons/crypto/stream/CipherOutputStream.html" title="class in org.apache.commons.crypto.stream">CipherOutputStream</a></dt>
 <dd>
 <div class="block">Initialize the cipher.</div>
 </dd>
-<dt><span class="strong"><a href="./org/apache/commons/crypto/stream/CTRCryptoInputStream.html#initCipher()">initCipher()</a></span> - Method in class org.apache.commons.crypto.stream.<a href="./org/apache/commons/crypto/stream/CTRCryptoInputStream.html" title="class in org.apache.commons.crypto.stream">CTRCryptoInputStream</a></dt>
+<dt><span class="strong"><a href="./org/apache/commons/crypto/stream/CTRCipherInputStream.html#initCipher()">initCipher()</a></span> - Method in class org.apache.commons.crypto.stream.<a href="./org/apache/commons/crypto/stream/CTRCipherInputStream.html" title="class in org.apache.commons.crypto.stream">CTRCipherInputStream</a></dt>
 <dd>
 <div class="block">Initialize the cipher.</div>
 </dd>
-<dt><span class="strong"><a href="./org/apache/commons/crypto/stream/CTRCryptoOutputStream.html#initCipher()">initCipher()</a></span> - Method in class org.apache.commons.crypto.stream.<a href="./org/apache/commons/crypto/stream/CTRCryptoOutputStream.html" title="class in org.apache.commons.crypto.stream">CTRCryptoOutputStream</a></dt>
+<dt><span class="strong"><a href="./org/apache/commons/crypto/stream/CTRCipherOutputStream.html#initCipher()">initCipher()</a></span> - Method in class org.apache.commons.crypto.stream.<a href="./org/apache/commons/crypto/stream/CTRCipherOutputStream.html" title="class in org.apache.commons.crypto.stream">CTRCipherOutputStream</a></dt>
 <dd>
 <div class="block">Initialize the cipher.</div>
 </dd>
@@ -765,27 +757,25 @@
 <dd>
 <div class="block">Declares a native method to initialize JNI field and method IDs.</div>
 </dd>
-<dt><span class="strong"><a href="./org/apache/commons/crypto/stream/CryptoInputStream.html#initIV">initIV</a></span> - Variable in class org.apache.commons.crypto.stream.<a href="./org/apache/commons/crypto/stream/CryptoInputStream.html" title="class in org.apache.commons.crypto.stream">CryptoInputStream</a></dt>
+<dt><span class="strong"><a href="./org/apache/commons/crypto/stream/CipherInputStream.html#initIV">initIV</a></span> - Variable in class org.apache.commons.crypto.stream.<a href="./org/apache/commons/crypto/stream/CipherInputStream.html" title="class in org.apache.commons.crypto.stream">CipherInputStream</a></dt>
 <dd>&nbsp;</dd>
-<dt><span class="strong"><a href="./org/apache/commons/crypto/stream/CryptoOutputStream.html#initIV">initIV</a></span> - Variable in class org.apache.commons.crypto.stream.<a href="./org/apache/commons/crypto/stream/CryptoOutputStream.html" title="class in org.apache.commons.crypto.stream">CryptoOutputStream</a></dt>
+<dt><span class="strong"><a href="./org/apache/commons/crypto/stream/CipherOutputStream.html#initIV">initIV</a></span> - Variable in class org.apache.commons.crypto.stream.<a href="./org/apache/commons/crypto/stream/CipherOutputStream.html" title="class in org.apache.commons.crypto.stream">CipherOutputStream</a></dt>
 <dd>&nbsp;</dd>
 <dt><span class="strong"><a href="./org/apache/commons/crypto/random/OpensslSecureRandomNative.html#initSR()">initSR()</a></span> - Static method in class org.apache.commons.crypto.random.<a href="./org/apache/commons/crypto/random/OpensslSecureRandomNative.html" title="class in org.apache.commons.crypto.random">OpensslSecureRandomNative</a></dt>
 <dd>
 <div class="block">Declares a native method to initialize SR.</div>
 </dd>
-<dt><span class="strong"><a href="./org/apache/commons/crypto/stream/CryptoInputStream.html#input">input</a></span> - Variable in class org.apache.commons.crypto.stream.<a href="./org/apache/commons/crypto/stream/CryptoInputStream.html" title="class in org.apache.commons.crypto.stream">CryptoInputStream</a></dt>
+<dt><span class="strong"><a href="./org/apache/commons/crypto/stream/CipherInputStream.html#input">input</a></span> - Variable in class org.apache.commons.crypto.stream.<a href="./org/apache/commons/crypto/stream/CipherInputStream.html" title="class in org.apache.commons.crypto.stream">CipherInputStream</a></dt>
 <dd>&nbsp;</dd>
 <dt><a href="./org/apache/commons/crypto/stream/input/Input.html" title="interface in org.apache.commons.crypto.stream.input"><span class="strong">Input</span></a> - Interface in <a href="./org/apache/commons/crypto/stream/input/package-summary.html">org.apache.commons.crypto.stream.input</a></dt>
 <dd>
-<div class="block">The Input interface abstract the input source of <code>CryptoInputStream</code> so that
+<div class="block">The Input interface abstract the input source of <code>CipherInputStream</code> so that
  different implementation of input can be used.</div>
 </dd>
 <dt><a href="./org/apache/commons/crypto/utils/IOUtils.html" title="class in org.apache.commons.crypto.utils"><span class="strong">IOUtils</span></a> - Class in <a href="./org/apache/commons/crypto/utils/package-summary.html">org.apache.commons.crypto.utils</a></dt>
 <dd>
 <div class="block">General utility methods for working with IO.</div>
 </dd>
-<dt><span class="strong"><a href="./org/apache/commons/crypto/utils/IOUtils.html#IOUtils()">IOUtils()</a></span> - Constructor for class org.apache.commons.crypto.utils.<a href="./org/apache/commons/crypto/utils/IOUtils.html" title="class in org.apache.commons.crypto.utils">IOUtils</a></dt>
-<dd>&nbsp;</dd>
 <dt><span class="strong"><a href="./org/apache/commons/crypto/random/OpensslSecureRandom.html#isNativeCodeLoaded()">isNativeCodeLoaded()</a></span> - Static method in class org.apache.commons.crypto.random.<a href="./org/apache/commons/crypto/random/OpensslSecureRandom.html" title="class in org.apache.commons.crypto.random">OpensslSecureRandom</a></dt>
 <dd>
 <div class="block">Judges whether loading native library successfully.</div>
@@ -794,13 +784,13 @@
 <dd>
 <div class="block">Checks whether native code is loaded for this platform.</div>
 </dd>
-<dt><span class="strong"><a href="./org/apache/commons/crypto/stream/CryptoInputStream.html#isOpen()">isOpen()</a></span> - Method in class org.apache.commons.crypto.stream.<a href="./org/apache/commons/crypto/stream/CryptoInputStream.html" title="class in org.apache.commons.crypto.stream">CryptoInputStream</a></dt>
+<dt><span class="strong"><a href="./org/apache/commons/crypto/stream/CipherInputStream.html#isOpen()">isOpen()</a></span> - Method in class org.apache.commons.crypto.stream.<a href="./org/apache/commons/crypto/stream/CipherInputStream.html" title="class in org.apache.commons.crypto.stream">CipherInputStream</a></dt>
 <dd>&nbsp;</dd>
-<dt><span class="strong"><a href="./org/apache/commons/crypto/stream/CryptoOutputStream.html#isOpen()">isOpen()</a></span> - Method in class org.apache.commons.crypto.stream.<a href="./org/apache/commons/crypto/stream/CryptoOutputStream.html" title="class in org.apache.commons.crypto.stream">CryptoOutputStream</a></dt>
+<dt><span class="strong"><a href="./org/apache/commons/crypto/stream/CipherOutputStream.html#isOpen()">isOpen()</a></span> - Method in class org.apache.commons.crypto.stream.<a href="./org/apache/commons/crypto/stream/CipherOutputStream.html" title="class in org.apache.commons.crypto.stream">CipherOutputStream</a></dt>
 <dd>&nbsp;</dd>
-<dt><span class="strong"><a href="./org/apache/commons/crypto/stream/CryptoInputStream.html#iv">iv</a></span> - Variable in class org.apache.commons.crypto.stream.<a href="./org/apache/commons/crypto/stream/CryptoInputStream.html" title="class in org.apache.commons.crypto.stream">CryptoInputStream</a></dt>
+<dt><span class="strong"><a href="./org/apache/commons/crypto/stream/CipherInputStream.html#iv">iv</a></span> - Variable in class org.apache.commons.crypto.stream.<a href="./org/apache/commons/crypto/stream/CipherInputStream.html" title="class in org.apache.commons.crypto.stream">CipherInputStream</a></dt>
 <dd>&nbsp;</dd>
-<dt><span class="strong"><a href="./org/apache/commons/crypto/stream/CryptoOutputStream.html#iv">iv</a></span> - Variable in class org.apache.commons.crypto.stream.<a href="./org/apache/commons/crypto/stream/CryptoOutputStream.html" title="class in org.apache.commons.crypto.stream">CryptoOutputStream</a></dt>
+<dt><span class="strong"><a href="./org/apache/commons/crypto/stream/CipherOutputStream.html#iv">iv</a></span> - Variable in class org.apache.commons.crypto.stream.<a href="./org/apache/commons/crypto/stream/CipherOutputStream.html" title="class in org.apache.commons.crypto.stream">CipherOutputStream</a></dt>
 <dd>&nbsp;</dd>
 </dl>
 <a name="_J_">
@@ -831,9 +821,9 @@
 </a>
 <h2 class="title">K</h2>
 <dl>
-<dt><span class="strong"><a href="./org/apache/commons/crypto/stream/CryptoInputStream.html#key">key</a></span> - Variable in class org.apache.commons.crypto.stream.<a href="./org/apache/commons/crypto/stream/CryptoInputStream.html" title="class in org.apache.commons.crypto.stream">CryptoInputStream</a></dt>
+<dt><span class="strong"><a href="./org/apache/commons/crypto/stream/CipherInputStream.html#key">key</a></span> - Variable in class org.apache.commons.crypto.stream.<a href="./org/apache/commons/crypto/stream/CipherInputStream.html" title="class in org.apache.commons.crypto.stream">CipherInputStream</a></dt>
 <dd>&nbsp;</dd>
-<dt><span class="strong"><a href="./org/apache/commons/crypto/stream/CryptoOutputStream.html#key">key</a></span> - Variable in class org.apache.commons.crypto.stream.<a href="./org/apache/commons/crypto/stream/CryptoOutputStream.html" title="class in org.apache.commons.crypto.stream">CryptoOutputStream</a></dt>
+<dt><span class="strong"><a href="./org/apache/commons/crypto/stream/CipherOutputStream.html#key">key</a></span> - Variable in class org.apache.commons.crypto.stream.<a href="./org/apache/commons/crypto/stream/CipherOutputStream.html" title="class in org.apache.commons.crypto.stream">CipherOutputStream</a></dt>
 <dd>&nbsp;</dd>
 </dl>
 <a name="_L_">
@@ -857,9 +847,9 @@
 <dl>
 <dt><span class="strong"><a href="./org/apache/commons/crypto/utils/OSInfo.html#main(java.lang.String[])">main(String[])</a></span> - Static method in class org.apache.commons.crypto.utils.<a href="./org/apache/commons/crypto/utils/OSInfo.html" title="class in org.apache.commons.crypto.utils">OSInfo</a></dt>
 <dd>&nbsp;</dd>
-<dt><span class="strong"><a href="./org/apache/commons/crypto/stream/CryptoInputStream.html#mark(int)">mark(int)</a></span> - Method in class org.apache.commons.crypto.stream.<a href="./org/apache/commons/crypto/stream/CryptoInputStream.html" title="class in org.apache.commons.crypto.stream">CryptoInputStream</a></dt>
+<dt><span class="strong"><a href="./org/apache/commons/crypto/stream/CipherInputStream.html#mark(int)">mark(int)</a></span> - Method in class org.apache.commons.crypto.stream.<a href="./org/apache/commons/crypto/stream/CipherInputStream.html" title="class in org.apache.commons.crypto.stream">CipherInputStream</a></dt>
 <dd>&nbsp;</dd>
-<dt><span class="strong"><a href="./org/apache/commons/crypto/stream/CryptoInputStream.html#markSupported()">markSupported()</a></span> - Method in class org.apache.commons.crypto.stream.<a href="./org/apache/commons/crypto/stream/CryptoInputStream.html" title="class in org.apache.commons.crypto.stream">CryptoInputStream</a></dt>
+<dt><span class="strong"><a href="./org/apache/commons/crypto/stream/CipherInputStream.html#markSupported()">markSupported()</a></span> - Method in class org.apache.commons.crypto.stream.<a href="./org/apache/commons/crypto/stream/CipherInputStream.html" title="class in org.apache.commons.crypto.stream">CipherInputStream</a></dt>
 <dd>&nbsp;</dd>
 </dl>
 <a name="_N_">
@@ -871,8 +861,6 @@
 <dd>
 <div class="block">A helper to load the native code i.e.</div>
 </dd>
-<dt><span class="strong"><a href="./org/apache/commons/crypto/utils/NativeCodeLoader.html#NativeCodeLoader()">NativeCodeLoader()</a></span> - Constructor for class org.apache.commons.crypto.utils.<a href="./org/apache/commons/crypto/utils/NativeCodeLoader.html" title="class in org.apache.commons.crypto.utils">NativeCodeLoader</a></dt>
-<dd>&nbsp;</dd>
 <dt><span class="strong"><a href="./org/apache/commons/crypto/utils/ReflectionUtils.html#newInstance(java.lang.Class,%20java.lang.Object...)">newInstance(Class&lt;T&gt;, Object...)</a></span> - Static method in class org.apache.commons.crypto.utils.<a href="./org/apache/commons/crypto/utils/ReflectionUtils.html" title="class in org.apache.commons.crypto.utils">ReflectionUtils</a></dt>
 <dd>
 <div class="block">Uses the constructor represented by this <code>Constructor</code> object to
@@ -931,8 +919,6 @@
 <dd>
 <div class="block">JNI interface of <a href="./org/apache/commons/crypto/cipher/Openssl.html" title="class in org.apache.commons.crypto.cipher"><code>Openssl</code></a> implementation.</div>
 </dd>
-<dt><span class="strong"><a href="./org/apache/commons/crypto/cipher/OpensslNative.html#OpensslNative()">OpensslNative()</a></span> - Constructor for class org.apache.commons.crypto.cipher.<a href="./org/apache/commons/crypto/cipher/OpensslNative.html" title="class in org.apache.commons.crypto.cipher">OpensslNative</a></dt>
-<dd>&nbsp;</dd>
 <dt><a href="./org/apache/commons/crypto/random/OpensslSecureRandom.html" title="class in org.apache.commons.crypto.random"><span class="strong">OpensslSecureRandom</span></a> - Class in <a href="./org/apache/commons/crypto/random/package-summary.html">org.apache.commons.crypto.random</a></dt>
 <dd>
 <div class="block">OpenSSL secure random using JNI.</div>
@@ -945,8 +931,6 @@
 <dd>
 <div class="block">JNI interface of <a href="./org/apache/commons/crypto/random/SecureRandom.html" title="interface in org.apache.commons.crypto.random"><code>SecureRandom</code></a> implementation.</div>
 </dd>
-<dt><span class="strong"><a href="./org/apache/commons/crypto/random/OpensslSecureRandomNative.html#OpensslSecureRandomNative()">OpensslSecureRandomNative()</a></span> - Constructor for class org.apache.commons.crypto.random.<a href="./org/apache/commons/crypto/random/OpensslSecureRandomNative.html" title="class in org.apache.commons.crypto.random">OpensslSecureRandomNative</a></dt>
-<dd>&nbsp;</dd>
 <dt><a href="./org/apache/commons/crypto/cipher/package-summary.html">org.apache.commons.crypto.cipher</a> - package org.apache.commons.crypto.cipher</dt>
 <dd>
 <div class="block">Cipher classes</div>
@@ -979,8 +963,6 @@
 <dd>
 <div class="block">Provides OS name and architecture name.</div>
 </dd>
-<dt><span class="strong"><a href="./org/apache/commons/crypto/utils/OSInfo.html#OSInfo()">OSInfo()</a></span> - Constructor for class org.apache.commons.crypto.utils.<a href="./org/apache/commons/crypto/utils/OSInfo.html" title="class in org.apache.commons.crypto.utils">OSInfo</a></dt>
-<dd>&nbsp;</dd>
 <dt><a href="./org/apache/commons/crypto/random/OsSecureRandom.html" title="class in org.apache.commons.crypto.random"><span class="strong">OsSecureRandom</span></a> - Class in <a href="./org/apache/commons/crypto/random/package-summary.html">org.apache.commons.crypto.random</a></dt>
 <dd>
 <div class="block">A Random implementation that uses random bytes sourced from the
@@ -992,19 +974,19 @@
 </dd>
 <dt><span class="strong"><a href="./org/apache/commons/crypto/stream/output/StreamOutput.html#out">out</a></span> - Variable in class org.apache.commons.crypto.stream.output.<a href="./org/apache/commons/crypto/stream/output/StreamOutput.html" title="class in org.apache.commons.crypto.stream.output">StreamOutput</a></dt>
 <dd>&nbsp;</dd>
-<dt><span class="strong"><a href="./org/apache/commons/crypto/stream/CryptoInputStream.html#outBuffer">outBuffer</a></span> - Variable in class org.apache.commons.crypto.stream.<a href="./org/apache/commons/crypto/stream/CryptoInputStream.html" title="class in org.apache.commons.crypto.stream">CryptoInputStream</a></dt>
+<dt><span class="strong"><a href="./org/apache/commons/crypto/stream/CipherInputStream.html#outBuffer">outBuffer</a></span> - Variable in class org.apache.commons.crypto.stream.<a href="./org/apache/commons/crypto/stream/CipherInputStream.html" title="class in org.apache.commons.crypto.stream">CipherInputStream</a></dt>
 <dd>
 <div class="block">The decrypted data buffer.</div>
 </dd>
-<dt><span class="strong"><a href="./org/apache/commons/crypto/stream/CryptoOutputStream.html#outBuffer">outBuffer</a></span> - Variable in class org.apache.commons.crypto.stream.<a href="./org/apache/commons/crypto/stream/CryptoOutputStream.html" title="class in org.apache.commons.crypto.stream">CryptoOutputStream</a></dt>
+<dt><span class="strong"><a href="./org/apache/commons/crypto/stream/CipherOutputStream.html#outBuffer">outBuffer</a></span> - Variable in class org.apache.commons.crypto.stream.<a href="./org/apache/commons/crypto/stream/CipherOutputStream.html" title="class in org.apache.commons.crypto.stream">CipherOutputStream</a></dt>
 <dd>
 <div class="block">Encrypted data buffer.</div>
 </dd>
-<dt><span class="strong"><a href="./org/apache/commons/crypto/stream/CryptoOutputStream.html#output">output</a></span> - Variable in class org.apache.commons.crypto.stream.<a href="./org/apache/commons/crypto/stream/CryptoOutputStream.html" title="class in org.apache.commons.crypto.stream">CryptoOutputStream</a></dt>
+<dt><span class="strong"><a href="./org/apache/commons/crypto/stream/CipherOutputStream.html#output">output</a></span> - Variable in class org.apache.commons.crypto.stream.<a href="./org/apache/commons/crypto/stream/CipherOutputStream.html" title="class in org.apache.commons.crypto.stream">CipherOutputStream</a></dt>
 <dd>&nbsp;</dd>
 <dt><a href="./org/apache/commons/crypto/stream/output/Output.html" title="interface in org.apache.commons.crypto.stream.output"><span class="strong">Output</span></a> - Interface in <a href="./org/apache/commons/crypto/stream/output/package-summary.html">org.apache.commons.crypto.stream.output</a></dt>
 <dd>
-<div class="block">The Output interface abstract the output target of <code>CryptoOutputStream</code> so that
+<div class="block">The Output interface abstract the output target of <code>CipherOutputStream</code> so that
  different implementation of output can be used.</div>
 </dd>
 </dl>
@@ -1013,17 +995,17 @@
 </a>
 <h2 class="title">P</h2>
 <dl>
-<dt><a href="./org/apache/commons/crypto/stream/PositionedCryptoInputStream.html" title="class in org.apache.commons.crypto.stream"><span class="strong">PositionedCryptoInputStream</span></a> - Class in <a href="./org/apache/commons/crypto/stream/package-summary.html">org.apache.commons.crypto.stream</a></dt>
+<dt><a href="./org/apache/commons/crypto/stream/PositionedCipherInputStream.html" title="class in org.apache.commons.crypto.stream"><span class="strong">PositionedCipherInputStream</span></a> - Class in <a href="./org/apache/commons/crypto/stream/package-summary.html">org.apache.commons.crypto.stream</a></dt>
 <dd>
-<div class="block">PositionedCryptoInputStream provides the capability to decrypt the stream starting
+<div class="block">PositionedCipherInputStream provides the capability to decrypt the stream starting
  at random position as well as provides the foundation for positioned read for
  decrypting.</div>
 </dd>
-<dt><span class="strong"><a href="./org/apache/commons/crypto/stream/PositionedCryptoInputStream.html#PositionedCryptoInputStream(java.util.Properties,%20org.apache.commons.crypto.stream.input.Input,%20byte[],%20byte[],%20long)">PositionedCryptoInputStream(Properties, Input, byte[], byte[], long)</a></span> - Constructor for class org.apache.commons.crypto.stream.<a href="./org/apache/commons/crypto/stream/PositionedCryptoInputStream.html" title="class in org.apache.commons.crypto.stream">PositionedCryptoInputStream</a></dt>
+<dt><span class="strong"><a href="./org/apache/commons/crypto/stream/PositionedCipherInputStream.html#PositionedCipherInputStream(java.util.Properties,%20org.apache.commons.crypto.stream.input.Input,%20byte[],%20byte[],%20long)">PositionedCipherInputStream(Properties, Input, byte[], byte[], long)</a></span> - Constructor for class org.apache.commons.crypto.stream.<a href="./org/apache/commons/crypto/stream/PositionedCipherInputStream.html" title="class in org.apache.commons.crypto.stream">PositionedCipherInputStream</a></dt>
 <dd>&nbsp;</dd>
-<dt><span class="strong"><a href="./org/apache/commons/crypto/stream/PositionedCryptoInputStream.html#PositionedCryptoInputStream(org.apache.commons.crypto.stream.input.Input,%20org.apache.commons.crypto.cipher.Cipher,%20int,%20byte[],%20byte[],%20long)">PositionedCryptoInputStream(Input, Cipher, int, byte[], byte[], long)</a></span> - Constructor for class org.apache.commons.crypto.stream.<a href="./org/apache/commons/crypto/stream/PositionedCryptoInputStream.html" title="class in org.apache.commons.crypto.stream">PositionedCryptoInputStream</a></dt>
+<dt><span class="strong"><a href="./org/apache/commons/crypto/stream/PositionedCipherInputStream.html#PositionedCipherInputStream(org.apache.commons.crypto.stream.input.Input,%20org.apache.commons.crypto.cipher.Cipher,%20int,%20byte[],%20byte[],%20long)">PositionedCipherInputStream(Input, Cipher, int, byte[], byte[], long)</a></span> - Constructor for class org.apache.commons.crypto.stream.<a href="./org/apache/commons/crypto/stream/PositionedCipherInputStream.html" title="class in org.apache.commons.crypto.stream">PositionedCipherInputStream</a></dt>
 <dd>&nbsp;</dd>
-<dt><span class="strong"><a href="./org/apache/commons/crypto/stream/CTRCryptoInputStream.html#postDecryption(long)">postDecryption(long)</a></span> - Method in class org.apache.commons.crypto.stream.<a href="./org/apache/commons/crypto/stream/CTRCryptoInputStream.html" title="class in org.apache.commons.crypto.stream">CTRCryptoInputStream</a></dt>
+<dt><span class="strong"><a href="./org/apache/commons/crypto/stream/CTRCipherInputStream.html#postDecryption(long)">postDecryption(long)</a></span> - Method in class org.apache.commons.crypto.stream.<a href="./org/apache/commons/crypto/stream/CTRCipherInputStream.html" title="class in org.apache.commons.crypto.stream">CTRCipherInputStream</a></dt>
 <dd>
 <div class="block">This method is executed immediately after decryption.</div>
 </dd>
@@ -1041,15 +1023,15 @@
 </a>
 <h2 class="title">R</h2>
 <dl>
-<dt><span class="strong"><a href="./org/apache/commons/crypto/stream/CryptoInputStream.html#read()">read()</a></span> - Method in class org.apache.commons.crypto.stream.<a href="./org/apache/commons/crypto/stream/CryptoInputStream.html" title="class in org.apache.commons.crypto.stream">CryptoInputStream</a></dt>
+<dt><span class="strong"><a href="./org/apache/commons/crypto/stream/CipherInputStream.html#read()">read()</a></span> - Method in class org.apache.commons.crypto.stream.<a href="./org/apache/commons/crypto/stream/CipherInputStream.html" title="class in org.apache.commons.crypto.stream">CipherInputStream</a></dt>
 <dd>&nbsp;</dd>
-<dt><span class="strong"><a href="./org/apache/commons/crypto/stream/CryptoInputStream.html#read(byte[],%20int,%20int)">read(byte[], int, int)</a></span> - Method in class org.apache.commons.crypto.stream.<a href="./org/apache/commons/crypto/stream/CryptoInputStream.html" title="class in org.apache.commons.crypto.stream">CryptoInputStream</a></dt>
+<dt><span class="strong"><a href="./org/apache/commons/crypto/stream/CipherInputStream.html#read(byte[],%20int,%20int)">read(byte[], int, int)</a></span> - Method in class org.apache.commons.crypto.stream.<a href="./org/apache/commons/crypto/stream/CipherInputStream.html" title="class in org.apache.commons.crypto.stream">CipherInputStream</a></dt>
 <dd>
 <div class="block">Decryption is buffer based.</div>
 </dd>
-<dt><span class="strong"><a href="./org/apache/commons/crypto/stream/CryptoInputStream.html#read(java.nio.ByteBuffer)">read(ByteBuffer)</a></span> - Method in class org.apache.commons.crypto.stream.<a href="./org/apache/commons/crypto/stream/CryptoInputStream.html" title="class in org.apache.commons.crypto.stream">CryptoInputStream</a></dt>
+<dt><span class="strong"><a href="./org/apache/commons/crypto/stream/CipherInputStream.html#read(java.nio.ByteBuffer)">read(ByteBuffer)</a></span> - Method in class org.apache.commons.crypto.stream.<a href="./org/apache/commons/crypto/stream/CipherInputStream.html" title="class in org.apache.commons.crypto.stream">CipherInputStream</a></dt>
 <dd>&nbsp;</dd>
-<dt><span class="strong"><a href="./org/apache/commons/crypto/stream/CTRCryptoInputStream.html#read(java.nio.ByteBuffer)">read(ByteBuffer)</a></span> - Method in class org.apache.commons.crypto.stream.<a href="./org/apache/commons/crypto/stream/CTRCryptoInputStream.html" title="class in org.apache.commons.crypto.stream">CTRCryptoInputStream</a></dt>
+<dt><span class="strong"><a href="./org/apache/commons/crypto/stream/CTRCipherInputStream.html#read(java.nio.ByteBuffer)">read(ByteBuffer)</a></span> - Method in class org.apache.commons.crypto.stream.<a href="./org/apache/commons/crypto/stream/CTRCipherInputStream.html" title="class in org.apache.commons.crypto.stream">CTRCipherInputStream</a></dt>
 <dd>
 <div class="block">ByteBuffer read.</div>
 </dd>
@@ -1078,16 +1060,16 @@
 <dd>
 <div class="block">Overrides the <a href="./org/apache/commons/crypto/stream/input/Input.html#read(long,%20byte[],%20int,%20int)"><code>Input.read(long, byte[], int, int)</code></a>.</div>
 </dd>
-<dt><span class="strong"><a href="./org/apache/commons/crypto/stream/PositionedCryptoInputStream.html#read(long,%20byte[],%20int,%20int)">read(long, byte[], int, int)</a></span> - Method in class org.apache.commons.crypto.stream.<a href="./org/apache/commons/crypto/stream/PositionedCryptoInputStream.html" title="class in org.apache.commons.crypto.stream">PositionedCryptoInputStream</a></dt>
+<dt><span class="strong"><a href="./org/apache/commons/crypto/stream/PositionedCipherInputStream.html#read(long,%20byte[],%20int,%20int)">read(long, byte[], int, int)</a></span> - Method in class org.apache.commons.crypto.stream.<a href="./org/apache/commons/crypto/stream/PositionedCipherInputStream.html" title="class in org.apache.commons.crypto.stream">PositionedCipherInputStream</a></dt>
 <dd>
 <div class="block">Read upto the specified number of bytes from a given position
  within a stream and return the number of bytes read.</div>
 </dd>
-<dt><span class="strong"><a href="./org/apache/commons/crypto/stream/PositionedCryptoInputStream.html#readFully(long,%20byte[],%20int,%20int)">readFully(long, byte[], int, int)</a></span> - Method in class org.apache.commons.crypto.stream.<a href="./org/apache/commons/crypto/stream/PositionedCryptoInputStream.html" title="class in org.apache.commons.crypto.stream">PositionedCryptoInputStream</a></dt>
+<dt><span class="strong"><a href="./org/apache/commons/crypto/stream/PositionedCipherInputStream.html#readFully(long,%20byte[],%20int,%20int)">readFully(long, byte[], int, int)</a></span> - Method in class org.apache.commons.crypto.stream.<a href="./org/apache/commons/crypto/stream/PositionedCipherInputStream.html" title="class in org.apache.commons.crypto.stream">PositionedCipherInputStream</a></dt>
 <dd>
 <div class="block">Read the specified number of bytes from a given position within a stream.</div>
 </dd>
-<dt><span class="strong"><a href="./org/apache/commons/crypto/stream/PositionedCryptoInputStream.html#readFully(long,%20byte[])">readFully(long, byte[])</a></span> - Method in class org.apache.commons.crypto.stream.<a href="./org/apache/commons/crypto/stream/PositionedCryptoInputStream.html" title="class in org.apache.commons.crypto.stream">PositionedCryptoInputStream</a></dt>
+<dt><span class="strong"><a href="./org/apache/commons/crypto/stream/PositionedCipherInputStream.html#readFully(long,%20byte[])">readFully(long, byte[])</a></span> - Method in class org.apache.commons.crypto.stream.<a href="./org/apache/commons/crypto/stream/PositionedCipherInputStream.html" title="class in org.apache.commons.crypto.stream">PositionedCipherInputStream</a></dt>
 <dd>&nbsp;</dd>
 <dt><span class="strong"><a href="./org/apache/commons/crypto/utils/IOUtils.html#readFully(java.io.InputStream,%20byte[],%20int,%20int)">readFully(InputStream, byte[], int, int)</a></span> - Static method in class org.apache.commons.crypto.utils.<a href="./org/apache/commons/crypto/utils/IOUtils.html" title="class in org.apache.commons.crypto.utils">IOUtils</a></dt>
 <dd>
@@ -1101,18 +1083,16 @@
 <dd>
 <div class="block">General utility methods for working with reflection.</div>
 </dd>
-<dt><span class="strong"><a href="./org/apache/commons/crypto/utils/ReflectionUtils.html#ReflectionUtils()">ReflectionUtils()</a></span> - Constructor for class org.apache.commons.crypto.utils.<a href="./org/apache/commons/crypto/utils/ReflectionUtils.html" title="class in org.apache.commons.crypto.utils">ReflectionUtils</a></dt>
+<dt><span class="strong"><a href="./org/apache/commons/crypto/stream/CipherInputStream.html#reset()">reset()</a></span> - Method in class org.apache.commons.crypto.stream.<a href="./org/apache/commons/crypto/stream/CipherInputStream.html" title="class in org.apache.commons.crypto.stream">CipherInputStream</a></dt>
 <dd>&nbsp;</dd>
-<dt><span class="strong"><a href="./org/apache/commons/crypto/stream/CryptoInputStream.html#reset()">reset()</a></span> - Method in class org.apache.commons.crypto.stream.<a href="./org/apache/commons/crypto/stream/CryptoInputStream.html" title="class in org.apache.commons.crypto.stream">CryptoInputStream</a></dt>
-<dd>&nbsp;</dd>
-<dt><span class="strong"><a href="./org/apache/commons/crypto/stream/CTRCryptoInputStream.html#resetCipher(long)">resetCipher(long)</a></span> - Method in class org.apache.commons.crypto.stream.<a href="./org/apache/commons/crypto/stream/CTRCryptoInputStream.html" title="class in org.apache.commons.crypto.stream">CTRCryptoInputStream</a></dt>
+<dt><span class="strong"><a href="./org/apache/commons/crypto/stream/CTRCipherInputStream.html#resetCipher(long)">resetCipher(long)</a></span> - Method in class org.apache.commons.crypto.stream.<a href="./org/apache/commons/crypto/stream/CTRCipherInputStream.html" title="class in org.apache.commons.crypto.stream">CTRCipherInputStream</a></dt>
 <dd>
 <div class="block">Calculate the counter and iv, reset the cipher.</div>
 </dd>
-<dt><span class="strong"><a href="./org/apache/commons/crypto/stream/CTRCryptoInputStream.html#resetStreamOffset(long)">resetStreamOffset(long)</a></span> - Method in class org.apache.commons.crypto.stream.<a href="./org/apache/commons/crypto/stream/CTRCryptoInputStream.html" title="class in org.apache.commons.crypto.stream">CTRCryptoInputStream</a></dt>
+<dt><span class="strong"><a href="./org/apache/commons/crypto/stream/CTRCipherInputStream.html#resetStreamOffset(long)">resetStreamOffset(long)</a></span> - Method in class org.apache.commons.crypto.stream.<a href="./org/apache/commons/crypto/stream/CTRCipherInputStream.html" title="class in org.apache.commons.crypto.stream">CTRCipherInputStream</a></dt>
 <dd>
-<div class="block">Reset the underlying stream offset; clear <a href="./org/apache/commons/crypto/stream/CryptoInputStream.html#inBuffer"><code>CryptoInputStream.inBuffer</code></a> and
- <a href="./org/apache/commons/crypto/stream/CryptoInputStream.html#outBuffer"><code>CryptoInputStream.outBuffer</code></a>.</div>
+<div class="block">Reset the underlying stream offset; clear <a href="./org/apache/commons/crypto/stream/CipherInputStream.html#inBuffer"><code>CipherInputStream.inBuffer</code></a> and
+ <a href="./org/apache/commons/crypto/stream/CipherInputStream.html#outBuffer"><code>CipherInputStream.outBuffer</code></a>.</div>
 </dd>
 </dl>
 <a name="_S_">
@@ -1128,9 +1108,7 @@
 <dd>
 <div class="block">This is the factory class used for <a href="./org/apache/commons/crypto/random/SecureRandom.html" title="interface in org.apache.commons.crypto.random"><code>SecureRandom</code></a>.</div>
 </dd>
-<dt><span class="strong"><a href="./org/apache/commons/crypto/random/SecureRandomFactory.html#SecureRandomFactory()">SecureRandomFactory()</a></span> - Constructor for class org.apache.commons.crypto.random.<a href="./org/apache/commons/crypto/random/SecureRandomFactory.html" title="class in org.apache.commons.crypto.random">SecureRandomFactory</a></dt>
-<dd>&nbsp;</dd>
-<dt><span class="strong"><a href="./org/apache/commons/crypto/stream/CTRCryptoInputStream.html#seek(long)">seek(long)</a></span> - Method in class org.apache.commons.crypto.stream.<a href="./org/apache/commons/crypto/stream/CTRCryptoInputStream.html" title="class in org.apache.commons.crypto.stream">CTRCryptoInputStream</a></dt>
+<dt><span class="strong"><a href="./org/apache/commons/crypto/stream/CTRCipherInputStream.html#seek(long)">seek(long)</a></span> - Method in class org.apache.commons.crypto.stream.<a href="./org/apache/commons/crypto/stream/CTRCipherInputStream.html" title="class in org.apache.commons.crypto.stream">CTRCipherInputStream</a></dt>
 <dd>
 <div class="block">Seek the stream to a specific position relative to start of the under layer stream.</div>
 </dd>
@@ -1150,9 +1128,9 @@
 <dd>
 <div class="block">Overrides <a href="./org/apache/commons/crypto/random/OpensslSecureRandom.html" title="class in org.apache.commons.crypto.random"><code>OpensslSecureRandom</code></a>.</div>
 </dd>
-<dt><span class="strong"><a href="./org/apache/commons/crypto/stream/CryptoInputStream.html#skip(long)">skip(long)</a></span> - Method in class org.apache.commons.crypto.stream.<a href="./org/apache/commons/crypto/stream/CryptoInputStream.html" title="class in org.apache.commons.crypto.stream">CryptoInputStream</a></dt>
+<dt><span class="strong"><a href="./org/apache/commons/crypto/stream/CipherInputStream.html#skip(long)">skip(long)</a></span> - Method in class org.apache.commons.crypto.stream.<a href="./org/apache/commons/crypto/stream/CipherInputStream.html" title="class in org.apache.commons.crypto.stream">CipherInputStream</a></dt>
 <dd>&nbsp;</dd>
-<dt><span class="strong"><a href="./org/apache/commons/crypto/stream/CTRCryptoInputStream.html#skip(long)">skip(long)</a></span> - Method in class org.apache.commons.crypto.stream.<a href="./org/apache/commons/crypto/stream/CTRCryptoInputStream.html" title="class in org.apache.commons.crypto.stream">CTRCryptoInputStream</a></dt>
+<dt><span class="strong"><a href="./org/apache/commons/crypto/stream/CTRCipherInputStream.html#skip(long)">skip(long)</a></span> - Method in class org.apache.commons.crypto.stream.<a href="./org/apache/commons/crypto/stream/CTRCipherInputStream.html" title="class in org.apache.commons.crypto.stream">CTRCipherInputStream</a></dt>
 <dd>
 <div class="block">Skip n bytes</div>
 </dd>
@@ -1178,24 +1156,24 @@
 <dt><a href="./org/apache/commons/crypto/stream/input/StreamInput.html" title="class in org.apache.commons.crypto.stream.input"><span class="strong">StreamInput</span></a> - Class in <a href="./org/apache/commons/crypto/stream/input/package-summary.html">org.apache.commons.crypto.stream.input</a></dt>
 <dd>
 <div class="block">The StreamInput class takes a <code>InputStream</code> object and
- wraps it as <code>Input</code> object acceptable by <code>CryptoInputStream</code>.</div>
+ wraps it as <code>Input</code> object acceptable by <code>CipherInputStream</code>.</div>
 </dd>
 <dt><span class="strong"><a href="./org/apache/commons/crypto/stream/input/StreamInput.html#StreamInput(java.io.InputStream,%20int)">StreamInput(InputStream, int)</a></span> - Constructor for class org.apache.commons.crypto.stream.input.<a href="./org/apache/commons/crypto/stream/input/StreamInput.html" title="class in org.apache.commons.crypto.stream.input">StreamInput</a></dt>
 <dd>
 <div class="block">Constructs a <a href="./org/apache/commons/crypto/stream/input/StreamInput.html" title="class in org.apache.commons.crypto.stream.input"><code>StreamInput</code></a>.</div>
 </dd>
-<dt><span class="strong"><a href="./org/apache/commons/crypto/stream/CTRCryptoInputStream.html#streamOffset">streamOffset</a></span> - Variable in class org.apache.commons.crypto.stream.<a href="./org/apache/commons/crypto/stream/CTRCryptoInputStream.html" title="class in org.apache.commons.crypto.stream">CTRCryptoInputStream</a></dt>
+<dt><span class="strong"><a href="./org/apache/commons/crypto/stream/CTRCipherInputStream.html#streamOffset">streamOffset</a></span> - Variable in class org.apache.commons.crypto.stream.<a href="./org/apache/commons/crypto/stream/CTRCipherInputStream.html" title="class in org.apache.commons.crypto.stream">CTRCipherInputStream</a></dt>
 <dd>
 <div class="block">Underlying stream offset</div>
 </dd>
-<dt><span class="strong"><a href="./org/apache/commons/crypto/stream/CTRCryptoOutputStream.html#streamOffset">streamOffset</a></span> - Variable in class org.apache.commons.crypto.stream.<a href="./org/apache/commons/crypto/stream/CTRCryptoOutputStream.html" title="class in org.apache.commons.crypto.stream">CTRCryptoOutputStream</a></dt>
+<dt><span class="strong"><a href="./org/apache/commons/crypto/stream/CTRCipherOutputStream.html#streamOffset">streamOffset</a></span> - Variable in class org.apache.commons.crypto.stream.<a href="./org/apache/commons/crypto/stream/CTRCipherOutputStream.html" title="class in org.apache.commons.crypto.stream">CTRCipherOutputStream</a></dt>
 <dd>
 <div class="block">Underlying stream offset.</div>
 </dd>
 <dt><a href="./org/apache/commons/crypto/stream/output/StreamOutput.html" title="class in org.apache.commons.crypto.stream.output"><span class="strong">StreamOutput</span></a> - Class in <a href="./org/apache/commons/crypto/stream/output/package-summary.html">org.apache.commons.crypto.stream.output</a></dt>
 <dd>
 <div class="block">The StreamOutput class takes a <code>OutputStream</code> object and wraps it as 
- <code>Output</code> object acceptable by <code>CryptoOutputStream</code> as the output target.</div>
+ <code>Output</code> object acceptable by <code>CipherOutputStream</code> as the output target.</div>
 </dd>
 <dt><span class="strong"><a href="./org/apache/commons/crypto/stream/output/StreamOutput.html#StreamOutput(java.io.OutputStream,%20int)">StreamOutput(OutputStream, int)</a></span> - Constructor for class org.apache.commons.crypto.stream.output.<a href="./org/apache/commons/crypto/stream/output/StreamOutput.html" title="class in org.apache.commons.crypto.stream.output">StreamOutput</a></dt>
 <dd>
@@ -1261,8 +1239,6 @@
 <dd>
 <div class="block">General utility methods.</div>
 </dd>
-<dt><span class="strong"><a href="./org/apache/commons/crypto/utils/Utils.html#Utils()">Utils()</a></span> - Constructor for class org.apache.commons.crypto.utils.<a href="./org/apache/commons/crypto/utils/Utils.html" title="class in org.apache.commons.crypto.utils">Utils</a></dt>
-<dd>&nbsp;</dd>
 </dl>
 <a name="_V_">
 <!--   -->
@@ -1284,13 +1260,13 @@ the order they are declared.</div>
 </a>
 <h2 class="title">W</h2>
 <dl>
-<dt><span class="strong"><a href="./org/apache/commons/crypto/stream/CryptoOutputStream.html#write(int)">write(int)</a></span> - Method in class org.apache.commons.crypto.stream.<a href="./org/apache/commons/crypto/stream/CryptoOutputStream.html" title="class in org.apache.commons.crypto.stream">CryptoOutputStream</a></dt>
+<dt><span class="strong"><a href="./org/apache/commons/crypto/stream/CipherOutputStream.html#write(int)">write(int)</a></span> - Method in class org.apache.commons.crypto.stream.<a href="./org/apache/commons/crypto/stream/CipherOutputStream.html" title="class in org.apache.commons.crypto.stream">CipherOutputStream</a></dt>
 <dd>&nbsp;</dd>
-<dt><span class="strong"><a href="./org/apache/commons/crypto/stream/CryptoOutputStream.html#write(byte[],%20int,%20int)">write(byte[], int, int)</a></span> - Method in class org.apache.commons.crypto.stream.<a href="./org/apache/commons/crypto/stream/CryptoOutputStream.html" title="class in org.apache.commons.crypto.stream">CryptoOutputStream</a></dt>
+<dt><span class="strong"><a href="./org/apache/commons/crypto/stream/CipherOutputStream.html#write(byte[],%20int,%20int)">write(byte[], int, int)</a></span> - Method in class org.apache.commons.crypto.stream.<a href="./org/apache/commons/crypto/stream/CipherOutputStream.html" title="class in org.apache.commons.crypto.stream">CipherOutputStream</a></dt>
 <dd>
 <div class="block">Encryption is buffer based.</div>
 </dd>
-<dt><span class="strong"><a href="./org/apache/commons/crypto/stream/CryptoOutputStream.html#write(java.nio.ByteBuffer)">write(ByteBuffer)</a></span> - Method in class org.apache.commons.crypto.stream.<a href="./org/apache/commons/crypto/stream/CryptoOutputStream.html" title="class in org.apache.commons.crypto.stream">CryptoOutputStream</a></dt>
+<dt><span class="strong"><a href="./org/apache/commons/crypto/stream/CipherOutputStream.html#write(java.nio.ByteBuffer)">write(ByteBuffer)</a></span> - Method in class org.apache.commons.crypto.stream.<a href="./org/apache/commons/crypto/stream/CipherOutputStream.html" title="class in org.apache.commons.crypto.stream">CipherOutputStream</a></dt>
 <dd>&nbsp;</dd>
 <dt><span class="strong"><a href="./org/apache/commons/crypto/stream/output/ChannelOutput.html#write(java.nio.ByteBuffer)">write(ByteBuffer)</a></span> - Method in class org.apache.commons.crypto.stream.output.<a href="./org/apache/commons/crypto/stream/output/ChannelOutput.html" title="class in org.apache.commons.crypto.stream.output">ChannelOutput</a></dt>
 <dd>

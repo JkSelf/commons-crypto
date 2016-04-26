@@ -28,15 +28,15 @@ import org.apache.commons.crypto.cipher.Cipher;
 /**
  * General utility methods for working with reflection.
  */
-<span class="nc" id="L31">public class ReflectionUtils {</span>
+public class ReflectionUtils {
 
   private static final Map&lt;ClassLoader, Map&lt;String, WeakReference&lt;Class&lt;?&gt;&gt;&gt;&gt;
-<span class="fc" id="L34">    CACHE_CLASSES = new WeakHashMap&lt;ClassLoader, Map&lt;String, WeakReference&lt;Class&lt;?&gt;&gt;&gt;&gt;();</span>
+<span class="nc" id="L34">    CACHE_CLASSES = new WeakHashMap&lt;ClassLoader, Map&lt;String, WeakReference&lt;Class&lt;?&gt;&gt;&gt;&gt;();</span>
 
   private static ClassLoader classLoader;
   static {
-<span class="fc" id="L38">    classLoader = Thread.currentThread().getContextClassLoader();</span>
-<span class="pc bpc" id="L39" title="1 of 2 branches missed.">    if (classLoader == null) {</span>
+<span class="nc" id="L38">    classLoader = Thread.currentThread().getContextClassLoader();</span>
+<span class="nc bnc" id="L39" title="All 2 branches missed.">    if (classLoader == null) {</span>
 <span class="nc" id="L40">      classLoader = Cipher.class.getClassLoader();</span>
     }
   }
@@ -44,14 +44,16 @@ import org.apache.commons.crypto.cipher.Cipher;
   /**
    * Sentinel value to store negative cache results in {@link #CACHE_CLASSES}.
    */
-<span class="fc" id="L47">  private static final Class&lt;?&gt; NEGATIVE_CACHE_SENTINEL =</span>
+<span class="nc" id="L47">  private static final Class&lt;?&gt; NEGATIVE_CACHE_SENTINEL =</span>
     NegativeCacheSentinel.class;
+
+<span class="nc" id="L50">  private ReflectionUtils() {}</span>
 
   /**
    * A unique class which is used as a sentinel value in the caching
    * for getClassByName. {@link Cipher#getClassByNameOrNull(String)}.
    */
-<span class="nc" id="L54">  private static abstract class NegativeCacheSentinel {}</span>
+<span class="nc" id="L56">  private static abstract class NegativeCacheSentinel {}</span>
 
   /**
    * Uses the constructor represented by this {@code Constructor} object to
@@ -67,21 +69,21 @@ import org.apache.commons.crypto.cipher.Cipher;
   @SuppressWarnings(&quot;rawtypes&quot;)
   public static &lt;T&gt; T newInstance(Class&lt;T&gt; klass, Object ... args) {
     try {
-<span class="fc" id="L70">      Constructor&lt;T&gt; ctor = null;</span>
+<span class="nc" id="L72">      Constructor&lt;T&gt; ctor = null;</span>
 
-<span class="pc bpc" id="L72" title="1 of 2 branches missed.">      if (args.length == 0) {</span>
-<span class="nc" id="L73">        ctor = klass.getDeclaredConstructor(new Class[] {});</span>
+<span class="nc bnc" id="L74" title="All 2 branches missed.">      if (args.length == 0) {</span>
+<span class="nc" id="L75">        ctor = klass.getDeclaredConstructor(new Class[] {});</span>
       } else {
-<span class="fc" id="L75">        Class[] argClses = new Class[args.length];</span>
-<span class="fc bfc" id="L76" title="All 2 branches covered.">        for (int i = 0; i &lt; args.length; i++) {</span>
-<span class="fc" id="L77">          argClses[i] = args[i].getClass();</span>
+<span class="nc" id="L77">        Class[] argClses = new Class[args.length];</span>
+<span class="nc bnc" id="L78" title="All 2 branches missed.">        for (int i = 0; i &lt; args.length; i++) {</span>
+<span class="nc" id="L79">          argClses[i] = args[i].getClass();</span>
         }
-<span class="fc" id="L79">        ctor = klass.getDeclaredConstructor(argClses);</span>
+<span class="nc" id="L81">        ctor = klass.getDeclaredConstructor(argClses);</span>
       }
-<span class="fc" id="L81">      ctor.setAccessible(true);</span>
-<span class="fc" id="L82">      return ctor.newInstance(args);</span>
-<span class="nc" id="L83">    } catch (Exception e) {</span>
-<span class="nc" id="L84">      throw new RuntimeException(e);</span>
+<span class="nc" id="L83">      ctor.setAccessible(true);</span>
+<span class="nc" id="L84">      return ctor.newInstance(args);</span>
+<span class="nc" id="L85">    } catch (Exception e) {</span>
+<span class="nc" id="L86">      throw new RuntimeException(e);</span>
     }
   }
 
@@ -102,21 +104,21 @@ import org.apache.commons.crypto.cipher.Cipher;
                                          Class&lt;? extends U&gt; defaultValue, 
                                          Class&lt;U&gt; xface) {
     try {
-<span class="nc" id="L105">      Class&lt;?&gt; theClass = null;</span>
-<span class="nc bnc" id="L106" title="All 4 branches missed.">      if (name != null &amp;&amp; !name.isEmpty()) {</span>
-<span class="nc" id="L107">        theClass = getClassByName(name);</span>
+<span class="nc" id="L107">      Class&lt;?&gt; theClass = null;</span>
+<span class="nc bnc" id="L108" title="All 4 branches missed.">      if (name != null &amp;&amp; !name.isEmpty()) {</span>
+<span class="nc" id="L109">        theClass = getClassByName(name);</span>
       }
-<span class="nc bnc" id="L109" title="All 2 branches missed.">      if (theClass == null) {</span>
-<span class="nc" id="L110">        theClass = defaultValue;</span>
+<span class="nc bnc" id="L111" title="All 2 branches missed.">      if (theClass == null) {</span>
+<span class="nc" id="L112">        theClass = defaultValue;</span>
       }
-<span class="nc bnc" id="L112" title="All 4 branches missed.">      if (theClass != null &amp;&amp; !xface.isAssignableFrom(theClass))</span>
-<span class="nc" id="L113">        throw new RuntimeException(theClass+&quot; not &quot;+xface.getName());</span>
-<span class="nc bnc" id="L114" title="All 2 branches missed.">      else if (theClass != null)</span>
-<span class="nc" id="L115">        return theClass.asSubclass(xface);</span>
+<span class="nc bnc" id="L114" title="All 4 branches missed.">      if (theClass != null &amp;&amp; !xface.isAssignableFrom(theClass))</span>
+<span class="nc" id="L115">        throw new RuntimeException(theClass+&quot; not &quot;+xface.getName());</span>
+<span class="nc bnc" id="L116" title="All 2 branches missed.">      else if (theClass != null)</span>
+<span class="nc" id="L117">        return theClass.asSubclass(xface);</span>
       else
-<span class="nc" id="L117">        return null;</span>
-<span class="nc" id="L118">    } catch (Exception e) {</span>
-<span class="nc" id="L119">      throw new RuntimeException(e);</span>
+<span class="nc" id="L119">        return null;</span>
+<span class="nc" id="L120">    } catch (Exception e) {</span>
+<span class="nc" id="L121">      throw new RuntimeException(e);</span>
     }
   }
 
@@ -131,13 +133,13 @@ import org.apache.commons.crypto.cipher.Cipher;
    *         or &lt;code&gt;defaultValue&lt;/code&gt;. 
    */
   public static Class&lt;?&gt; getClass(String name, Class&lt;?&gt; defaultValue) {
-<span class="nc" id="L134">    String valueString = System.getProperty(name);</span>
-<span class="nc bnc" id="L135" title="All 2 branches missed.">    if (valueString == null)</span>
-<span class="nc" id="L136">      return defaultValue;</span>
+<span class="nc" id="L136">    String valueString = System.getProperty(name);</span>
+<span class="nc bnc" id="L137" title="All 2 branches missed.">    if (valueString == null)</span>
+<span class="nc" id="L138">      return defaultValue;</span>
     try {
-<span class="nc" id="L138">      return getClassByName(valueString);</span>
-<span class="nc" id="L139">    } catch (ClassNotFoundException e) {</span>
-<span class="nc" id="L140">      throw new RuntimeException(e);</span>
+<span class="nc" id="L140">      return getClassByName(valueString);</span>
+<span class="nc" id="L141">    } catch (ClassNotFoundException e) {</span>
+<span class="nc" id="L142">      throw new RuntimeException(e);</span>
     }
   }
 
@@ -150,11 +152,11 @@ import org.apache.commons.crypto.cipher.Cipher;
    */
   public static Class&lt;?&gt; getClassByName(String name)
       throws ClassNotFoundException {
-<span class="fc" id="L153">    Class&lt;?&gt; ret = getClassByNameOrNull(name);</span>
-<span class="pc bpc" id="L154" title="1 of 2 branches missed.">    if (ret == null) {</span>
-<span class="nc" id="L155">      throw new ClassNotFoundException(&quot;Class &quot; + name + &quot; not found&quot;);</span>
+<span class="nc" id="L155">    Class&lt;?&gt; ret = getClassByNameOrNull(name);</span>
+<span class="nc bnc" id="L156" title="All 2 branches missed.">    if (ret == null) {</span>
+<span class="nc" id="L157">      throw new ClassNotFoundException(&quot;Class &quot; + name + &quot; not found&quot;);</span>
     }
-<span class="fc" id="L157">    return ret;</span>
+<span class="nc" id="L159">    return ret;</span>
   }
   
   /**
@@ -168,37 +170,37 @@ import org.apache.commons.crypto.cipher.Cipher;
   private static Class&lt;?&gt; getClassByNameOrNull(String name) {
     Map&lt;String, WeakReference&lt;Class&lt;?&gt;&gt;&gt; map;
 
-<span class="fc" id="L171">    synchronized (CACHE_CLASSES) {</span>
-<span class="fc" id="L172">      map = CACHE_CLASSES.get(classLoader);</span>
-<span class="fc bfc" id="L173" title="All 2 branches covered.">      if (map == null) {</span>
-<span class="fc" id="L174">        map = Collections.synchronizedMap(</span>
+<span class="nc" id="L173">    synchronized (CACHE_CLASSES) {</span>
+<span class="nc" id="L174">      map = CACHE_CLASSES.get(classLoader);</span>
+<span class="nc bnc" id="L175" title="All 2 branches missed.">      if (map == null) {</span>
+<span class="nc" id="L176">        map = Collections.synchronizedMap(</span>
           new WeakHashMap&lt;String, WeakReference&lt;Class&lt;?&gt;&gt;&gt;());
-<span class="fc" id="L176">        CACHE_CLASSES.put(classLoader, map);</span>
+<span class="nc" id="L178">        CACHE_CLASSES.put(classLoader, map);</span>
       }
-<span class="pc" id="L178">    }</span>
+<span class="nc" id="L180">    }</span>
 
-<span class="fc" id="L180">    Class&lt;?&gt; clazz = null;</span>
-<span class="fc" id="L181">    WeakReference&lt;Class&lt;?&gt;&gt; ref = map.get(name); </span>
-<span class="fc bfc" id="L182" title="All 2 branches covered.">    if (ref != null) {</span>
-<span class="fc" id="L183">       clazz = ref.get();</span>
+<span class="nc" id="L182">    Class&lt;?&gt; clazz = null;</span>
+<span class="nc" id="L183">    WeakReference&lt;Class&lt;?&gt;&gt; ref = map.get(name); </span>
+<span class="nc bnc" id="L184" title="All 2 branches missed.">    if (ref != null) {</span>
+<span class="nc" id="L185">       clazz = ref.get();</span>
     }
      
-<span class="fc bfc" id="L186" title="All 2 branches covered.">    if (clazz == null) {</span>
+<span class="nc bnc" id="L188" title="All 2 branches missed.">    if (clazz == null) {</span>
       try {
-<span class="fc" id="L188">        clazz = Class.forName(name, true, classLoader);</span>
-<span class="nc" id="L189">      } catch (ClassNotFoundException e) {</span>
+<span class="nc" id="L190">        clazz = Class.forName(name, true, classLoader);</span>
+<span class="nc" id="L191">      } catch (ClassNotFoundException e) {</span>
         // Leave a marker that the class isn't found
-<span class="nc" id="L191">        map.put(name, new WeakReference&lt;Class&lt;?&gt;&gt;(NEGATIVE_CACHE_SENTINEL));</span>
-<span class="nc" id="L192">        return null;</span>
-<span class="fc" id="L193">      }</span>
+<span class="nc" id="L193">        map.put(name, new WeakReference&lt;Class&lt;?&gt;&gt;(NEGATIVE_CACHE_SENTINEL));</span>
+<span class="nc" id="L194">        return null;</span>
+<span class="nc" id="L195">      }</span>
       // two putters can race here, but they'll put the same class
-<span class="fc" id="L195">      map.put(name, new WeakReference&lt;Class&lt;?&gt;&gt;(clazz));</span>
-<span class="fc" id="L196">      return clazz;</span>
-<span class="pc bpc" id="L197" title="1 of 2 branches missed.">    } else if (clazz == NEGATIVE_CACHE_SENTINEL) {</span>
-<span class="nc" id="L198">      return null; // not found</span>
+<span class="nc" id="L197">      map.put(name, new WeakReference&lt;Class&lt;?&gt;&gt;(clazz));</span>
+<span class="nc" id="L198">      return clazz;</span>
+<span class="nc bnc" id="L199" title="All 2 branches missed.">    } else if (clazz == NEGATIVE_CACHE_SENTINEL) {</span>
+<span class="nc" id="L200">      return null; // not found</span>
     } else {
       // cache hit
-<span class="fc" id="L201">      return clazz;</span>
+<span class="nc" id="L203">      return clazz;</span>
     }
   }
 }

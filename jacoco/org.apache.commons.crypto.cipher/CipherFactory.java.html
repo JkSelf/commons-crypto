@@ -30,10 +30,12 @@ import org.slf4j.LoggerFactory;
 /**
  * This is the factory class used for creating cipher class
  */
-<span class="nc" id="L33">public class CipherFactory {</span>
-  
+public class CipherFactory {
+
   /** LOG instance for {@CipherFactory} */
-<span class="fc" id="L36">  public final static Logger LOG = LoggerFactory.getLogger(CipherFactory.class);</span>
+<span class="nc" id="L36">  public final static Logger LOG = LoggerFactory.getLogger(CipherFactory.class);</span>
+
+<span class="nc" id="L38">  private CipherFactory() {}</span>
 
   /**
    * Gets a cipher instance for specified algorithm/mode/padding.
@@ -47,59 +49,57 @@ import org.slf4j.LoggerFactory;
    */
   public static Cipher getInstance(CipherTransformation transformation,
       Properties props) throws GeneralSecurityException {
-<span class="fc" id="L50">    List&lt;Class&lt;? extends Cipher&gt;&gt; klasses = getCipherClasses(props);</span>
-<span class="fc" id="L51">    Cipher cipher = null;</span>
-<span class="pc bpc" id="L52" title="1 of 2 branches missed.">    if (klasses != null) {</span>
-<span class="pc bpc" id="L53" title="1 of 2 branches missed.">      for (Class&lt;? extends Cipher&gt; klass : klasses) {</span>
+<span class="nc" id="L52">    List&lt;Class&lt;? extends Cipher&gt;&gt; klasses = getCipherClasses(props);</span>
+<span class="nc" id="L53">    Cipher cipher = null;</span>
+<span class="nc bnc" id="L54" title="All 2 branches missed.">    if (klasses != null) {</span>
+<span class="nc bnc" id="L55" title="All 2 branches missed.">      for (Class&lt;? extends Cipher&gt; klass : klasses) {</span>
         try {
-<span class="fc" id="L55">          cipher = ReflectionUtils.newInstance(klass, props, transformation);</span>
-<span class="pc bpc" id="L56" title="1 of 2 branches missed.">          if (cipher != null) {</span>
-<span class="fc" id="L57">            LOG.debug(&quot;Using cipher {} for transformation {}.&quot;, klass.getName(),</span>
+<span class="nc" id="L57">          cipher = ReflectionUtils.newInstance(klass, props, transformation);</span>
+<span class="nc bnc" id="L58" title="All 2 branches missed.">          if (cipher != null) {</span>
+<span class="nc" id="L59">            LOG.debug(&quot;Using cipher {} for transformation {}.&quot;, klass.getName(),</span>
                 transformation.getName());
-<span class="fc" id="L59">            break;</span>
+<span class="nc" id="L61">            break;</span>
           }
-<span class="nc" id="L61">        } catch (Exception e) {</span>
-<span class="nc" id="L62">          LOG.error(&quot;Cipher {} is not available or transformation {} is not &quot; +</span>
+<span class="nc" id="L63">        } catch (Exception e) {</span>
+<span class="nc" id="L64">          LOG.error(&quot;Cipher {} is not available or transformation {} is not &quot; +</span>
             &quot;supported.&quot;, klass.getName(), transformation.getName());
-<span class="nc" id="L64">        }</span>
-<span class="nc" id="L65">      }</span>
+<span class="nc" id="L66">        }</span>
+<span class="nc" id="L67">      }</span>
     }
 
-<span class="pc bpc" id="L68" title="1 of 2 branches missed.">    return (cipher == null) ? new JceCipher(props, transformation) : cipher;</span>
+<span class="nc bnc" id="L70" title="All 2 branches missed.">    return (cipher == null) ? new JceCipher(props, transformation) : cipher;</span>
   }
 
   /**
    * Gets a cipher for algorithm/mode/padding in config value
-   * chimera.crypto.cipher.transformation
+   * commons.crypto.cipher.transformation
    *
    * @return Cipher the cipher object Null value will be returned if no
    *         cipher classes with transformation configured.
    */
   public static Cipher getInstance(CipherTransformation transformation)
       throws GeneralSecurityException {
-<span class="nc" id="L80">    return getInstance(transformation, null);</span>
+<span class="nc" id="L82">    return getInstance(transformation, new Properties());</span>
   }
 
+  // Return OpenSSLCipher if Properties is null or empty by default
   private static List&lt;Class&lt;? extends Cipher&gt;&gt; getCipherClasses(Properties props) {
-<span class="fc" id="L84">    List&lt;Class&lt;? extends Cipher&gt;&gt; result = new ArrayList&lt;Class&lt;? extends</span>
+<span class="nc" id="L87">    List&lt;Class&lt;? extends Cipher&gt;&gt; result = new ArrayList&lt;Class&lt;? extends</span>
         Cipher&gt;&gt;();
-<span class="fc" id="L86">    String cipherClassString = Utils.getCipherClassString(props);</span>
-<span class="pc bpc" id="L87" title="1 of 2 branches missed.">    if (cipherClassString == null) {</span>
-<span class="nc" id="L88">      LOG.debug(&quot;No cipher classes configured.&quot;);</span>
-<span class="nc" id="L89">      return null;</span>
-    }
-<span class="fc bfc" id="L91" title="All 2 branches covered.">    for (String c : Utils.splitClassNames(cipherClassString, &quot;,&quot;)) {</span>
+<span class="nc" id="L89">    String cipherClassString = Utils.getCipherClassString(props);</span>
+
+<span class="nc bnc" id="L91" title="All 2 branches missed.">    for (String c : Utils.splitClassNames(cipherClassString, &quot;,&quot;)) {</span>
       try {
-<span class="fc" id="L93">        Class&lt;?&gt; cls = ReflectionUtils.getClassByName(c);</span>
-<span class="fc" id="L94">        result.add(cls.asSubclass(Cipher.class));</span>
+<span class="nc" id="L93">        Class&lt;?&gt; cls = ReflectionUtils.getClassByName(c);</span>
+<span class="nc" id="L94">        result.add(cls.asSubclass(Cipher.class));</span>
 <span class="nc" id="L95">      } catch (ClassCastException e) {</span>
 <span class="nc" id="L96">        LOG.error(&quot;Class {} is not a Cipher.&quot;, c);</span>
 <span class="nc" id="L97">      } catch (ClassNotFoundException e) {</span>
 <span class="nc" id="L98">        LOG.error(&quot;Cipher {} not found.&quot;, c);</span>
-<span class="pc" id="L99">      }</span>
-<span class="fc" id="L100">    }</span>
+<span class="nc" id="L99">      }</span>
+<span class="nc" id="L100">    }</span>
 
-<span class="fc" id="L102">    return result;</span>
+<span class="nc" id="L102">    return result;</span>
   }
 
 }

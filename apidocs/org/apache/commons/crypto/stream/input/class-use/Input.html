@@ -110,7 +110,7 @@
 <tbody>
 <tr class="altColor">
 <td class="colFirst"><code>protected <a href="../../../../../../../org/apache/commons/crypto/stream/input/Input.html" title="interface in org.apache.commons.crypto.stream.input">Input</a></code></td>
-<td class="colLast"><span class="strong">CryptoInputStream.</span><code><strong><a href="../../../../../../../org/apache/commons/crypto/stream/CryptoInputStream.html#input">input</a></strong></code>&nbsp;</td>
+<td class="colLast"><span class="strong">CipherInputStream.</span><code><strong><a href="../../../../../../../org/apache/commons/crypto/stream/CipherInputStream.html#input">input</a></strong></code>&nbsp;</td>
 </tr>
 </tbody>
 </table>
@@ -121,21 +121,21 @@
 </tr>
 <tbody>
 <tr class="altColor">
-<td class="colLast"><code><strong><a href="../../../../../../../org/apache/commons/crypto/stream/CryptoInputStream.html#CryptoInputStream(org.apache.commons.crypto.stream.input.Input,%20org.apache.commons.crypto.cipher.Cipher,%20int,%20byte[],%20byte[])">CryptoInputStream</a></strong>(<a href="../../../../../../../org/apache/commons/crypto/stream/input/Input.html" title="interface in org.apache.commons.crypto.stream.input">Input</a>&nbsp;input,
+<td class="colLast"><code><strong><a href="../../../../../../../org/apache/commons/crypto/stream/CipherInputStream.html#CipherInputStream(org.apache.commons.crypto.stream.input.Input,%20org.apache.commons.crypto.cipher.Cipher,%20int,%20byte[],%20byte[])">CipherInputStream</a></strong>(<a href="../../../../../../../org/apache/commons/crypto/stream/input/Input.html" title="interface in org.apache.commons.crypto.stream.input">Input</a>&nbsp;input,
                                   <a href="../../../../../../../org/apache/commons/crypto/cipher/Cipher.html" title="interface in org.apache.commons.crypto.cipher">Cipher</a>&nbsp;cipher,
                                   int&nbsp;bufferSize,
                                   byte[]&nbsp;key,
                                   byte[]&nbsp;iv)</code>&nbsp;</td>
 </tr>
 <tr class="rowColor">
-<td class="colLast"><code><strong><a href="../../../../../../../org/apache/commons/crypto/stream/CTRCryptoInputStream.html#CTRCryptoInputStream(org.apache.commons.crypto.stream.input.Input,%20org.apache.commons.crypto.cipher.Cipher,%20int,%20byte[],%20byte[])">CTRCryptoInputStream</a></strong>(<a href="../../../../../../../org/apache/commons/crypto/stream/input/Input.html" title="interface in org.apache.commons.crypto.stream.input">Input</a>&nbsp;input,
+<td class="colLast"><code><strong><a href="../../../../../../../org/apache/commons/crypto/stream/CTRCipherInputStream.html#CTRCipherInputStream(org.apache.commons.crypto.stream.input.Input,%20org.apache.commons.crypto.cipher.Cipher,%20int,%20byte[],%20byte[])">CTRCipherInputStream</a></strong>(<a href="../../../../../../../org/apache/commons/crypto/stream/input/Input.html" title="interface in org.apache.commons.crypto.stream.input">Input</a>&nbsp;input,
                                         <a href="../../../../../../../org/apache/commons/crypto/cipher/Cipher.html" title="interface in org.apache.commons.crypto.cipher">Cipher</a>&nbsp;cipher,
                                         int&nbsp;bufferSize,
                                         byte[]&nbsp;key,
                                         byte[]&nbsp;iv)</code>&nbsp;</td>
 </tr>
 <tr class="altColor">
-<td class="colLast"><code><strong><a href="../../../../../../../org/apache/commons/crypto/stream/CTRCryptoInputStream.html#CTRCryptoInputStream(org.apache.commons.crypto.stream.input.Input,%20org.apache.commons.crypto.cipher.Cipher,%20int,%20byte[],%20byte[],%20long)">CTRCryptoInputStream</a></strong>(<a href="../../../../../../../org/apache/commons/crypto/stream/input/Input.html" title="interface in org.apache.commons.crypto.stream.input">Input</a>&nbsp;input,
+<td class="colLast"><code><strong><a href="../../../../../../../org/apache/commons/crypto/stream/CTRCipherInputStream.html#CTRCipherInputStream(org.apache.commons.crypto.stream.input.Input,%20org.apache.commons.crypto.cipher.Cipher,%20int,%20byte[],%20byte[],%20long)">CTRCipherInputStream</a></strong>(<a href="../../../../../../../org/apache/commons/crypto/stream/input/Input.html" title="interface in org.apache.commons.crypto.stream.input">Input</a>&nbsp;input,
                                         <a href="../../../../../../../org/apache/commons/crypto/cipher/Cipher.html" title="interface in org.apache.commons.crypto.cipher">Cipher</a>&nbsp;cipher,
                                         int&nbsp;bufferSize,
                                         byte[]&nbsp;key,
@@ -143,7 +143,7 @@
                                         long&nbsp;streamOffset)</code>&nbsp;</td>
 </tr>
 <tr class="rowColor">
-<td class="colLast"><code><strong><a href="../../../../../../../org/apache/commons/crypto/stream/PositionedCryptoInputStream.html#PositionedCryptoInputStream(org.apache.commons.crypto.stream.input.Input,%20org.apache.commons.crypto.cipher.Cipher,%20int,%20byte[],%20byte[],%20long)">PositionedCryptoInputStream</a></strong>(<a href="../../../../../../../org/apache/commons/crypto/stream/input/Input.html" title="interface in org.apache.commons.crypto.stream.input">Input</a>&nbsp;input,
+<td class="colLast"><code><strong><a href="../../../../../../../org/apache/commons/crypto/stream/PositionedCipherInputStream.html#PositionedCipherInputStream(org.apache.commons.crypto.stream.input.Input,%20org.apache.commons.crypto.cipher.Cipher,%20int,%20byte[],%20byte[],%20long)">PositionedCipherInputStream</a></strong>(<a href="../../../../../../../org/apache/commons/crypto/stream/input/Input.html" title="interface in org.apache.commons.crypto.stream.input">Input</a>&nbsp;input,
                                                       <a href="../../../../../../../org/apache/commons/crypto/cipher/Cipher.html" title="interface in org.apache.commons.crypto.cipher">Cipher</a>&nbsp;cipher,
                                                       int&nbsp;bufferSize,
                                                       byte[]&nbsp;key,
@@ -151,7 +151,7 @@
                                                       long&nbsp;streamOffset)</code>&nbsp;</td>
 </tr>
 <tr class="altColor">
-<td class="colLast"><code><strong><a href="../../../../../../../org/apache/commons/crypto/stream/PositionedCryptoInputStream.html#PositionedCryptoInputStream(java.util.Properties,%20org.apache.commons.crypto.stream.input.Input,%20byte[],%20byte[],%20long)">PositionedCryptoInputStream</a></strong>(<a href="http://download.oracle.com/javase/6/docs/api/java/util/Properties.html?is-external=true" title="class or interface in java.util">Properties</a>&nbsp;props,
+<td class="colLast"><code><strong><a href="../../../../../../../org/apache/commons/crypto/stream/PositionedCipherInputStream.html#PositionedCipherInputStream(java.util.Properties,%20org.apache.commons.crypto.stream.input.Input,%20byte[],%20byte[],%20long)">PositionedCipherInputStream</a></strong>(<a href="http://download.oracle.com/javase/6/docs/api/java/util/Properties.html?is-external=true" title="class or interface in java.util">Properties</a>&nbsp;props,
                                                       <a href="../../../../../../../org/apache/commons/crypto/stream/input/Input.html" title="interface in org.apache.commons.crypto.stream.input">Input</a>&nbsp;in,
                                                       byte[]&nbsp;key,
                                                       byte[]&nbsp;iv,
@@ -175,14 +175,14 @@
 <td class="colFirst"><code>class&nbsp;</code></td>
 <td class="colLast"><code><strong><a href="../../../../../../../org/apache/commons/crypto/stream/input/ChannelInput.html" title="class in org.apache.commons.crypto.stream.input">ChannelInput</a></strong></code>
 <div class="block">The ChannelInput class takes a <code>ReadableByteChannel</code> object and
- wraps it as <code>Input</code> object acceptable by <code>CryptoInputStream</code>.</div>
+ wraps it as <code>Input</code> object acceptable by <code>CipherInputStream</code>.</div>
 </td>
 </tr>
 <tr class="rowColor">
 <td class="colFirst"><code>class&nbsp;</code></td>
 <td class="colLast"><code><strong><a href="../../../../../../../org/apache/commons/crypto/stream/input/StreamInput.html" title="class in org.apache.commons.crypto.stream.input">StreamInput</a></strong></code>
 <div class="block">The StreamInput class takes a <code>InputStream</code> object and
- wraps it as <code>Input</code> object acceptable by <code>CryptoInputStream</code>.</div>
+ wraps it as <code>Input</code> object acceptable by <code>CipherInputStream</code>.</div>
 </td>
 </tr>
 </tbody>

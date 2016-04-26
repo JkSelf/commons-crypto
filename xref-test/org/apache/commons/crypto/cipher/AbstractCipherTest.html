@@ -62,7 +62,7 @@
 <a class="jxr_linenumber" name="L54" href="#L54">54</a>      Utils.checkNotNull(cipherClass);
 <a class="jxr_linenumber" name="L55" href="#L55">55</a>      Utils.checkNotNull(transformations);
 <a class="jxr_linenumber" name="L56" href="#L56">56</a>      props = <strong class="jxr_keyword">new</strong> Properties();
-<a class="jxr_linenumber" name="L57" href="#L57">57</a>      props.setProperty(ConfigurationKeys.CHIMERA_CRYPTO_CIPHER_CLASSES_KEY,
+<a class="jxr_linenumber" name="L57" href="#L57">57</a>      props.setProperty(ConfigurationKeys.COMMONS_CRYPTO_CIPHER_CLASSES_KEY,
 <a class="jxr_linenumber" name="L58" href="#L58">58</a>          cipherClass);
 <a class="jxr_linenumber" name="L59" href="#L59">59</a>    }
 <a class="jxr_linenumber" name="L60" href="#L60">60</a>  
@@ -188,7 +188,7 @@
 <a class="jxr_linenumber" name="L180" href="#L180">180</a>       <strong class="jxr_keyword">int</strong>[] bufferLenList = <strong class="jxr_keyword">new</strong> <strong class="jxr_keyword">int</strong>[] {2 * 1024 - 128, 2 * 1024 - 125};
 <a class="jxr_linenumber" name="L181" href="#L181">181</a>       <strong class="jxr_keyword">for</strong> (<strong class="jxr_keyword">int</strong> bufferLen : bufferLenList) {
 <a class="jxr_linenumber" name="L182" href="#L182">182</a>         resetCipher(transformation, key, iv);
-<a class="jxr_linenumber" name="L183" href="#L183">183</a>         
+<a class="jxr_linenumber" name="L183" href="#L183">183</a> 
 <a class="jxr_linenumber" name="L184" href="#L184">184</a>         <strong class="jxr_keyword">int</strong> offset = 0;
 <a class="jxr_linenumber" name="L185" href="#L185">185</a>         <em class="jxr_comment">// encrypt (update + doFinal) the data</em>
 <a class="jxr_linenumber" name="L186" href="#L186">186</a>         <strong class="jxr_keyword">int</strong> cipherPos = 0;

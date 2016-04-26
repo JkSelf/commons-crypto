@@ -26,7 +26,9 @@ import org.apache.commons.logging.Log;
 /**
  * General utility methods for working with IO.
  */
-<span class="nc" id="L29">public class IOUtils {</span>
+public class IOUtils {
+
+<span class="nc" id="L31">  private IOUtils() {}</span>
 
   /**
    * Does the readFully based on the Input read.
@@ -39,16 +41,16 @@ import org.apache.commons.logging.Log;
    */
   public static void readFully(InputStream in, byte buf[],
       int off, int len) throws IOException {
-<span class="fc" id="L42">    int toRead = len;</span>
-<span class="fc bfc" id="L43" title="All 2 branches covered.">    while (toRead &gt; 0) {</span>
-<span class="fc" id="L44">      int ret = in.read(buf, off, toRead);</span>
-<span class="pc bpc" id="L45" title="1 of 2 branches missed.">      if (ret &lt; 0) {</span>
-<span class="nc" id="L46">        throw new IOException( &quot;Premature EOF from inputStream&quot;);</span>
+<span class="nc" id="L44">    int toRead = len;</span>
+<span class="nc bnc" id="L45" title="All 2 branches missed.">    while (toRead &gt; 0) {</span>
+<span class="nc" id="L46">      int ret = in.read(buf, off, toRead);</span>
+<span class="nc bnc" id="L47" title="All 2 branches missed.">      if (ret &lt; 0) {</span>
+<span class="nc" id="L48">        throw new IOException( &quot;Premature EOF from inputStream&quot;);</span>
       }
-<span class="fc" id="L48">      toRead -= ret;</span>
-<span class="fc" id="L49">      off += ret;</span>
-<span class="fc" id="L50">    }</span>
-<span class="fc" id="L51">  }</span>
+<span class="nc" id="L50">      toRead -= ret;</span>
+<span class="nc" id="L51">      off += ret;</span>
+<span class="nc" id="L52">    }</span>
+<span class="nc" id="L53">  }</span>
 
   /**
    * Does the readFully based on Input's positioned read.
@@ -63,15 +65,15 @@ import org.apache.commons.logging.Log;
    */
   public static void readFully(Input in, long position,
       byte[] buffer, int offset, int length) throws IOException {
-<span class="fc" id="L66">    int nread = 0;</span>
-<span class="fc bfc" id="L67" title="All 2 branches covered.">    while (nread &lt; length) {</span>
-<span class="fc" id="L68">      int nbytes = in.read(position+nread, buffer, offset+nread, length-nread);</span>
-<span class="fc bfc" id="L69" title="All 2 branches covered.">      if (nbytes &lt; 0) {</span>
-<span class="fc" id="L70">        throw new IOException(&quot;End of stream reached before reading fully.&quot;);</span>
+<span class="nc" id="L68">    int nread = 0;</span>
+<span class="nc bnc" id="L69" title="All 2 branches missed.">    while (nread &lt; length) {</span>
+<span class="nc" id="L70">      int nbytes = in.read(position+nread, buffer, offset+nread, length-nread);</span>
+<span class="nc bnc" id="L71" title="All 2 branches missed.">      if (nbytes &lt; 0) {</span>
+<span class="nc" id="L72">        throw new IOException(&quot;End of stream reached before reading fully.&quot;);</span>
       }
-<span class="fc" id="L72">      nread += nbytes;</span>
-<span class="fc" id="L73">    }</span>
-<span class="fc" id="L74">  }</span>
+<span class="nc" id="L74">      nread += nbytes;</span>
+<span class="nc" id="L75">    }</span>
+<span class="nc" id="L76">  }</span>
 
   /**
    * Closes the Closeable objects and &lt;b&gt;ignore&lt;/b&gt; any {@link IOException} or
@@ -81,17 +83,17 @@ import org.apache.commons.logging.Log;
    * @param closeables the objects to close.
    */
   public static void cleanup(Log log, java.io.Closeable... closeables) {
-<span class="fc bfc" id="L84" title="All 2 branches covered.">    for (java.io.Closeable c : closeables) {</span>
-<span class="pc bpc" id="L85" title="1 of 2 branches missed.">      if (c != null) {</span>
+<span class="nc bnc" id="L86" title="All 2 branches missed.">    for (java.io.Closeable c : closeables) {</span>
+<span class="nc bnc" id="L87" title="All 2 branches missed.">      if (c != null) {</span>
         try {
-<span class="fc" id="L87">          c.close();</span>
-<span class="nc" id="L88">        } catch(Throwable e) {</span>
-<span class="nc bnc" id="L89" title="All 4 branches missed.">          if (log != null &amp;&amp; log.isDebugEnabled()) {</span>
-<span class="nc" id="L90">            log.debug(&quot;Exception in closing &quot; + c, e);</span>
+<span class="nc" id="L89">          c.close();</span>
+<span class="nc" id="L90">        } catch(Throwable e) {</span>
+<span class="nc bnc" id="L91" title="All 4 branches missed.">          if (log != null &amp;&amp; log.isDebugEnabled()) {</span>
+<span class="nc" id="L92">            log.debug(&quot;Exception in closing &quot; + c, e);</span>
           }
-<span class="fc" id="L92">        }</span>
+<span class="nc" id="L94">        }</span>
       }
     }
-<span class="fc" id="L95">  }</span>
+<span class="nc" id="L97">  }</span>
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.eclemma.org/jacoco">JaCoCo</a> 0.7.5.201505241946</span></div></body></html>

@@ -51,8 +51,8 @@
 <span class="sourceLineNo">043</span>    try {<a name="line.43"></a>
 <span class="sourceLineNo">044</span>      instance = java.security.SecureRandom<a name="line.44"></a>
 <span class="sourceLineNo">045</span>          .getInstance(properties.getProperty(<a name="line.45"></a>
-<span class="sourceLineNo">046</span>              ConfigurationKeys.CHIMERA_CRYPTO_SECURE_RANDOM_JAVA_ALGORITHM_KEY,<a name="line.46"></a>
-<span class="sourceLineNo">047</span>              ConfigurationKeys.CHIMERA_CRYPTO_SECURE_RANDOM_JAVA_ALGORITHM_DEFAULT));<a name="line.47"></a>
+<span class="sourceLineNo">046</span>              ConfigurationKeys.COMMONS_CRYPTO_SECURE_RANDOM_JAVA_ALGORITHM_KEY,<a name="line.46"></a>
+<span class="sourceLineNo">047</span>              ConfigurationKeys.COMMONS_CRYPTO_SECURE_RANDOM_JAVA_ALGORITHM_DEFAULT));<a name="line.47"></a>
 <span class="sourceLineNo">048</span>    } catch (NoSuchAlgorithmException e) {<a name="line.48"></a>
 <span class="sourceLineNo">049</span>      LOG.error("Failed to create java secure random due to error: " + e);<a name="line.49"></a>
 <span class="sourceLineNo">050</span>    }<a name="line.50"></a>

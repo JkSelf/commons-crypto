@@ -250,13 +250,13 @@
 *****************************************************
 Summary
 -------
-Generated at: 2016-04-26T10:31:45+08:00
+Generated at: 2016-04-26T14:06:43+08:00
 Notes: 1
 Binaries: 3
 Archives: 0
-Standards: 84
+Standards: 85
 
-Apache Licensed: 69
+Apache Licensed: 70
 Generated Documents: 0
 
 JavaDocs are generated and so license header is optional
@@ -312,16 +312,17 @@ Archives:
   N     LICENSE.txt
  !????? .travis.yml
  !????? Makefile.common
-  AL    src/test/java/org/apache/commons/crypto/stream/CBCPKCS5PaddingCryptoStreamTest.java
-  AL    src/test/java/org/apache/commons/crypto/stream/AbstractCryptoStreamTest.java
-  AL    src/test/java/org/apache/commons/crypto/stream/CBCNoPaddingCryptoStreamTest.java
-  AL    src/test/java/org/apache/commons/crypto/stream/CTRNoPaddingCryptoStreamTest.java
-  AL    src/test/java/org/apache/commons/crypto/stream/CTRCryptoStreamTest.java
-  AL    src/test/java/org/apache/commons/crypto/stream/PositionedCryptoInputStreamTest.java
+  AL    src/test/java/org/apache/commons/crypto/stream/CTRNoPaddingCipherStreamTest.java
+  AL    src/test/java/org/apache/commons/crypto/stream/AbstractCipherStreamTest.java
+  AL    src/test/java/org/apache/commons/crypto/stream/CBCNoPaddingCipherStreamTest.java
+  AL    src/test/java/org/apache/commons/crypto/stream/CBCPKCS5PaddingCipherStreamTest.java
+  AL    src/test/java/org/apache/commons/crypto/stream/CTRCipherStreamTest.java
+  AL    src/test/java/org/apache/commons/crypto/stream/PositionedCipherInputStreamTest.java
   AL    src/test/java/org/apache/commons/crypto/utils/UtilsTest.java
   AL    src/test/java/org/apache/commons/crypto/cipher/OpensslCipherTest.java
   AL    src/test/java/org/apache/commons/crypto/cipher/JceCipherTest.java
   AL    src/test/java/org/apache/commons/crypto/cipher/AbstractCipherTest.java
+  AL    src/test/java/org/apache/commons/crypto/cipher/CipherFactoryTest.java
   AL    src/test/java/org/apache/commons/crypto/cipher/TestData.java
   AL    src/test/java/org/apache/commons/crypto/random/AbstractRandomTest.java
   AL    src/test/java/org/apache/commons/crypto/random/TestOpensslSecureRandom.java
@@ -335,20 +336,20 @@ Archives:
   AL    src/site/xdoc/proposal.xml
   AL    src/site/xdoc/mail-lists.xml
   AL    src/site/xdoc/issue-tracking.xml
-  AL    src/main/java/org/apache/commons/crypto/stream/CryptoOutputStream.java
   AL    src/main/java/org/apache/commons/crypto/stream/output/Output.java
   AL    src/main/java/org/apache/commons/crypto/stream/output/StreamOutput.java
   AL    src/main/java/org/apache/commons/crypto/stream/output/ChannelOutput.java
   AL    src/main/java/org/apache/commons/crypto/stream/output/package-info.java
-  AL    src/main/java/org/apache/commons/crypto/stream/CTRCryptoInputStream.java
-  AL    src/main/java/org/apache/commons/crypto/stream/CTRCryptoOutputStream.java
-  AL    src/main/java/org/apache/commons/crypto/stream/CryptoInputStream.java
+  AL    src/main/java/org/apache/commons/crypto/stream/PositionedCipherInputStream.java
+  AL    src/main/java/org/apache/commons/crypto/stream/CTRCipherOutputStream.java
+  AL    src/main/java/org/apache/commons/crypto/stream/CipherInputStream.java
+  AL    src/main/java/org/apache/commons/crypto/stream/CTRCipherInputStream.java
   AL    src/main/java/org/apache/commons/crypto/stream/input/Input.java
   AL    src/main/java/org/apache/commons/crypto/stream/input/ChannelInput.java
   AL    src/main/java/org/apache/commons/crypto/stream/input/StreamInput.java
   AL    src/main/java/org/apache/commons/crypto/stream/input/package-info.java
+  AL    src/main/java/org/apache/commons/crypto/stream/CipherOutputStream.java
   AL    src/main/java/org/apache/commons/crypto/stream/package-info.java
-  AL    src/main/java/org/apache/commons/crypto/stream/PositionedCryptoInputStream.java
  !????? src/main/java/org/apache/commons/crypto/VERSION
   AL    src/main/java/org/apache/commons/crypto/utils/ReflectionUtils.java
   AL    src/main/java/org/apache/commons/crypto/utils/Utils.java
@@ -392,7 +393,7 @@ Archives:
 
 #ifndef __CONFIG_H
 #define __CONFIG_H
-#define CHIMERA_OPENSSL_LIBRARY &quot;libcrypto.so&quot;
+#define COMMONS_CRYPTO_OPENSSL_LIBRARY &quot;libcrypto.so&quot;
 #endif // __CONFIG_H
 
 =======================================================================
@@ -758,8 +759,8 @@ include Makefile.common
 
 MVN:=mvn
 
-CHIMERA_OUT:=$(TARGET)/$(chimera)-$(os_arch)
-CHIMERA_OBJ:=$(addprefix $(CHIMERA_OUT)/,OpensslSecureRandom.o OpensslNative.o)
+COMMONS_CRYPTO_OUT:=$(TARGET)/$(commons-crypto)-$(os_arch)
+COMMONS_CRYPTO_OBJ:=$(addprefix $(COMMONS_CRYPTO_OUT)/,OpensslSecureRandom.o OpensslNative.o)
 
 ifeq ($(OS_NAME),SunOS)
   TAR:= gtar
@@ -786,21 +787,21 @@ $(TARGET)/jni-classes/org/apache/commons/crypto/cipher/OpensslNative.h: $(TARGET
 $(TARGET)/jni-classes/org/apache/commons/crypto/random/OpensslSecureRandomNative.h: $(TARGET)/jni-classes/org/apache/commons/crypto/random/OpensslSecureRandomNative.class
 	$(JAVAH) -force -classpath $(TARGET)/jni-classes -o $@ org.apache.commons.crypto.random.OpensslSecureRandomNative
 
-$(CHIMERA_OUT)/OpensslNative.o : $(SRC_NATIVE)/org/apache/commons/crypto/cipher/OpensslNative.c $(TARGET)/jni-classes/org/apache/commons/crypto/cipher/OpensslNative.h
+$(COMMONS_CRYPTO_OUT)/OpensslNative.o : $(SRC_NATIVE)/org/apache/commons/crypto/cipher/OpensslNative.c $(TARGET)/jni-classes/org/apache/commons/crypto/cipher/OpensslNative.h
 	@mkdir -p $(@D)
 	$(CC) $(CFLAGS) -c $&lt; -o $@
 
-$(CHIMERA_OUT)/OpensslSecureRandom.o : $(SRC_NATIVE)/org/apache/commons/crypto/random/OpensslSecureRandomNative.c $(TARGET)/jni-classes/org/apache/commons/crypto/random/OpensslSecureRandomNative.h
+$(COMMONS_CRYPTO_OUT)/OpensslSecureRandom.o : $(SRC_NATIVE)/org/apache/commons/crypto/random/OpensslSecureRandomNative.c $(TARGET)/jni-classes/org/apache/commons/crypto/random/OpensslSecureRandomNative.h
 	@mkdir -p $(@D)
 	$(CC) $(CFLAGS) -c $&lt; -o $@
 
-$(CHIMERA_OUT)/$(LIBNAME): $(CHIMERA_OBJ)
+$(COMMONS_CRYPTO_OUT)/$(LIBNAME): $(COMMONS_CRYPTO_OBJ)
 	$(CXX) $(CXXFLAGS) -o $@ $+ $(LINKFLAGS)
 	$(STRIP) $@
 
 clean:
 	rm -rf $(TARGET)
-	rm -rf $(CHIMERA_OUT)
+	rm -rf $(COMMONS_CRYPTO_OUT)
 
 native: $(NATIVE_DLL)
 
@@ -833,13 +834,13 @@ endif
 
 
 JAVA  := &quot;$$JAVA_HOME/bin/java&quot;
-JAVAC := &quot;$$JAVA_HOME/bin/javac&quot; 
+JAVAC := &quot;$$JAVA_HOME/bin/javac&quot;
 JAVAH := &quot;$$JAVA_HOME/bin/javah&quot;
 
 OSINFO_CLASS := org.apache.commons.crypto.utils.OSInfo
 OSINFO_PROG := lib/org/apache/commons/crypto/utils/OSInfo.class
 
-## building OSInfo.java 
+## building OSInfo.java
 $(info compiling OSInfo.java)
 $(shell mkdir -p lib)
 $(shell $(JAVAC) src/main/java/org/apache/commons/crypto/utils/OSInfo.java -d lib)
@@ -856,7 +857,7 @@ else
   sep := :
 endif
 
-chimera := chimera-$(VERSION)
+commons-crypto := commons-crypto-$(VERSION)
 
 
 jni_md := $(shell find -L &quot;$(JAVA_HOME)&quot; -name jni_md.h | head -1)

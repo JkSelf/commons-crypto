@@ -104,7 +104,7 @@
 <tbody>
 <tr class="altColor">
 <td class="colFirst"><code>protected <a href="../../../../../../../org/apache/commons/crypto/stream/output/Output.html" title="interface in org.apache.commons.crypto.stream.output">Output</a></code></td>
-<td class="colLast"><span class="strong">CryptoOutputStream.</span><code><strong><a href="../../../../../../../org/apache/commons/crypto/stream/CryptoOutputStream.html#output">output</a></strong></code>&nbsp;</td>
+<td class="colLast"><span class="strong">CipherOutputStream.</span><code><strong><a href="../../../../../../../org/apache/commons/crypto/stream/CipherOutputStream.html#output">output</a></strong></code>&nbsp;</td>
 </tr>
 </tbody>
 </table>
@@ -115,21 +115,21 @@
 </tr>
 <tbody>
 <tr class="altColor">
-<td class="colLast"><code><strong><a href="../../../../../../../org/apache/commons/crypto/stream/CryptoOutputStream.html#CryptoOutputStream(org.apache.commons.crypto.stream.output.Output,%20org.apache.commons.crypto.cipher.Cipher,%20int,%20byte[],%20byte[])">CryptoOutputStream</a></strong>(<a href="../../../../../../../org/apache/commons/crypto/stream/output/Output.html" title="interface in org.apache.commons.crypto.stream.output">Output</a>&nbsp;output,
+<td class="colLast"><code><strong><a href="../../../../../../../org/apache/commons/crypto/stream/CipherOutputStream.html#CipherOutputStream(org.apache.commons.crypto.stream.output.Output,%20org.apache.commons.crypto.cipher.Cipher,%20int,%20byte[],%20byte[])">CipherOutputStream</a></strong>(<a href="../../../../../../../org/apache/commons/crypto/stream/output/Output.html" title="interface in org.apache.commons.crypto.stream.output">Output</a>&nbsp;output,
                                     <a href="../../../../../../../org/apache/commons/crypto/cipher/Cipher.html" title="interface in org.apache.commons.crypto.cipher">Cipher</a>&nbsp;cipher,
                                     int&nbsp;bufferSize,
                                     byte[]&nbsp;key,
                                     byte[]&nbsp;iv)</code>&nbsp;</td>
 </tr>
 <tr class="rowColor">
-<td class="colLast"><code><strong><a href="../../../../../../../org/apache/commons/crypto/stream/CTRCryptoOutputStream.html#CTRCryptoOutputStream(org.apache.commons.crypto.stream.output.Output,%20org.apache.commons.crypto.cipher.Cipher,%20int,%20byte[],%20byte[])">CTRCryptoOutputStream</a></strong>(<a href="../../../../../../../org/apache/commons/crypto/stream/output/Output.html" title="interface in org.apache.commons.crypto.stream.output">Output</a>&nbsp;output,
+<td class="colLast"><code><strong><a href="../../../../../../../org/apache/commons/crypto/stream/CTRCipherOutputStream.html#CTRCipherOutputStream(org.apache.commons.crypto.stream.output.Output,%20org.apache.commons.crypto.cipher.Cipher,%20int,%20byte[],%20byte[])">CTRCipherOutputStream</a></strong>(<a href="../../../../../../../org/apache/commons/crypto/stream/output/Output.html" title="interface in org.apache.commons.crypto.stream.output">Output</a>&nbsp;output,
                                           <a href="../../../../../../../org/apache/commons/crypto/cipher/Cipher.html" title="interface in org.apache.commons.crypto.cipher">Cipher</a>&nbsp;cipher,
                                           int&nbsp;bufferSize,
                                           byte[]&nbsp;key,
                                           byte[]&nbsp;iv)</code>&nbsp;</td>
 </tr>
 <tr class="altColor">
-<td class="colLast"><code><strong><a href="../../../../../../../org/apache/commons/crypto/stream/CTRCryptoOutputStream.html#CTRCryptoOutputStream(org.apache.commons.crypto.stream.output.Output,%20org.apache.commons.crypto.cipher.Cipher,%20int,%20byte[],%20byte[],%20long)">CTRCryptoOutputStream</a></strong>(<a href="../../../../../../../org/apache/commons/crypto/stream/output/Output.html" title="interface in org.apache.commons.crypto.stream.output">Output</a>&nbsp;output,
+<td class="colLast"><code><strong><a href="../../../../../../../org/apache/commons/crypto/stream/CTRCipherOutputStream.html#CTRCipherOutputStream(org.apache.commons.crypto.stream.output.Output,%20org.apache.commons.crypto.cipher.Cipher,%20int,%20byte[],%20byte[],%20long)">CTRCipherOutputStream</a></strong>(<a href="../../../../../../../org/apache/commons/crypto/stream/output/Output.html" title="interface in org.apache.commons.crypto.stream.output">Output</a>&nbsp;output,
                                           <a href="../../../../../../../org/apache/commons/crypto/cipher/Cipher.html" title="interface in org.apache.commons.crypto.cipher">Cipher</a>&nbsp;cipher,
                                           int&nbsp;bufferSize,
                                           byte[]&nbsp;key,
@@ -154,14 +154,14 @@
 <td class="colFirst"><code>class&nbsp;</code></td>
 <td class="colLast"><code><strong><a href="../../../../../../../org/apache/commons/crypto/stream/output/ChannelOutput.html" title="class in org.apache.commons.crypto.stream.output">ChannelOutput</a></strong></code>
 <div class="block">The ChannelOutput class takes a <code>WritableByteChannel</code> object and wraps it as 
- <code>Output</code> object acceptable by <code>CryptoOutputStream</code> as the output target.</div>
+ <code>Output</code> object acceptable by <code>CipherOutputStream</code> as the output target.</div>
 </td>
 </tr>
 <tr class="rowColor">
 <td class="colFirst"><code>class&nbsp;</code></td>
 <td class="colLast"><code><strong><a href="../../../../../../../org/apache/commons/crypto/stream/output/StreamOutput.html" title="class in org.apache.commons.crypto.stream.output">StreamOutput</a></strong></code>
 <div class="block">The StreamOutput class takes a <code>OutputStream</code> object and wraps it as 
- <code>Output</code> object acceptable by <code>CryptoOutputStream</code> as the output target.</div>
+ <code>Output</code> object acceptable by <code>CipherOutputStream</code> as the output target.</div>
 </td>
 </tr>
 </tbody>
