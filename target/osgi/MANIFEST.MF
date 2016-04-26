@@ -1,0 +1,33 @@
+Manifest-Version: 1.0
+Bnd-LastModified: 1461637781272
+Build-Jdk: 1.7.0_79
+Built-By: root
+Bundle-Description: Apache Commons Crypto is a cryptographic library opt
+ imized with AES-NI (Advanced Encryption    Standard New Instructions). 
+ It provides Java API for both cipher level and Java stream level.    De
+ velopers can use it to implement high performance AES encryption/decryp
+ tion with the minimum    code and effort. Please note that Crypto doesn
+ 't implement the cryptographic algorithm such as    AES directly. It wr
+ aps to Openssl or JCE which implement the algorithms.
+Bundle-DocURL: http://commons.apache.org/proper/commons-crypto
+Bundle-License: http://www.apache.org/licenses/LICENSE-2.0.txt
+Bundle-ManifestVersion: 2
+Bundle-Name: Apache Commons Crypto
+Bundle-SymbolicName: org.apache.commons.crypto
+Bundle-Vendor: The Apache Software Foundation
+Bundle-Version: 1.0.0.SNAPSHOT
+Created-By: Apache Maven Bundle Plugin
+Export-Package: org.apache.commons.crypto.cipher;version="1.0.0.SNAPSHOT
+ ",org.apache.commons.crypto.conf;version="1.0.0.SNAPSHOT",org.apache.co
+ mmons.crypto.native.Linux.x86_64;version="1.0.0.SNAPSHOT",org.apache.co
+ mmons.crypto.random;version="1.0.0.SNAPSHOT",org.apache.commons.crypto.
+ stream;version="1.0.0.SNAPSHOT",org.apache.commons.crypto.stream.input;
+ version="1.0.0.SNAPSHOT",org.apache.commons.crypto.stream.output;versio
+ n="1.0.0.SNAPSHOT",org.apache.commons.crypto.utils;version="1.0.0.SNAPS
+ HOT"
+Import-Package: javax.crypto,javax.crypto.spec,org.apache.commons.loggin
+ g,org.slf4j,sun.misc,sun.nio.ch
+Include-Resource: META-INF/LICENSE.txt=LICENSE.txt
+Private-Package: com.intel.chimera.native.Linux.x86_64
+Require-Capability: osgi.ee;filter:="(&(osgi.ee=JavaSE)(version=1.6))"
+Tool: Bnd-2.3.0.201405100607

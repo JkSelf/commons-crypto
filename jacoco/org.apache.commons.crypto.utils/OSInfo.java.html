@@ -1,0 +1,191 @@
+<?xml version="1.0" encoding="iso-8859-1"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../.resources/report.css" type="text/css"/><link rel="shortcut icon" href="../.resources/report.gif" type="image/gif"/><title>OSInfo.java</title><link rel="stylesheet" href="../.resources/prettify.css" type="text/css"/><script type="text/javascript" src="../.resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../.sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">Apache Commons Crypto</a> &gt; <a href="index.source.html" class="el_package">org.apache.commons.crypto.utils</a> &gt; <span class="el_source">OSInfo.java</span></div><h1>OSInfo.java</h1><pre class="source lang-java linenums">/**
+ * Licensed to the Apache Software Foundation (ASF) under one
+ * or more contributor license agreements.  See the NOTICE file
+ * distributed with this work for additional information
+ * regarding copyright ownership.  The ASF licenses this file
+ * to you under the Apache License, Version 2.0 (the
+ * &quot;License&quot;); you may not use this file except in compliance
+ * with the License.  You may obtain a copy of the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an &quot;AS IS&quot; BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+package org.apache.commons.crypto.utils;
+
+import java.io.IOException;
+import java.util.HashMap;
+import java.util.Locale;
+
+/**
+ * Provides OS name and architecture name.
+ */
+<span class="nc" id="L27">public class OSInfo {</span>
+<span class="fc" id="L28">  private static HashMap&lt;String, String&gt; archMapping = new HashMap&lt;String, String&gt;();</span>
+
+  /**
+   * The constant string represents for X86 architecture, the value is: {@value #X86}.*/
+  public static final String X86 = &quot;x86&quot;;
+
+  /**
+   * The constant string represents for X86_64 architecture, the value is:{@value #X86_64}.*/
+  public static final String X86_64 = &quot;x86_64&quot;;
+
+  /**
+   * The constant string represents for IA64_32 architecture, the value is:{@value #IA64_32}.*/
+  public static final String IA64_32 = &quot;ia64_32&quot;;
+
+  /**
+   * The constant string represents for IA64 architecture, the value is:{@value #IA64}.*/
+  public static final String IA64 = &quot;ia64&quot;;
+
+  /**
+   * The constant string represents for PPC architecture, the value is:{@value #PPC}.*/
+  public static final String PPC = &quot;ppc&quot;;
+
+  /**
+   * The constant string represents for PPC64 architecture, the value is:{@value #PPC64}.*/
+  public static final String PPC64 = &quot;ppc64&quot;;
+
+  static {
+    // x86 mappings
+<span class="fc" id="L56">    archMapping.put(X86, X86);</span>
+<span class="fc" id="L57">    archMapping.put(&quot;i386&quot;, X86);</span>
+<span class="fc" id="L58">    archMapping.put(&quot;i486&quot;, X86);</span>
+<span class="fc" id="L59">    archMapping.put(&quot;i586&quot;, X86);</span>
+<span class="fc" id="L60">    archMapping.put(&quot;i686&quot;, X86);</span>
+<span class="fc" id="L61">    archMapping.put(&quot;pentium&quot;, X86);</span>
+
+    // x86_64 mappings
+<span class="fc" id="L64">    archMapping.put(X86_64, X86_64);</span>
+<span class="fc" id="L65">    archMapping.put(&quot;amd64&quot;, X86_64);</span>
+<span class="fc" id="L66">    archMapping.put(&quot;em64t&quot;, X86_64);</span>
+<span class="fc" id="L67">    archMapping.put(&quot;universal&quot;, X86_64); // Needed for openjdk7 in Mac</span>
+
+    // Itenium 64-bit mappings
+<span class="fc" id="L70">    archMapping.put(IA64, IA64);</span>
+<span class="fc" id="L71">    archMapping.put(&quot;ia64w&quot;, IA64);</span>
+
+    // Itenium 32-bit mappings, usually an HP-UX construct
+<span class="fc" id="L74">    archMapping.put(IA64_32, IA64_32);</span>
+<span class="fc" id="L75">    archMapping.put(&quot;ia64n&quot;, IA64_32);</span>
+
+    // PowerPC mappings
+<span class="fc" id="L78">    archMapping.put(PPC, PPC);</span>
+<span class="fc" id="L79">    archMapping.put(&quot;power&quot;, PPC);</span>
+<span class="fc" id="L80">    archMapping.put(&quot;powerpc&quot;, PPC);</span>
+<span class="fc" id="L81">    archMapping.put(&quot;power_pc&quot;, PPC);</span>
+<span class="fc" id="L82">    archMapping.put(&quot;power_rs&quot;, PPC);</span>
+
+    // TODO: PowerPC 64bit mappings
+<span class="fc" id="L85">    archMapping.put(PPC64, PPC64);</span>
+<span class="fc" id="L86">    archMapping.put(&quot;power64&quot;, PPC64);</span>
+<span class="fc" id="L87">    archMapping.put(&quot;powerpc64&quot;, PPC64);</span>
+<span class="fc" id="L88">    archMapping.put(&quot;power_pc64&quot;, PPC64);</span>
+<span class="fc" id="L89">    archMapping.put(&quot;power_rs64&quot;, PPC64);</span>
+<span class="fc" id="L90">  }</span>
+
+  public static void main(String[] args) {
+<span class="nc bnc" id="L93" title="All 2 branches missed.">    if (args.length &gt;= 1) {</span>
+<span class="nc bnc" id="L94" title="All 2 branches missed.">      if (&quot;--os&quot;.equals(args[0])) {</span>
+<span class="nc" id="L95">        System.out.print(getOSName());</span>
+<span class="nc" id="L96">        return;</span>
+<span class="nc bnc" id="L97" title="All 2 branches missed.">      } else if (&quot;--arch&quot;.equals(args[0])) {</span>
+<span class="nc" id="L98">        System.out.print(getArchName());</span>
+<span class="nc" id="L99">        return;</span>
+      }
+    }
+
+<span class="nc" id="L103">    System.out.print(getNativeLibFolderPathForCurrentOS());</span>
+<span class="nc" id="L104">  }</span>
+
+  /**
+   * Gets the native lib folder.
+   *
+   * @return the current OS's native lib folder.
+   */
+  public static String getNativeLibFolderPathForCurrentOS() {
+<span class="fc" id="L112">    return getOSName() + &quot;/&quot; + getArchName();</span>
+  }
+
+  /**
+   * Gets the OS name.
+   *
+   * @return the OS name.
+   */
+  public static String getOSName() {
+<span class="fc" id="L121">    return translateOSNameToFolderName(System.getProperty(&quot;os.name&quot;));</span>
+  }
+
+  /**
+   * Gets the architecture name.
+   *
+   * @return the architecture name.
+   */
+  public static String getArchName() {
+    // if running Linux on ARM, need to determine ABI of JVM
+<span class="fc" id="L131">    String osArch = System.getProperty(&quot;os.arch&quot;);</span>
+<span class="pc bpc" id="L132" title="3 of 4 branches missed.">    if (osArch.startsWith(&quot;arm&quot;)</span>
+        &amp;&amp; System.getProperty(&quot;os.name&quot;).contains(&quot;Linux&quot;)) {
+<span class="nc" id="L134">      String javaHome = System.getProperty(&quot;java.home&quot;);</span>
+      try {
+        // determine if first JVM found uses ARM hard-float ABI
+<span class="nc" id="L137">        String[] cmdarray = {</span>
+            &quot;/bin/sh&quot;,
+            &quot;-c&quot;,
+            &quot;find '&quot; + javaHome
+                + &quot;' -name 'libjvm.so' | head -1 | xargs readelf -A | &quot;
+                + &quot;grep 'Tag_ABI_VFP_args: VFP registers'&quot; };
+<span class="nc" id="L143">        int exitCode = Runtime.getRuntime().exec(cmdarray).waitFor();</span>
+<span class="nc bnc" id="L144" title="All 2 branches missed.">        if (exitCode == 0)</span>
+<span class="nc" id="L145">          return &quot;armhf&quot;;</span>
+<span class="nc" id="L146">      } catch (IOException e) {</span>
+        // ignored: fall back to &quot;arm&quot; arch (soft-float ABI)
+<span class="nc" id="L148">      } catch (InterruptedException e) {</span>
+        // ignored: fall back to &quot;arm&quot; arch (soft-float ABI)
+<span class="nc" id="L150">      }</span>
+<span class="nc" id="L151">    } else {</span>
+<span class="fc" id="L152">      String lc = osArch.toLowerCase(Locale.US);</span>
+<span class="pc bpc" id="L153" title="1 of 2 branches missed.">      if (archMapping.containsKey(lc))</span>
+<span class="fc" id="L154">        return archMapping.get(lc);</span>
+    }
+<span class="nc" id="L156">    return translateArchNameToFolderName(osArch);</span>
+  }
+
+  /**
+   * Translates the OS name to folder name.
+   *
+   * @param osName the OS name.
+   * @return the folder name.
+   */
+  static String translateOSNameToFolderName(String osName) {
+<span class="pc bpc" id="L166" title="1 of 2 branches missed.">    if (osName.contains(&quot;Windows&quot;)) {</span>
+<span class="nc" id="L167">      return &quot;Windows&quot;;</span>
+<span class="pc bpc" id="L168" title="1 of 2 branches missed.">    } else if (osName.contains(&quot;Mac&quot;)) {</span>
+<span class="nc" id="L169">      return &quot;Mac&quot;;</span>
+<span class="pc bpc" id="L170" title="1 of 2 branches missed.">    } else if (osName.contains(&quot;Linux&quot;)) {</span>
+<span class="fc" id="L171">      return &quot;Linux&quot;;</span>
+<span class="nc bnc" id="L172" title="All 2 branches missed.">    } else if (osName.contains(&quot;AIX&quot;)) {</span>
+<span class="nc" id="L173">      return &quot;AIX&quot;;</span>
+    }
+
+    else {
+<span class="nc" id="L177">      return osName.replaceAll(&quot;\\W&quot;, &quot;&quot;);</span>
+    }
+  }
+
+  /**
+   * Translates the architecture name to folder name.
+   *
+   * @param archName the architecture name.
+   * @return the folder name.
+   */
+  static String translateArchNameToFolderName(String archName) {
+<span class="nc" id="L188">    return archName.replaceAll(&quot;\\W&quot;, &quot;&quot;);</span>
+  }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.eclemma.org/jacoco">JaCoCo</a> 0.7.5.201505241946</span></div></body></html>
