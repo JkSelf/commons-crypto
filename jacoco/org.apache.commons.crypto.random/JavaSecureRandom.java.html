@@ -29,7 +29,7 @@ import org.apache.commons.crypto.conf.ConfigurationKeys;
  * A SecureRandom of Java implementation.
  */
 public class JavaSecureRandom implements SecureRandom {
-<span class="nc" id="L32">  private static final Log LOG =</span>
+<span class="fc" id="L32">  private static final Log LOG =</span>
       LogFactory.getLog(JavaSecureRandom.class.getName());
 
   private java.security.SecureRandom instance;
@@ -39,16 +39,16 @@ public class JavaSecureRandom implements SecureRandom {
    *
    * @param properties the configuration properties.
    */
-<span class="nc" id="L42">  public JavaSecureRandom(Properties properties) {</span>
+<span class="fc" id="L42">  public JavaSecureRandom(Properties properties) {</span>
     try {
-<span class="nc" id="L44">      instance = java.security.SecureRandom</span>
+<span class="fc" id="L44">      instance = java.security.SecureRandom</span>
           .getInstance(properties.getProperty(
               ConfigurationKeys.COMMONS_CRYPTO_SECURE_RANDOM_JAVA_ALGORITHM_KEY,
               ConfigurationKeys.COMMONS_CRYPTO_SECURE_RANDOM_JAVA_ALGORITHM_DEFAULT));
 <span class="nc" id="L48">    } catch (NoSuchAlgorithmException e) {</span>
 <span class="nc" id="L49">      LOG.error(&quot;Failed to create java secure random due to error: &quot; + e);</span>
-<span class="nc" id="L50">    }</span>
-<span class="nc" id="L51">  }</span>
+<span class="fc" id="L50">    }</span>
+<span class="fc" id="L51">  }</span>
 
   /**
    * Overrides {@link java.lang.AutoCloseable#close()}.
@@ -57,7 +57,7 @@ public class JavaSecureRandom implements SecureRandom {
   @Override
   public void close() {
     // do nothing
-<span class="nc" id="L60">  }</span>
+<span class="fc" id="L60">  }</span>
 
   /**
    * Overrides {@link org.apache.commons.crypto.random.SecureRandom#nextBytes(byte[])}.
@@ -68,7 +68,7 @@ public class JavaSecureRandom implements SecureRandom {
    */
   @Override
   public void nextBytes(byte[] bytes) {
-<span class="nc" id="L71">    instance.nextBytes(bytes);</span>
-<span class="nc" id="L72">  }</span>
+<span class="fc" id="L71">    instance.nextBytes(bytes);</span>
+<span class="fc" id="L72">  }</span>
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.eclemma.org/jacoco">JaCoCo</a> 0.7.5.201505241946</span></div></body></html>

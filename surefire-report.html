@@ -272,12 +272,12 @@ function toggleDisplay(elementId) {
 <th>Success Rate</th>
 <th>Time</th></tr>
 <tr class="b">
-<td>60</td>
+<td>80</td>
 <td>0</td>
 <td>2</td>
 <td>0</td>
-<td>96.667%</td>
-<td>2.541</td></tr></table><br />
+<td>97.5%</td>
+<td>4.065</td></tr></table><br />
 <p>Note: failures are anticipated and checked for with assertions while errors are unanticipated.</p><br /></div>
 <div class="section">
 <h2><a name="Package_List"></a>Package List</h2><a name="Package_List"></a>
@@ -293,20 +293,20 @@ function toggleDisplay(elementId) {
 <th>Time</th></tr>
 <tr class="b">
 <td><a href="#org.apache.commons.crypto.cipher">org.apache.commons.crypto.cipher</a></td>
-<td>9</td>
+<td>12</td>
 <td>0</td>
 <td>1</td>
 <td>0</td>
-<td>88.889%</td>
-<td>0.066</td></tr>
+<td>91.667%</td>
+<td>0.067</td></tr>
 <tr class="a">
 <td><a href="#org.apache.commons.crypto.stream">org.apache.commons.crypto.stream</a></td>
-<td>17</td>
+<td>34</td>
 <td>0</td>
 <td>0</td>
 <td>0</td>
 <td>100%</td>
-<td>1.327</td></tr>
+<td>2.856</td></tr>
 <tr class="b">
 <td><a href="#com.intel.chimera.cipher">com.intel.chimera.cipher</a></td>
 <td>9</td>
@@ -330,7 +330,7 @@ function toggleDisplay(elementId) {
 <td>0</td>
 <td>0</td>
 <td>100%</td>
-<td>0.022</td></tr>
+<td>0.016</td></tr>
 <tr class="a">
 <td><a href="#com.intel.chimera.stream">com.intel.chimera.stream</a></td>
 <td>17</td>
@@ -376,7 +376,7 @@ function toggleDisplay(elementId) {
 <td>1</td>
 <td>0</td>
 <td>0%</td>
-<td>0.008</td></tr>
+<td>0.012</td></tr>
 <tr class="a">
 <td><a href="#org.apache.commons.crypto.cipherOpensslCipherTest"><img src="images/icon_success_sml.gif" alt="" /></a></td>
 <td><a href="#org.apache.commons.crypto.cipherOpensslCipherTest">OpensslCipherTest</a></td>
@@ -385,7 +385,16 @@ function toggleDisplay(elementId) {
 <td>0</td>
 <td>0</td>
 <td>100%</td>
-<td>0.058</td></tr></table></div>
+<td>0.051</td></tr>
+<tr class="b">
+<td><a href="#org.apache.commons.crypto.cipherCipherFactoryTest"><img src="images/icon_success_sml.gif" alt="" /></a></td>
+<td><a href="#org.apache.commons.crypto.cipherCipherFactoryTest">CipherFactoryTest</a></td>
+<td>3</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>100%</td>
+<td>0.004</td></tr></table></div>
 <div class="section">
 <h3><a name="org.apache.commons.crypto.stream"></a>org.apache.commons.crypto.stream</h3><a name="org.apache.commons.crypto.stream"></a>
 <table border="1" class="bodyTable">
@@ -399,6 +408,15 @@ function toggleDisplay(elementId) {
 <th>Success Rate</th>
 <th>Time</th></tr>
 <tr class="b">
+<td><a href="#org.apache.commons.crypto.streamCTRNoPaddingCipherStreamTest"><img src="images/icon_success_sml.gif" alt="" /></a></td>
+<td><a href="#org.apache.commons.crypto.streamCTRNoPaddingCipherStreamTest">CTRNoPaddingCipherStreamTest</a></td>
+<td>4</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>100%</td>
+<td>0.151</td></tr>
+<tr class="a">
 <td><a href="#org.apache.commons.crypto.streamCTRCryptoStreamTest"><img src="images/icon_success_sml.gif" alt="" /></a></td>
 <td><a href="#org.apache.commons.crypto.streamCTRCryptoStreamTest">CTRCryptoStreamTest</a></td>
 <td>4</td>
@@ -407,6 +425,15 @@ function toggleDisplay(elementId) {
 <td>0</td>
 <td>100%</td>
 <td>0.208</td></tr>
+<tr class="b">
+<td><a href="#org.apache.commons.crypto.streamCTRCipherStreamTest"><img src="images/icon_success_sml.gif" alt="" /></a></td>
+<td><a href="#org.apache.commons.crypto.streamCTRCipherStreamTest">CTRCipherStreamTest</a></td>
+<td>4</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>100%</td>
+<td>0.201</td></tr>
 <tr class="a">
 <td><a href="#org.apache.commons.crypto.streamPositionedCryptoInputStreamTest"><img src="images/icon_success_sml.gif" alt="" /></a></td>
 <td><a href="#org.apache.commons.crypto.streamPositionedCryptoInputStreamTest">PositionedCryptoInputStreamTest</a></td>
@@ -426,6 +453,33 @@ function toggleDisplay(elementId) {
 <td>100%</td>
 <td>0.166</td></tr>
 <tr class="a">
+<td><a href="#org.apache.commons.crypto.streamCBCNoPaddingCipherStreamTest"><img src="images/icon_success_sml.gif" alt="" /></a></td>
+<td><a href="#org.apache.commons.crypto.streamCBCNoPaddingCipherStreamTest">CBCNoPaddingCipherStreamTest</a></td>
+<td>4</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>100%</td>
+<td>0.156</td></tr>
+<tr class="b">
+<td><a href="#org.apache.commons.crypto.streamCBCPKCS5PaddingCipherStreamTest"><img src="images/icon_success_sml.gif" alt="" /></a></td>
+<td><a href="#org.apache.commons.crypto.streamCBCPKCS5PaddingCipherStreamTest">CBCPKCS5PaddingCipherStreamTest</a></td>
+<td>4</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>100%</td>
+<td>0.205</td></tr>
+<tr class="a">
+<td><a href="#org.apache.commons.crypto.streamPositionedCipherInputStreamTest"><img src="images/icon_success_sml.gif" alt="" /></a></td>
+<td><a href="#org.apache.commons.crypto.streamPositionedCipherInputStreamTest">PositionedCipherInputStreamTest</a></td>
+<td>1</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>100%</td>
+<td>0.816</td></tr>
+<tr class="b">
 <td><a href="#org.apache.commons.crypto.streamCBCPKCS5PaddingCryptoStreamTest"><img src="images/icon_success_sml.gif" alt="" /></a></td>
 <td><a href="#org.apache.commons.crypto.streamCBCPKCS5PaddingCryptoStreamTest">CBCPKCS5PaddingCryptoStreamTest</a></td>
 <td>4</td>
@@ -434,7 +488,7 @@ function toggleDisplay(elementId) {
 <td>0</td>
 <td>100%</td>
 <td>0.17</td></tr>
-<tr class="b">
+<tr class="a">
 <td><a href="#org.apache.commons.crypto.streamCBCNoPaddingCryptoStreamTest"><img src="images/icon_success_sml.gif" alt="" /></a></td>
 <td><a href="#org.apache.commons.crypto.streamCBCNoPaddingCryptoStreamTest">CBCNoPaddingCryptoStreamTest</a></td>
 <td>4</td>
@@ -532,7 +586,7 @@ function toggleDisplay(elementId) {
 <td>0</td>
 <td>0</td>
 <td>100%</td>
-<td>0.022</td></tr>
+<td>0.014</td></tr>
 <tr class="a">
 <td><a href="#org.apache.commons.crypto.randomTestOsSecureRandom"><img src="images/icon_success_sml.gif" alt="" /></a></td>
 <td><a href="#org.apache.commons.crypto.randomTestOsSecureRandom">TestOsSecureRandom</a></td>
@@ -541,7 +595,7 @@ function toggleDisplay(elementId) {
 <td>0</td>
 <td>0</td>
 <td>100%</td>
-<td>0</td></tr>
+<td>0.002</td></tr>
 <tr class="b">
 <td><a href="#org.apache.commons.crypto.randomTestOpensslSecureRandom"><img src="images/icon_success_sml.gif" alt="" /></a></td>
 <td><a href="#org.apache.commons.crypto.randomTestOpensslSecureRandom">TestOpensslSecureRandom</a></td>
@@ -660,7 +714,7 @@ function toggleDisplay(elementId) {
 <td><a href="#org.apache.commons.crypto.cipher.JceCipherTest.cryptoTest"><img src="images/icon_error_sml.gif" alt="" /></a></td>
 <td><a href="#org.apache.commons.crypto.cipher.JceCipherTest.cryptoTest">cryptoTest</a>
 <div class="detailToggle" style="display:inline"><a href="javascript:toggleDisplay(&apos;org.apache.commons.crypto.cipher.JceCipherTest.cryptoTest&apos;);"><span style="display:inline;" id="org.apache.commons.crypto.cipher.JceCipherTest.cryptoTestoff"> + </span><span style="display:none;" id="org.apache.commons.crypto.cipher.JceCipherTest.cryptoTeston"> - </span>[ Detail ]</a></div></td>
-<td>0.008</td></tr>
+<td>0.012</td></tr>
 <tr class="b">
 <td></td>
 <td>AES failed initialisation - java.security.InvalidKeyException: Illegal key size</td>
@@ -692,6 +746,25 @@ function toggleDisplay(elementId) {
 <td>testSkip</td>
 <td>0.013</td></tr></table></div>
 <div class="section">
+<h3><a name="CTRNoPaddingCipherStreamTest"></a>CTRNoPaddingCipherStreamTest</h3><a name="org.apache.commons.crypto.streamCTRNoPaddingCipherStreamTest"></a>
+<table border="1" class="bodyTable">
+<tr class="a">
+<td><img src="images/icon_success_sml.gif" alt="" /></td>
+<td>testByteBufferRead</td>
+<td>0.035</td></tr>
+<tr class="b">
+<td><img src="images/icon_success_sml.gif" alt="" /></td>
+<td>testByteBufferWrite</td>
+<td>0.013</td></tr>
+<tr class="a">
+<td><img src="images/icon_success_sml.gif" alt="" /></td>
+<td>testSkip</td>
+<td>0.02</td></tr>
+<tr class="b">
+<td><img src="images/icon_success_sml.gif" alt="" /></td>
+<td>testReadWrite</td>
+<td>0.083</td></tr></table></div>
+<div class="section">
 <h3><a name="CTRCryptoStreamTest"></a>CTRCryptoStreamTest</h3><a name="org.apache.commons.crypto.streamCTRCryptoStreamTest"></a>
 <table border="1" class="bodyTable">
 <tr class="a">
@@ -716,7 +789,7 @@ function toggleDisplay(elementId) {
 <tr class="a">
 <td><img src="images/icon_success_sml.gif" alt="" /></td>
 <td>testInvalidAlgorithm</td>
-<td>0.012</td></tr>
+<td>0.007</td></tr>
 <tr class="b">
 <td><img src="images/icon_success_sml.gif" alt="" /></td>
 <td>testInvalidPadding</td>
@@ -744,7 +817,7 @@ function toggleDisplay(elementId) {
 <tr class="b">
 <td><img src="images/icon_success_sml.gif" alt="" /></td>
 <td>cryptoTest</td>
-<td>0.04</td></tr></table></div>
+<td>0.038</td></tr></table></div>
 <div class="section">
 <h3><a name="PositionedCryptoInputStreamTest"></a>PositionedCryptoInputStreamTest</h3><a name="com.intel.chimera.streamPositionedCryptoInputStreamTest"></a>
 <table border="1" class="bodyTable">
@@ -752,6 +825,25 @@ function toggleDisplay(elementId) {
 <td><img src="images/icon_success_sml.gif" alt="" /></td>
 <td>doTest</td>
 <td>0.154</td></tr></table></div>
+<div class="section">
+<h3><a name="CTRCipherStreamTest"></a>CTRCipherStreamTest</h3><a name="org.apache.commons.crypto.streamCTRCipherStreamTest"></a>
+<table border="1" class="bodyTable">
+<tr class="a">
+<td><img src="images/icon_success_sml.gif" alt="" /></td>
+<td>testByteBufferRead</td>
+<td>0.036</td></tr>
+<tr class="b">
+<td><img src="images/icon_success_sml.gif" alt="" /></td>
+<td>testByteBufferWrite</td>
+<td>0.019</td></tr>
+<tr class="a">
+<td><img src="images/icon_success_sml.gif" alt="" /></td>
+<td>testSkip</td>
+<td>0.018</td></tr>
+<tr class="b">
+<td><img src="images/icon_success_sml.gif" alt="" /></td>
+<td>testReadWrite</td>
+<td>0.128</td></tr></table></div>
 <div class="section">
 <h3><a name="OpensslCipherTest"></a>OpensslCipherTest</h3><a name="com.intel.chimera.cipherOpensslCipherTest"></a>
 <table border="1" class="bodyTable">
@@ -819,7 +911,7 @@ function toggleDisplay(elementId) {
 <tr class="a">
 <td><img src="images/icon_success_sml.gif" alt="" /></td>
 <td>testRandomBytes</td>
-<td>0.022</td></tr></table></div>
+<td>0.014</td></tr></table></div>
 <div class="section">
 <h3><a name="JceCipherTest"></a>JceCipherTest</h3><a name="com.intel.chimera.cipherJceCipherTest"></a>
 <table border="1" class="bodyTable">
@@ -845,7 +937,22 @@ function toggleDisplay(elementId) {
 <tr class="a">
 <td><img src="images/icon_success_sml.gif" alt="" /></td>
 <td>testRandomBytes</td>
-<td>0</td></tr></table></div>
+<td>0.002</td></tr></table></div>
+<div class="section">
+<h3><a name="CipherFactoryTest"></a>CipherFactoryTest</h3><a name="org.apache.commons.crypto.cipherCipherFactoryTest"></a>
+<table border="1" class="bodyTable">
+<tr class="a">
+<td><img src="images/icon_success_sml.gif" alt="" /></td>
+<td>testDefaultCipher</td>
+<td>0</td></tr>
+<tr class="b">
+<td><img src="images/icon_success_sml.gif" alt="" /></td>
+<td>testEmptyCipher</td>
+<td>0</td></tr>
+<tr class="a">
+<td><img src="images/icon_success_sml.gif" alt="" /></td>
+<td>testInvalidCipher</td>
+<td>0.004</td></tr></table></div>
 <div class="section">
 <h3><a name="TestJavaSecureRandom"></a>TestJavaSecureRandom</h3><a name="com.intel.chimera.randomTestJavaSecureRandom"></a>
 <table border="1" class="bodyTable">
@@ -853,6 +960,25 @@ function toggleDisplay(elementId) {
 <td><img src="images/icon_success_sml.gif" alt="" /></td>
 <td>testRandomBytes</td>
 <td>0.031</td></tr></table></div>
+<div class="section">
+<h3><a name="CBCNoPaddingCipherStreamTest"></a>CBCNoPaddingCipherStreamTest</h3><a name="org.apache.commons.crypto.streamCBCNoPaddingCipherStreamTest"></a>
+<table border="1" class="bodyTable">
+<tr class="a">
+<td><img src="images/icon_success_sml.gif" alt="" /></td>
+<td>testByteBufferRead</td>
+<td>0.038</td></tr>
+<tr class="b">
+<td><img src="images/icon_success_sml.gif" alt="" /></td>
+<td>testByteBufferWrite</td>
+<td>0.019</td></tr>
+<tr class="a">
+<td><img src="images/icon_success_sml.gif" alt="" /></td>
+<td>testSkip</td>
+<td>0.019</td></tr>
+<tr class="b">
+<td><img src="images/icon_success_sml.gif" alt="" /></td>
+<td>testReadWrite</td>
+<td>0.08</td></tr></table></div>
 <div class="section">
 <h3><a name="CBCPKCS5PaddingCryptoStreamTest"></a>CBCPKCS5PaddingCryptoStreamTest</h3><a name="com.intel.chimera.streamCBCPKCS5PaddingCryptoStreamTest"></a>
 <table border="1" class="bodyTable">
@@ -879,6 +1005,32 @@ function toggleDisplay(elementId) {
 <td><img src="images/icon_success_sml.gif" alt="" /></td>
 <td>testRandomBytes</td>
 <td>0</td></tr></table></div>
+<div class="section">
+<h3><a name="CBCPKCS5PaddingCipherStreamTest"></a>CBCPKCS5PaddingCipherStreamTest</h3><a name="org.apache.commons.crypto.streamCBCPKCS5PaddingCipherStreamTest"></a>
+<table border="1" class="bodyTable">
+<tr class="a">
+<td><img src="images/icon_success_sml.gif" alt="" /></td>
+<td>testByteBufferRead</td>
+<td>0.043</td></tr>
+<tr class="b">
+<td><img src="images/icon_success_sml.gif" alt="" /></td>
+<td>testByteBufferWrite</td>
+<td>0.018</td></tr>
+<tr class="a">
+<td><img src="images/icon_success_sml.gif" alt="" /></td>
+<td>testSkip</td>
+<td>0.016</td></tr>
+<tr class="b">
+<td><img src="images/icon_success_sml.gif" alt="" /></td>
+<td>testReadWrite</td>
+<td>0.128</td></tr></table></div>
+<div class="section">
+<h3><a name="PositionedCipherInputStreamTest"></a>PositionedCipherInputStreamTest</h3><a name="org.apache.commons.crypto.streamPositionedCipherInputStreamTest"></a>
+<table border="1" class="bodyTable">
+<tr class="a">
+<td><img src="images/icon_success_sml.gif" alt="" /></td>
+<td>doTest</td>
+<td>0.816</td></tr></table></div>
 <div class="section">
 <h3><a name="TestOpensslSecureRandom"></a>TestOpensslSecureRandom</h3><a name="com.intel.chimera.randomTestOpensslSecureRandom"></a>
 <table border="1" class="bodyTable">

@@ -38,30 +38,30 @@ import org.apache.commons.logging.LogFactory;
  */
 public class NativeCodeLoader {
 
-<span class="nc" id="L41">  private static final Log LOG =</span>
+<span class="fc" id="L41">  private static final Log LOG =</span>
     LogFactory.getLog(NativeCodeLoader.class);
 
-<span class="nc" id="L44">  private static boolean nativeCodeLoaded = false;</span>
+<span class="fc" id="L44">  private static boolean nativeCodeLoaded = false;</span>
 
 <span class="nc" id="L46">  private NativeCodeLoader() {}</span>
 
   static {
     // Try to load native library and set fallback flag appropriately
-<span class="nc bnc" id="L50" title="All 2 branches missed.">    if(LOG.isDebugEnabled()) {</span>
+<span class="pc bpc" id="L50" title="1 of 2 branches missed.">    if(LOG.isDebugEnabled()) {</span>
 <span class="nc" id="L51">      LOG.debug(&quot;Trying to load the custom-built native-commons-crypto library...&quot;);</span>
     }
 
     try {
-<span class="nc" id="L55">      File nativeLibFile = findNativeLibrary();</span>
-<span class="nc bnc" id="L56" title="All 2 branches missed.">      if (nativeLibFile != null) {</span>
+<span class="fc" id="L55">      File nativeLibFile = findNativeLibrary();</span>
+<span class="pc bpc" id="L56" title="1 of 2 branches missed.">      if (nativeLibFile != null) {</span>
         // Load extracted or specified native library.
-<span class="nc" id="L58">        System.load(nativeLibFile.getAbsolutePath());</span>
+<span class="fc" id="L58">        System.load(nativeLibFile.getAbsolutePath());</span>
       } else {
         // Load preinstalled library (in the path -Djava.library.path)
 <span class="nc" id="L61">        System.loadLibrary(&quot;commons-crypto&quot;);</span>
       }
-<span class="nc" id="L63">      LOG.debug(&quot;Loaded the native library&quot;);</span>
-<span class="nc" id="L64">      nativeCodeLoaded = true;</span>
+<span class="fc" id="L63">      LOG.debug(&quot;Loaded the native library&quot;);</span>
+<span class="fc" id="L64">      nativeCodeLoaded = true;</span>
 <span class="nc" id="L65">    } catch (Throwable t) {</span>
       // Ignore failure to load
 <span class="nc bnc" id="L67" title="All 2 branches missed.">      if(LOG.isDebugEnabled()) {</span>
@@ -69,26 +69,26 @@ public class NativeCodeLoader {
 <span class="nc" id="L69">        LOG.debug(&quot;java.library.path=&quot; +</span>
             System.getProperty(&quot;java.library.path&quot;));
       }
-<span class="nc" id="L72">    }</span>
+<span class="fc" id="L72">    }</span>
 
-<span class="nc bnc" id="L74" title="All 2 branches missed.">    if (!nativeCodeLoaded) {</span>
+<span class="pc bpc" id="L74" title="1 of 2 branches missed.">    if (!nativeCodeLoaded) {</span>
 <span class="nc" id="L75">      LOG.warn(&quot;Unable to load native library for the platform... &quot; +</span>
                &quot;using builtin-java classes where applicable&quot;);
     }
-<span class="nc" id="L78">  }</span>
+<span class="fc" id="L78">  }</span>
 
   static File findNativeLibrary() {
     // Try to load the library in commons-crypto.lib.path */
-<span class="nc" id="L82">    String nativeLibraryPath = Utils</span>
+<span class="fc" id="L82">    String nativeLibraryPath = Utils</span>
         .getLibPath();
-<span class="nc" id="L84">    String nativeLibraryName = Utils</span>
+<span class="fc" id="L84">    String nativeLibraryName = Utils</span>
         .getLibName();
 
     // Resolve the library file name with a suffix (e.g., dll, .so, etc.)
-<span class="nc bnc" id="L88" title="All 2 branches missed.">    if (nativeLibraryName == null)</span>
-<span class="nc" id="L89">      nativeLibraryName = System.mapLibraryName(&quot;commons-crypto&quot;);</span>
+<span class="pc bpc" id="L88" title="1 of 2 branches missed.">    if (nativeLibraryName == null)</span>
+<span class="fc" id="L89">      nativeLibraryName = System.mapLibraryName(&quot;commons-crypto&quot;);</span>
 
-<span class="nc bnc" id="L91" title="All 2 branches missed.">    if (nativeLibraryPath != null) {</span>
+<span class="pc bpc" id="L91" title="1 of 2 branches missed.">    if (nativeLibraryPath != null) {</span>
 <span class="nc" id="L92">      File nativeLib = new File(nativeLibraryPath,</span>
           nativeLibraryName);
 <span class="nc bnc" id="L94" title="All 2 branches missed.">      if (nativeLib.exists())</span>
@@ -96,11 +96,11 @@ public class NativeCodeLoader {
     }
 
     // Load an OS-dependent native library inside a jar file
-<span class="nc" id="L99">    nativeLibraryPath = &quot;/org/apache/commons/crypto/native/&quot;</span>
+<span class="fc" id="L99">    nativeLibraryPath = &quot;/org/apache/commons/crypto/native/&quot;</span>
         + OSInfo.getNativeLibFolderPathForCurrentOS();
-<span class="nc" id="L101">    boolean hasNativeLib = hasResource(nativeLibraryPath + &quot;/&quot;</span>
+<span class="fc" id="L101">    boolean hasNativeLib = hasResource(nativeLibraryPath + &quot;/&quot;</span>
         + nativeLibraryName);
-<span class="nc bnc" id="L103" title="All 2 branches missed.">    if(!hasNativeLib) {</span>
+<span class="pc bpc" id="L103" title="1 of 2 branches missed.">    if(!hasNativeLib) {</span>
 <span class="nc bnc" id="L104" title="All 2 branches missed.">      if (OSInfo.getOSName().equals(&quot;Mac&quot;)) {</span>
         // Fix for openjdk7 for Mac
 <span class="nc" id="L106">        String altName = &quot;libcommons-crypto.jnilib&quot;;</span>
@@ -111,7 +111,7 @@ public class NativeCodeLoader {
       }
     }
 
-<span class="nc bnc" id="L114" title="All 2 branches missed.">    if (!hasNativeLib) {</span>
+<span class="pc bpc" id="L114" title="1 of 2 branches missed.">    if (!hasNativeLib) {</span>
 <span class="nc" id="L115">      String errorMessage = String.format(</span>
           &quot;no native library is found for os.name=%s and os.arch=%s&quot;,
           OSInfo.getOSName(), OSInfo.getArchName());
@@ -120,11 +120,11 @@ public class NativeCodeLoader {
 
     // Temporary folder for the native lib. Use the value of
     // commons-crypto.tempdir or java.io.tmpdir
-<span class="nc" id="L123">    String tempFolder = new File(Utils.getTmpDir())</span>
+<span class="fc" id="L123">    String tempFolder = new File(Utils.getTmpDir())</span>
         .getAbsolutePath();
 
     // Extract and load a native library inside the jar file
-<span class="nc" id="L127">    return extractLibraryFile(nativeLibraryPath,</span>
+<span class="fc" id="L127">    return extractLibraryFile(nativeLibraryPath,</span>
         nativeLibraryName, tempFolder);
   }
 
@@ -139,78 +139,78 @@ public class NativeCodeLoader {
    */
   private static File extractLibraryFile(String libFolderForCurrentOS,
       String libraryFileName, String targetFolder) {
-<span class="nc" id="L142">    String nativeLibraryFilePath = libFolderForCurrentOS + &quot;/&quot;</span>
+<span class="fc" id="L142">    String nativeLibraryFilePath = libFolderForCurrentOS + &quot;/&quot;</span>
         + libraryFileName;
 
     // Attach UUID to the native library file to ensure multiple class loaders
     // can read the libcommons-crypto multiple times.
-<span class="nc" id="L147">    String uuid = UUID.randomUUID().toString();</span>
-<span class="nc" id="L148">    String extractedLibFileName = String.format(&quot;commons-crypto-%s-%s-%s&quot;, getVersion(), uuid,</span>
+<span class="fc" id="L147">    String uuid = UUID.randomUUID().toString();</span>
+<span class="fc" id="L148">    String extractedLibFileName = String.format(&quot;commons-crypto-%s-%s-%s&quot;, getVersion(), uuid,</span>
         libraryFileName);
-<span class="nc" id="L150">    File extractedLibFile = new File(targetFolder, extractedLibFileName);</span>
+<span class="fc" id="L150">    File extractedLibFile = new File(targetFolder, extractedLibFileName);</span>
 
-<span class="nc" id="L152">    InputStream reader = null;</span>
+<span class="fc" id="L152">    InputStream reader = null;</span>
     try {
       // Extract a native library file into the target directory
-<span class="nc" id="L155">      reader = NativeCodeLoader.class.getResourceAsStream(nativeLibraryFilePath);</span>
-<span class="nc" id="L156">      FileOutputStream writer = new FileOutputStream(extractedLibFile);</span>
+<span class="fc" id="L155">      reader = NativeCodeLoader.class.getResourceAsStream(nativeLibraryFilePath);</span>
+<span class="fc" id="L156">      FileOutputStream writer = new FileOutputStream(extractedLibFile);</span>
       try {
-<span class="nc" id="L158">        byte[] buffer = new byte[8192];</span>
+<span class="fc" id="L158">        byte[] buffer = new byte[8192];</span>
         int bytesRead;
-<span class="nc bnc" id="L160" title="All 2 branches missed.">        while ((bytesRead = reader.read(buffer)) != -1) {</span>
-<span class="nc" id="L161">          writer.write(buffer, 0, bytesRead);</span>
+<span class="fc bfc" id="L160" title="All 2 branches covered.">        while ((bytesRead = reader.read(buffer)) != -1) {</span>
+<span class="fc" id="L161">          writer.write(buffer, 0, bytesRead);</span>
         }
       } finally {
         // Delete the extracted lib file on JVM exit.
-<span class="nc" id="L165">        extractedLibFile.deleteOnExit();</span>
+<span class="pc" id="L165">        extractedLibFile.deleteOnExit();</span>
 
-<span class="nc bnc" id="L167" title="All 4 branches missed.">        if (writer != null){</span>
-<span class="nc" id="L168">          writer.close();</span>
+<span class="pc bpc" id="L167" title="3 of 4 branches missed.">        if (writer != null){</span>
+<span class="pc" id="L168">          writer.close();</span>
         }
 
-<span class="nc bnc" id="L171" title="All 4 branches missed.">        if (reader != null) {</span>
-<span class="nc" id="L172">          reader.close();</span>
-<span class="nc" id="L173">          reader = null;</span>
+<span class="pc bpc" id="L171" title="3 of 4 branches missed.">        if (reader != null) {</span>
+<span class="pc" id="L172">          reader.close();</span>
+<span class="pc" id="L173">          reader = null;</span>
         }
       }
 
       // Set executable (x) flag to enable Java to load the native library
-<span class="nc bnc" id="L178" title="All 6 branches missed.">      if (!extractedLibFile.setReadable(true) || !extractedLibFile.setExecutable(true)</span>
+<span class="pc bpc" id="L178" title="3 of 6 branches missed.">      if (!extractedLibFile.setReadable(true) || !extractedLibFile.setExecutable(true)</span>
           || !extractedLibFile.setWritable(true, true)) {
 <span class="nc" id="L180">        throw new RuntimeException(&quot;Invalid path for library path&quot;);</span>
       }
 
       // Check whether the contents are properly copied from the resource folder
       {
-<span class="nc" id="L185">        InputStream nativeIn = null;</span>
-<span class="nc" id="L186">        InputStream extractedLibIn = null;</span>
+<span class="fc" id="L185">        InputStream nativeIn = null;</span>
+<span class="fc" id="L186">        InputStream extractedLibIn = null;</span>
         try {
-<span class="nc" id="L188">          nativeIn =</span>
+<span class="fc" id="L188">          nativeIn =</span>
               NativeCodeLoader.class.getResourceAsStream(nativeLibraryFilePath);
-<span class="nc" id="L190">          extractedLibIn = new FileInputStream(extractedLibFile);</span>
-<span class="nc bnc" id="L191" title="All 2 branches missed.">          if (!contentsEquals(nativeIn, extractedLibIn))</span>
+<span class="fc" id="L190">          extractedLibIn = new FileInputStream(extractedLibFile);</span>
+<span class="pc bpc" id="L191" title="1 of 2 branches missed.">          if (!contentsEquals(nativeIn, extractedLibIn))</span>
 <span class="nc" id="L192">            throw new RuntimeException(String.format(</span>
                     &quot;Failed to write a native library file at %s&quot;,
                     extractedLibFile));
         } finally {
-<span class="nc bnc" id="L196" title="All 4 branches missed.">          if (nativeIn != null)</span>
-<span class="nc" id="L197">            nativeIn.close();</span>
-<span class="nc bnc" id="L198" title="All 4 branches missed.">          if (extractedLibIn != null)</span>
-<span class="nc" id="L199">            extractedLibIn.close();</span>
+<span class="pc bpc" id="L196" title="3 of 4 branches missed.">          if (nativeIn != null)</span>
+<span class="pc" id="L197">            nativeIn.close();</span>
+<span class="pc bpc" id="L198" title="3 of 4 branches missed.">          if (extractedLibIn != null)</span>
+<span class="pc" id="L199">            extractedLibIn.close();</span>
         }
       }
 
-<span class="nc" id="L203">      return new File(targetFolder, extractedLibFileName);</span>
+<span class="fc" id="L203">      return new File(targetFolder, extractedLibFileName);</span>
 <span class="nc" id="L204">    } catch (IOException e) {</span>
 <span class="nc" id="L205">      e.printStackTrace(System.err);</span>
 <span class="nc" id="L206">      return null;</span>
     } finally{
-<span class="nc bnc" id="L208" title="All 6 branches missed.">      if(reader != null){</span>
+<span class="pc bpc" id="L208" title="5 of 6 branches missed.">      if(reader != null){</span>
         try {
 <span class="nc" id="L210">          reader.close();</span>
 <span class="nc" id="L211">        } catch (IOException e) {</span>
 <span class="nc" id="L212">          e.printStackTrace();</span>
-<span class="nc" id="L213">        }</span>
+<span class="pc" id="L213">        }</span>
       }
     }
   }
@@ -223,15 +223,15 @@ public class NativeCodeLoader {
    * @return the version string
    */
   public static String getVersion() {
-<span class="nc" id="L226">    URL versionFile = NativeCodeLoader.class</span>
+<span class="fc" id="L226">    URL versionFile = NativeCodeLoader.class</span>
         .getResource(&quot;/META-INF/maven/org.apache.commons.crypto/commons-crypto/pom.properties&quot;);
-<span class="nc bnc" id="L228" title="All 2 branches missed.">    if (versionFile == null)</span>
-<span class="nc" id="L229">      versionFile = NativeCodeLoader.class</span>
+<span class="pc bpc" id="L228" title="1 of 2 branches missed.">    if (versionFile == null)</span>
+<span class="fc" id="L229">      versionFile = NativeCodeLoader.class</span>
           .getResource(&quot;/org/apache/commons/crypto/VERSION&quot;);
 
-<span class="nc" id="L232">    String version = &quot;unknown&quot;;</span>
+<span class="fc" id="L232">    String version = &quot;unknown&quot;;</span>
     try {
-<span class="nc bnc" id="L234" title="All 2 branches missed.">      if (versionFile != null) {</span>
+<span class="pc bpc" id="L234" title="1 of 2 branches missed.">      if (versionFile != null) {</span>
 <span class="nc" id="L235">        Properties versionData = new Properties();</span>
 <span class="nc" id="L236">        versionData.load(versionFile.openStream());</span>
 <span class="nc" id="L237">        version = versionData.getProperty(&quot;version&quot;, version);</span>
@@ -241,32 +241,32 @@ public class NativeCodeLoader {
       }
 <span class="nc" id="L242">    } catch (IOException e) {</span>
 <span class="nc" id="L243">      System.err.println(e);</span>
-<span class="nc" id="L244">    }</span>
-<span class="nc" id="L245">    return version;</span>
+<span class="fc" id="L244">    }</span>
+<span class="fc" id="L245">    return version;</span>
   }
 
   private static boolean contentsEquals(InputStream in1, InputStream in2)
       throws IOException {
-<span class="nc bnc" id="L250" title="All 2 branches missed.">    if (!(in1 instanceof BufferedInputStream)) {</span>
+<span class="pc bpc" id="L250" title="1 of 2 branches missed.">    if (!(in1 instanceof BufferedInputStream)) {</span>
 <span class="nc" id="L251">      in1 = new BufferedInputStream(in1);</span>
     }
-<span class="nc bnc" id="L253" title="All 2 branches missed.">    if (!(in2 instanceof BufferedInputStream)) {</span>
-<span class="nc" id="L254">      in2 = new BufferedInputStream(in2);</span>
+<span class="pc bpc" id="L253" title="1 of 2 branches missed.">    if (!(in2 instanceof BufferedInputStream)) {</span>
+<span class="fc" id="L254">      in2 = new BufferedInputStream(in2);</span>
     }
 
-<span class="nc" id="L257">    int ch = in1.read();</span>
-<span class="nc bnc" id="L258" title="All 2 branches missed.">    while (ch != -1) {</span>
-<span class="nc" id="L259">      int ch2 = in2.read();</span>
-<span class="nc bnc" id="L260" title="All 2 branches missed.">      if (ch != ch2)</span>
+<span class="fc" id="L257">    int ch = in1.read();</span>
+<span class="fc bfc" id="L258" title="All 2 branches covered.">    while (ch != -1) {</span>
+<span class="fc" id="L259">      int ch2 = in2.read();</span>
+<span class="pc bpc" id="L260" title="1 of 2 branches missed.">      if (ch != ch2)</span>
 <span class="nc" id="L261">        return false;</span>
-<span class="nc" id="L262">      ch = in1.read();</span>
-<span class="nc" id="L263">    }</span>
-<span class="nc" id="L264">    int ch2 = in2.read();</span>
-<span class="nc bnc" id="L265" title="All 2 branches missed.">    return ch2 == -1;</span>
+<span class="fc" id="L262">      ch = in1.read();</span>
+<span class="fc" id="L263">    }</span>
+<span class="fc" id="L264">    int ch2 = in2.read();</span>
+<span class="pc bpc" id="L265" title="1 of 2 branches missed.">    return ch2 == -1;</span>
   }
 
   private static boolean hasResource(String path) {
-<span class="nc bnc" id="L269" title="All 2 branches missed.">    return NativeCodeLoader.class.getResource(path) != null;</span>
+<span class="pc bpc" id="L269" title="1 of 2 branches missed.">    return NativeCodeLoader.class.getResource(path) != null;</span>
   }
 
   /**
@@ -276,7 +276,7 @@ public class NativeCodeLoader {
    *         else &lt;code&gt;false&lt;/code&gt;.
    */
   public static boolean isNativeCodeLoaded() {
-<span class="nc" id="L279">    return nativeCodeLoaded;</span>
+<span class="fc" id="L279">    return nativeCodeLoaded;</span>
   }
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.eclemma.org/jacoco">JaCoCo</a> 0.7.5.201505241946</span></div></body></html>

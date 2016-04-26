@@ -43,7 +43,7 @@ import org.apache.commons.crypto.utils.Utils;
 
 public class CipherInputStream extends InputStream implements
     ReadableByteChannel {
-<span class="nc" id="L46">  private final byte[] oneByteBuf = new byte[1];</span>
+<span class="fc" id="L46">  private final byte[] oneByteBuf = new byte[1];</span>
 
   protected final Cipher cipher;
   protected final int bufferSize;
@@ -53,7 +53,7 @@ public class CipherInputStream extends InputStream implements
   protected byte[] iv;
 
   protected boolean closed;
-<span class="nc" id="L56">  protected boolean finalDone = false;</span>
+<span class="fc" id="L56">  protected boolean finalDone = false;</span>
 
   protected Input input;
 
@@ -85,40 +85,40 @@ public class CipherInputStream extends InputStream implements
 
   public CipherInputStream(InputStream in, Cipher cipher, int bufferSize,
                            byte[] key, byte[] iv) throws IOException {
-<span class="nc" id="L88">    this(new StreamInput(in, bufferSize), cipher, bufferSize, key, iv);</span>
-<span class="nc" id="L89">  }</span>
+<span class="fc" id="L88">    this(new StreamInput(in, bufferSize), cipher, bufferSize, key, iv);</span>
+<span class="fc" id="L89">  }</span>
 
   public CipherInputStream(ReadableByteChannel in, Cipher cipher,
                            int bufferSize, byte[] key, byte[] iv) throws IOException {
-<span class="nc" id="L93">    this(new ChannelInput(in), cipher, bufferSize, key, iv);</span>
-<span class="nc" id="L94">  }</span>
+<span class="fc" id="L93">    this(new ChannelInput(in), cipher, bufferSize, key, iv);</span>
+<span class="fc" id="L94">  }</span>
 
   public CipherInputStream(
       Input input,
       Cipher cipher,
       int bufferSize,
       byte[] key,
-<span class="nc" id="L101">      byte[] iv) throws IOException {</span>
-<span class="nc" id="L102">    this.input = input;</span>
-<span class="nc" id="L103">    this.cipher = cipher;</span>
-<span class="nc" id="L104">    this.bufferSize = Utils.checkBufferSize(cipher, bufferSize);</span>
-<span class="nc" id="L105">    this.key = key.clone();</span>
-<span class="nc" id="L106">    this.initIV = iv.clone();</span>
-<span class="nc" id="L107">    this.iv = iv.clone();</span>
+<span class="fc" id="L101">      byte[] iv) throws IOException {</span>
+<span class="fc" id="L102">    this.input = input;</span>
+<span class="fc" id="L103">    this.cipher = cipher;</span>
+<span class="fc" id="L104">    this.bufferSize = Utils.checkBufferSize(cipher, bufferSize);</span>
+<span class="fc" id="L105">    this.key = key.clone();</span>
+<span class="fc" id="L106">    this.initIV = iv.clone();</span>
+<span class="fc" id="L107">    this.iv = iv.clone();</span>
 
-<span class="nc" id="L109">    inBuffer = ByteBuffer.allocateDirect(this.bufferSize);</span>
-<span class="nc" id="L110">    outBuffer = ByteBuffer.allocateDirect(this.bufferSize +</span>
+<span class="fc" id="L109">    inBuffer = ByteBuffer.allocateDirect(this.bufferSize);</span>
+<span class="fc" id="L110">    outBuffer = ByteBuffer.allocateDirect(this.bufferSize +</span>
         cipher.getTransformation().getAlgorithmBlockSize());
-<span class="nc" id="L112">    outBuffer.limit(0);</span>
+<span class="fc" id="L112">    outBuffer.limit(0);</span>
 
-<span class="nc" id="L114">    initCipher();</span>
-<span class="nc" id="L115">  }</span>
+<span class="fc" id="L114">    initCipher();</span>
+<span class="fc" id="L115">  }</span>
 
   @Override
   public int read() throws IOException {
     int n;
-<span class="nc bnc" id="L120" title="All 2 branches missed.">    while ((n = read(oneByteBuf, 0, 1)) == 0) ;</span>
-<span class="nc bnc" id="L121" title="All 2 branches missed.">    return (n == -1) ? -1 : oneByteBuf[0] &amp; 0xff;</span>
+<span class="fc bfc" id="L120" title="All 2 branches covered.">    while ((n = read(oneByteBuf, 0, 1)) == 0) ;</span>
+<span class="fc bfc" id="L121" title="All 2 branches covered.">    return (n == -1) ? -1 : oneByteBuf[0] &amp; 0xff;</span>
   }
 
   /**
@@ -134,86 +134,86 @@ public class CipherInputStream extends InputStream implements
    */
   @Override
   public int read(byte[] b, int off, int len) throws IOException {
-<span class="nc" id="L137">    checkStream();</span>
-<span class="nc bnc" id="L138" title="All 2 branches missed.">    if (b == null) {</span>
+<span class="fc" id="L137">    checkStream();</span>
+<span class="pc bpc" id="L138" title="1 of 2 branches missed.">    if (b == null) {</span>
 <span class="nc" id="L139">      throw new NullPointerException();</span>
-<span class="nc bnc" id="L140" title="All 6 branches missed.">    } else if (off &lt; 0 || len &lt; 0 || len &gt; b.length - off) {</span>
+<span class="pc bpc" id="L140" title="3 of 6 branches missed.">    } else if (off &lt; 0 || len &lt; 0 || len &gt; b.length - off) {</span>
 <span class="nc" id="L141">      throw new IndexOutOfBoundsException();</span>
-<span class="nc bnc" id="L142" title="All 2 branches missed.">    } else if (len == 0) {</span>
+<span class="pc bpc" id="L142" title="1 of 2 branches missed.">    } else if (len == 0) {</span>
 <span class="nc" id="L143">      return 0;</span>
     }
 
-<span class="nc" id="L146">    int remaining = outBuffer.remaining();</span>
-<span class="nc bnc" id="L147" title="All 2 branches missed.">    if (remaining &gt; 0) {</span>
+<span class="fc" id="L146">    int remaining = outBuffer.remaining();</span>
+<span class="fc bfc" id="L147" title="All 2 branches covered.">    if (remaining &gt; 0) {</span>
       // Satisfy the read with the existing data
-<span class="nc" id="L149">      int n = Math.min(len, remaining);</span>
-<span class="nc" id="L150">      outBuffer.get(b, off, n);</span>
-<span class="nc" id="L151">      return n;</span>
+<span class="fc" id="L149">      int n = Math.min(len, remaining);</span>
+<span class="fc" id="L150">      outBuffer.get(b, off, n);</span>
+<span class="fc" id="L151">      return n;</span>
     } else {
       // No data in the out buffer, try read new data and decrypt it
-<span class="nc" id="L154">      int nd = decryptMore();</span>
-<span class="nc bnc" id="L155" title="All 2 branches missed.">      if(nd &lt;= 0)</span>
-<span class="nc" id="L156">        return nd;</span>
+<span class="fc" id="L154">      int nd = decryptMore();</span>
+<span class="fc bfc" id="L155" title="All 2 branches covered.">      if(nd &lt;= 0)</span>
+<span class="fc" id="L156">        return nd;</span>
 
-<span class="nc" id="L158">      int n = Math.min(len, outBuffer.remaining());</span>
-<span class="nc" id="L159">      outBuffer.get(b, off, n);</span>
-<span class="nc" id="L160">      return n;</span>
+<span class="fc" id="L158">      int n = Math.min(len, outBuffer.remaining());</span>
+<span class="fc" id="L159">      outBuffer.get(b, off, n);</span>
+<span class="fc" id="L160">      return n;</span>
     }
   }
 
   @Override
   public long skip(long n) throws IOException {
-<span class="nc bnc" id="L166" title="All 2 branches missed.">    Utils.checkArgument(n &gt;= 0, &quot;Negative skip length.&quot;);</span>
-<span class="nc" id="L167">    checkStream();</span>
+<span class="fc bfc" id="L166" title="All 2 branches covered.">    Utils.checkArgument(n &gt;= 0, &quot;Negative skip length.&quot;);</span>
+<span class="fc" id="L167">    checkStream();</span>
 
-<span class="nc bnc" id="L169" title="All 2 branches missed.">    if (n == 0) {</span>
+<span class="pc bpc" id="L169" title="1 of 2 branches missed.">    if (n == 0) {</span>
 <span class="nc" id="L170">      return 0;</span>
     }
 
-<span class="nc" id="L173">    long remaining = n;</span>
+<span class="fc" id="L173">    long remaining = n;</span>
     int nd;
 
-<span class="nc bnc" id="L176" title="All 2 branches missed.">    while (remaining &gt; 0) {</span>
-<span class="nc bnc" id="L177" title="All 2 branches missed.">      if(remaining &lt;= outBuffer.remaining()) {</span>
+<span class="pc bpc" id="L176" title="1 of 2 branches missed.">    while (remaining &gt; 0) {</span>
+<span class="fc bfc" id="L177" title="All 2 branches covered.">      if(remaining &lt;= outBuffer.remaining()) {</span>
         // Skip in the remaining buffer
-<span class="nc" id="L179">        int pos = outBuffer.position() + (int) remaining;</span>
-<span class="nc" id="L180">        outBuffer.position(pos);</span>
+<span class="fc" id="L179">        int pos = outBuffer.position() + (int) remaining;</span>
+<span class="fc" id="L180">        outBuffer.position(pos);</span>
 
-<span class="nc" id="L182">        remaining = 0;</span>
-<span class="nc" id="L183">        break;</span>
+<span class="fc" id="L182">        remaining = 0;</span>
+<span class="fc" id="L183">        break;</span>
       } else {
-<span class="nc" id="L185">        remaining -= outBuffer.remaining();</span>
-<span class="nc" id="L186">        outBuffer.clear();</span>
+<span class="fc" id="L185">        remaining -= outBuffer.remaining();</span>
+<span class="fc" id="L186">        outBuffer.clear();</span>
       }
 
-<span class="nc" id="L189">      nd = decryptMore();</span>
-<span class="nc bnc" id="L190" title="All 2 branches missed.">      if (nd &lt; 0) {</span>
-<span class="nc" id="L191">        break;</span>
+<span class="fc" id="L189">      nd = decryptMore();</span>
+<span class="fc bfc" id="L190" title="All 2 branches covered.">      if (nd &lt; 0) {</span>
+<span class="fc" id="L191">        break;</span>
       }
     }
 
-<span class="nc" id="L195">    return n - remaining;</span>
+<span class="fc" id="L195">    return n - remaining;</span>
   }
 
   @Override
   public int available() throws IOException {
-<span class="nc" id="L200">    checkStream();</span>
+<span class="fc" id="L200">    checkStream();</span>
 
-<span class="nc" id="L202">    return input.available() + outBuffer.remaining();</span>
+<span class="fc" id="L202">    return input.available() + outBuffer.remaining();</span>
   }
 
   @Override
   public void close() throws IOException {
-<span class="nc bnc" id="L207" title="All 2 branches missed.">    if (closed) {</span>
+<span class="pc bpc" id="L207" title="1 of 2 branches missed.">    if (closed) {</span>
 <span class="nc" id="L208">      return;</span>
     }
 
-<span class="nc" id="L211">    input.close();</span>
-<span class="nc" id="L212">    freeBuffers();</span>
-<span class="nc" id="L213">    cipher.close();</span>
-<span class="nc" id="L214">    super.close();</span>
-<span class="nc" id="L215">    closed = true;</span>
-<span class="nc" id="L216">  }</span>
+<span class="fc" id="L211">    input.close();</span>
+<span class="fc" id="L212">    freeBuffers();</span>
+<span class="fc" id="L213">    cipher.close();</span>
+<span class="fc" id="L214">    super.close();</span>
+<span class="fc" id="L215">    closed = true;</span>
+<span class="fc" id="L216">  }</span>
 
   @Override
   public void mark(int readlimit) {
@@ -231,33 +231,33 @@ public class CipherInputStream extends InputStream implements
 
   @Override
   public boolean isOpen() {
-<span class="nc bnc" id="L234" title="All 2 branches missed.">    return !closed;</span>
+<span class="pc bpc" id="L234" title="1 of 2 branches missed.">    return !closed;</span>
   }
 
   @Override
   public int read(ByteBuffer dst) throws IOException {
-<span class="nc" id="L239">    checkStream();</span>
-<span class="nc" id="L240">    int remaining = outBuffer.remaining();</span>
-<span class="nc bnc" id="L241" title="All 2 branches missed.">    if (remaining &lt;= 0) {</span>
+<span class="fc" id="L239">    checkStream();</span>
+<span class="fc" id="L240">    int remaining = outBuffer.remaining();</span>
+<span class="pc bpc" id="L241" title="1 of 2 branches missed.">    if (remaining &lt;= 0) {</span>
       // Decrypt more data
-<span class="nc" id="L243">      int nd = decryptMore();</span>
-<span class="nc bnc" id="L244" title="All 2 branches missed.">      if(nd &lt; 0) {</span>
+<span class="fc" id="L243">      int nd = decryptMore();</span>
+<span class="pc bpc" id="L244" title="1 of 2 branches missed.">      if(nd &lt; 0) {</span>
 <span class="nc" id="L245">        return -1;</span>
       }
     }
 
     // Copy decrypted data from outBuffer to dst
-<span class="nc" id="L250">    remaining = outBuffer.remaining();</span>
-<span class="nc" id="L251">    final int toRead = dst.remaining();</span>
-<span class="nc bnc" id="L252" title="All 2 branches missed.">    if (toRead &lt;= remaining) {</span>
+<span class="fc" id="L250">    remaining = outBuffer.remaining();</span>
+<span class="fc" id="L251">    final int toRead = dst.remaining();</span>
+<span class="pc bpc" id="L252" title="1 of 2 branches missed.">    if (toRead &lt;= remaining) {</span>
 <span class="nc" id="L253">      final int limit = outBuffer.limit();</span>
 <span class="nc" id="L254">      outBuffer.limit(outBuffer.position() + toRead);</span>
 <span class="nc" id="L255">      dst.put(outBuffer);</span>
 <span class="nc" id="L256">      outBuffer.limit(limit);</span>
 <span class="nc" id="L257">      return toRead;</span>
     } else {
-<span class="nc" id="L259">      dst.put(outBuffer);</span>
-<span class="nc" id="L260">      return remaining;</span>
+<span class="fc" id="L259">      dst.put(outBuffer);</span>
+<span class="fc" id="L260">      return remaining;</span>
     }
   }
 
@@ -265,41 +265,41 @@ public class CipherInputStream extends InputStream implements
    * Get the buffer size
    */
   protected int getBufferSize() {
-<span class="nc" id="L268">    return bufferSize;</span>
+<span class="fc" id="L268">    return bufferSize;</span>
   }
 
   /**
    * Get the key
    */
   protected byte[] getKey() {
-<span class="nc" id="L275">    return key;</span>
+<span class="fc" id="L275">    return key;</span>
   }
 
   /**
    * Get the initialization vector
    */
   protected byte[] getInitIV() {
-<span class="nc" id="L282">    return initIV;</span>
+<span class="fc" id="L282">    return initIV;</span>
   }
 
   /**
    * Get the internal Cipher
    */
   protected Cipher getCipher() {
-<span class="nc" id="L289">    return cipher;</span>
+<span class="fc" id="L289">    return cipher;</span>
   }
 
   /** Initialize the cipher. */
   protected void initCipher()
       throws IOException {
     try {
-<span class="nc" id="L296">      cipher.init(Cipher.DECRYPT_MODE, key, iv);</span>
+<span class="fc" id="L296">      cipher.init(Cipher.DECRYPT_MODE, key, iv);</span>
 <span class="nc" id="L297">    } catch (InvalidKeyException e) {</span>
 <span class="nc" id="L298">      throw new IOException(e);</span>
 <span class="nc" id="L299">    } catch(InvalidAlgorithmParameterException e) {</span>
 <span class="nc" id="L300">      throw new IOException(e);</span>
-<span class="nc" id="L301">    }</span>
-<span class="nc" id="L302">  }</span>
+<span class="fc" id="L301">    }</span>
+<span class="fc" id="L302">  }</span>
 
   /**
    * Decrypt more data by reading the under layer stream. The decrypted data will
@@ -309,29 +309,29 @@ public class CipherInputStream extends InputStream implements
    * @return The number of decrypted data. -1 if end of the decrypted stream
    */
   protected int decryptMore() throws IOException {
-<span class="nc bnc" id="L312" title="All 2 branches missed.">    if(finalDone) {</span>
-<span class="nc" id="L313">      return -1;</span>
+<span class="fc bfc" id="L312" title="All 2 branches covered.">    if(finalDone) {</span>
+<span class="fc" id="L313">      return -1;</span>
     }
 
-<span class="nc" id="L316">    int n = input.read(inBuffer);</span>
-<span class="nc bnc" id="L317" title="All 2 branches missed.">    if (n &lt; 0) {</span>
+<span class="fc" id="L316">    int n = input.read(inBuffer);</span>
+<span class="fc bfc" id="L317" title="All 2 branches covered.">    if (n &lt; 0) {</span>
       // The stream is end, finalize the cipher stream
-<span class="nc" id="L319">      decryptFinal();</span>
+<span class="fc" id="L319">      decryptFinal();</span>
 
       // Satisfy the read with the remaining
-<span class="nc" id="L322">      int remaining = outBuffer.remaining();</span>
-<span class="nc bnc" id="L323" title="All 2 branches missed.">      if (remaining &gt; 0) {</span>
+<span class="fc" id="L322">      int remaining = outBuffer.remaining();</span>
+<span class="pc bpc" id="L323" title="1 of 2 branches missed.">      if (remaining &gt; 0) {</span>
 <span class="nc" id="L324">        return remaining;</span>
       }
 
       // End of the stream
-<span class="nc" id="L328">      return -1;</span>
-<span class="nc bnc" id="L329" title="All 2 branches missed.">    } else if(n == 0) {</span>
+<span class="fc" id="L328">      return -1;</span>
+<span class="pc bpc" id="L329" title="1 of 2 branches missed.">    } else if(n == 0) {</span>
       // No data is read, but the stream is not end yet
 <span class="nc" id="L331">      return 0;</span>
     } else {
-<span class="nc" id="L333">      decrypt();</span>
-<span class="nc" id="L334">      return outBuffer.remaining();</span>
+<span class="fc" id="L333">      decrypt();</span>
+<span class="fc" id="L334">      return outBuffer.remaining();</span>
     }
   }
 
@@ -342,54 +342,54 @@ public class CipherInputStream extends InputStream implements
    */
   protected void decrypt() throws IOException {
     // Prepare the input buffer and clear the out buffer
-<span class="nc" id="L345">    inBuffer.flip();</span>
-<span class="nc" id="L346">    outBuffer.clear();</span>
+<span class="fc" id="L345">    inBuffer.flip();</span>
+<span class="fc" id="L346">    outBuffer.clear();</span>
 
     try {
-<span class="nc" id="L349">      cipher.update(inBuffer, outBuffer);</span>
+<span class="fc" id="L349">      cipher.update(inBuffer, outBuffer);</span>
 <span class="nc" id="L350">    } catch (ShortBufferException e) {</span>
 <span class="nc" id="L351">      throw new IOException(e);</span>
-<span class="nc" id="L352">    }</span>
+<span class="fc" id="L352">    }</span>
 
     // Clear the input buffer and prepare out buffer
-<span class="nc" id="L355">    inBuffer.clear();</span>
-<span class="nc" id="L356">    outBuffer.flip();</span>
-<span class="nc" id="L357">  }</span>
+<span class="fc" id="L355">    inBuffer.clear();</span>
+<span class="fc" id="L356">    outBuffer.flip();</span>
+<span class="fc" id="L357">  }</span>
 
   /**
    * Do final of the cipher to end the decrypting stream
    */
   protected void decryptFinal() throws IOException {
     // Prepare the input buffer and clear the out buffer
-<span class="nc" id="L364">    inBuffer.flip();</span>
-<span class="nc" id="L365">    outBuffer.clear();</span>
+<span class="fc" id="L364">    inBuffer.flip();</span>
+<span class="fc" id="L365">    outBuffer.clear();</span>
 
     try {
-<span class="nc" id="L368">      cipher.doFinal(inBuffer, outBuffer);</span>
-<span class="nc" id="L369">      finalDone = true;</span>
+<span class="fc" id="L368">      cipher.doFinal(inBuffer, outBuffer);</span>
+<span class="fc" id="L369">      finalDone = true;</span>
 <span class="nc" id="L370">    } catch (ShortBufferException e) {</span>
 <span class="nc" id="L371">      throw new IOException(e);</span>
 <span class="nc" id="L372">    } catch (IllegalBlockSizeException e) {</span>
 <span class="nc" id="L373">      throw new IOException(e);</span>
 <span class="nc" id="L374">    } catch( BadPaddingException e) {</span>
 <span class="nc" id="L375">      throw new IOException(e);</span>
-<span class="nc" id="L376">    }</span>
+<span class="fc" id="L376">    }</span>
 
     // Clear the input buffer and prepare out buffer
-<span class="nc" id="L379">    inBuffer.clear();</span>
-<span class="nc" id="L380">    outBuffer.flip();</span>
-<span class="nc" id="L381">  }</span>
+<span class="fc" id="L379">    inBuffer.clear();</span>
+<span class="fc" id="L380">    outBuffer.flip();</span>
+<span class="fc" id="L381">  }</span>
 
   protected void checkStream() throws IOException {
-<span class="nc bnc" id="L384" title="All 2 branches missed.">    if (closed) {</span>
+<span class="pc bpc" id="L384" title="1 of 2 branches missed.">    if (closed) {</span>
 <span class="nc" id="L385">      throw new IOException(&quot;Stream closed&quot;);</span>
     }
-<span class="nc" id="L387">  }</span>
+<span class="fc" id="L387">  }</span>
 
   /** Forcibly free the direct buffers. */
   protected void freeBuffers() {
-<span class="nc" id="L391">    Utils.freeDirectBuffer(inBuffer);</span>
-<span class="nc" id="L392">    Utils.freeDirectBuffer(outBuffer);</span>
-<span class="nc" id="L393">  }</span>
+<span class="fc" id="L391">    Utils.freeDirectBuffer(inBuffer);</span>
+<span class="fc" id="L392">    Utils.freeDirectBuffer(outBuffer);</span>
+<span class="fc" id="L393">  }</span>
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.eclemma.org/jacoco">JaCoCo</a> 0.7.5.201505241946</span></div></body></html>

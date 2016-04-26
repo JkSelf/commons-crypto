@@ -31,12 +31,12 @@ import org.apache.commons.crypto.cipher.Cipher;
 public class ReflectionUtils {
 
   private static final Map&lt;ClassLoader, Map&lt;String, WeakReference&lt;Class&lt;?&gt;&gt;&gt;&gt;
-<span class="nc" id="L34">    CACHE_CLASSES = new WeakHashMap&lt;ClassLoader, Map&lt;String, WeakReference&lt;Class&lt;?&gt;&gt;&gt;&gt;();</span>
+<span class="fc" id="L34">    CACHE_CLASSES = new WeakHashMap&lt;ClassLoader, Map&lt;String, WeakReference&lt;Class&lt;?&gt;&gt;&gt;&gt;();</span>
 
   private static ClassLoader classLoader;
   static {
-<span class="nc" id="L38">    classLoader = Thread.currentThread().getContextClassLoader();</span>
-<span class="nc bnc" id="L39" title="All 2 branches missed.">    if (classLoader == null) {</span>
+<span class="fc" id="L38">    classLoader = Thread.currentThread().getContextClassLoader();</span>
+<span class="pc bpc" id="L39" title="1 of 2 branches missed.">    if (classLoader == null) {</span>
 <span class="nc" id="L40">      classLoader = Cipher.class.getClassLoader();</span>
     }
   }
@@ -44,7 +44,7 @@ public class ReflectionUtils {
   /**
    * Sentinel value to store negative cache results in {@link #CACHE_CLASSES}.
    */
-<span class="nc" id="L47">  private static final Class&lt;?&gt; NEGATIVE_CACHE_SENTINEL =</span>
+<span class="fc" id="L47">  private static final Class&lt;?&gt; NEGATIVE_CACHE_SENTINEL =</span>
     NegativeCacheSentinel.class;
 
 <span class="nc" id="L50">  private ReflectionUtils() {}</span>
@@ -69,19 +69,19 @@ public class ReflectionUtils {
   @SuppressWarnings(&quot;rawtypes&quot;)
   public static &lt;T&gt; T newInstance(Class&lt;T&gt; klass, Object ... args) {
     try {
-<span class="nc" id="L72">      Constructor&lt;T&gt; ctor = null;</span>
+<span class="fc" id="L72">      Constructor&lt;T&gt; ctor = null;</span>
 
-<span class="nc bnc" id="L74" title="All 2 branches missed.">      if (args.length == 0) {</span>
+<span class="pc bpc" id="L74" title="1 of 2 branches missed.">      if (args.length == 0) {</span>
 <span class="nc" id="L75">        ctor = klass.getDeclaredConstructor(new Class[] {});</span>
       } else {
-<span class="nc" id="L77">        Class[] argClses = new Class[args.length];</span>
-<span class="nc bnc" id="L78" title="All 2 branches missed.">        for (int i = 0; i &lt; args.length; i++) {</span>
-<span class="nc" id="L79">          argClses[i] = args[i].getClass();</span>
+<span class="fc" id="L77">        Class[] argClses = new Class[args.length];</span>
+<span class="fc bfc" id="L78" title="All 2 branches covered.">        for (int i = 0; i &lt; args.length; i++) {</span>
+<span class="fc" id="L79">          argClses[i] = args[i].getClass();</span>
         }
-<span class="nc" id="L81">        ctor = klass.getDeclaredConstructor(argClses);</span>
+<span class="fc" id="L81">        ctor = klass.getDeclaredConstructor(argClses);</span>
       }
-<span class="nc" id="L83">      ctor.setAccessible(true);</span>
-<span class="nc" id="L84">      return ctor.newInstance(args);</span>
+<span class="fc" id="L83">      ctor.setAccessible(true);</span>
+<span class="fc" id="L84">      return ctor.newInstance(args);</span>
 <span class="nc" id="L85">    } catch (Exception e) {</span>
 <span class="nc" id="L86">      throw new RuntimeException(e);</span>
     }
@@ -152,11 +152,11 @@ public class ReflectionUtils {
    */
   public static Class&lt;?&gt; getClassByName(String name)
       throws ClassNotFoundException {
-<span class="nc" id="L155">    Class&lt;?&gt; ret = getClassByNameOrNull(name);</span>
-<span class="nc bnc" id="L156" title="All 2 branches missed.">    if (ret == null) {</span>
-<span class="nc" id="L157">      throw new ClassNotFoundException(&quot;Class &quot; + name + &quot; not found&quot;);</span>
+<span class="fc" id="L155">    Class&lt;?&gt; ret = getClassByNameOrNull(name);</span>
+<span class="fc bfc" id="L156" title="All 2 branches covered.">    if (ret == null) {</span>
+<span class="fc" id="L157">      throw new ClassNotFoundException(&quot;Class &quot; + name + &quot; not found&quot;);</span>
     }
-<span class="nc" id="L159">    return ret;</span>
+<span class="fc" id="L159">    return ret;</span>
   }
   
   /**
@@ -170,37 +170,37 @@ public class ReflectionUtils {
   private static Class&lt;?&gt; getClassByNameOrNull(String name) {
     Map&lt;String, WeakReference&lt;Class&lt;?&gt;&gt;&gt; map;
 
-<span class="nc" id="L173">    synchronized (CACHE_CLASSES) {</span>
-<span class="nc" id="L174">      map = CACHE_CLASSES.get(classLoader);</span>
-<span class="nc bnc" id="L175" title="All 2 branches missed.">      if (map == null) {</span>
-<span class="nc" id="L176">        map = Collections.synchronizedMap(</span>
+<span class="fc" id="L173">    synchronized (CACHE_CLASSES) {</span>
+<span class="fc" id="L174">      map = CACHE_CLASSES.get(classLoader);</span>
+<span class="fc bfc" id="L175" title="All 2 branches covered.">      if (map == null) {</span>
+<span class="fc" id="L176">        map = Collections.synchronizedMap(</span>
           new WeakHashMap&lt;String, WeakReference&lt;Class&lt;?&gt;&gt;&gt;());
-<span class="nc" id="L178">        CACHE_CLASSES.put(classLoader, map);</span>
+<span class="fc" id="L178">        CACHE_CLASSES.put(classLoader, map);</span>
       }
-<span class="nc" id="L180">    }</span>
+<span class="pc" id="L180">    }</span>
 
-<span class="nc" id="L182">    Class&lt;?&gt; clazz = null;</span>
-<span class="nc" id="L183">    WeakReference&lt;Class&lt;?&gt;&gt; ref = map.get(name); </span>
-<span class="nc bnc" id="L184" title="All 2 branches missed.">    if (ref != null) {</span>
-<span class="nc" id="L185">       clazz = ref.get();</span>
+<span class="fc" id="L182">    Class&lt;?&gt; clazz = null;</span>
+<span class="fc" id="L183">    WeakReference&lt;Class&lt;?&gt;&gt; ref = map.get(name); </span>
+<span class="fc bfc" id="L184" title="All 2 branches covered.">    if (ref != null) {</span>
+<span class="fc" id="L185">       clazz = ref.get();</span>
     }
      
-<span class="nc bnc" id="L188" title="All 2 branches missed.">    if (clazz == null) {</span>
+<span class="fc bfc" id="L188" title="All 2 branches covered.">    if (clazz == null) {</span>
       try {
-<span class="nc" id="L190">        clazz = Class.forName(name, true, classLoader);</span>
-<span class="nc" id="L191">      } catch (ClassNotFoundException e) {</span>
+<span class="fc" id="L190">        clazz = Class.forName(name, true, classLoader);</span>
+<span class="fc" id="L191">      } catch (ClassNotFoundException e) {</span>
         // Leave a marker that the class isn't found
-<span class="nc" id="L193">        map.put(name, new WeakReference&lt;Class&lt;?&gt;&gt;(NEGATIVE_CACHE_SENTINEL));</span>
-<span class="nc" id="L194">        return null;</span>
-<span class="nc" id="L195">      }</span>
+<span class="fc" id="L193">        map.put(name, new WeakReference&lt;Class&lt;?&gt;&gt;(NEGATIVE_CACHE_SENTINEL));</span>
+<span class="fc" id="L194">        return null;</span>
+<span class="fc" id="L195">      }</span>
       // two putters can race here, but they'll put the same class
-<span class="nc" id="L197">      map.put(name, new WeakReference&lt;Class&lt;?&gt;&gt;(clazz));</span>
-<span class="nc" id="L198">      return clazz;</span>
-<span class="nc bnc" id="L199" title="All 2 branches missed.">    } else if (clazz == NEGATIVE_CACHE_SENTINEL) {</span>
+<span class="fc" id="L197">      map.put(name, new WeakReference&lt;Class&lt;?&gt;&gt;(clazz));</span>
+<span class="fc" id="L198">      return clazz;</span>
+<span class="pc bpc" id="L199" title="1 of 2 branches missed.">    } else if (clazz == NEGATIVE_CACHE_SENTINEL) {</span>
 <span class="nc" id="L200">      return null; // not found</span>
     } else {
       // cache hit
-<span class="nc" id="L203">      return clazz;</span>
+<span class="fc" id="L203">      return clazz;</span>
     }
   }
 }

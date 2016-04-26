@@ -49,19 +49,19 @@ import static org.apache.commons.crypto.conf.ConfigurationKeys.COMMONS_CRYPTO_LI
 public class Utils {
   private static final int MIN_BUFFER_SIZE = 512;
 
-<span class="nc" id="L52">  protected static final CipherTransformation AES_CTR_NOPADDING = CipherTransformation.AES_CTR_NOPADDING;</span>
+<span class="fc" id="L52">  protected static final CipherTransformation AES_CTR_NOPADDING = CipherTransformation.AES_CTR_NOPADDING;</span>
 
   /**
    * For AES, the algorithm block is fixed size of 128 bits.
    * @see http://en.wikipedia.org/wiki/Advanced_Encryption_Standard
    */
-<span class="nc" id="L58">  private static final int AES_BLOCK_SIZE = AES_CTR_NOPADDING.getAlgorithmBlockSize();</span>
+<span class="fc" id="L58">  private static final int AES_BLOCK_SIZE = AES_CTR_NOPADDING.getAlgorithmBlockSize();</span>
 
 <span class="nc" id="L60">  private Utils() {}</span>
 
   static {
-<span class="nc" id="L63">    loadSystemProperties();</span>
-<span class="nc" id="L64">  }</span>
+<span class="fc" id="L63">    loadSystemProperties();</span>
+<span class="fc" id="L64">  }</span>
 
   /**
    * loads system properties when configuration file of the name
@@ -69,11 +69,11 @@ public class Utils {
    */
   private static void loadSystemProperties() {
     try {
-<span class="nc" id="L72">      InputStream is = Thread.currentThread().getContextClassLoader()</span>
+<span class="fc" id="L72">      InputStream is = Thread.currentThread().getContextClassLoader()</span>
           .getResourceAsStream(COMMONS_CRYPTO_SYSTEM_PROPERTIES_FILE);
 
-<span class="nc bnc" id="L75" title="All 2 branches missed.">      if (is == null)</span>
-<span class="nc" id="L76">        return; // no configuration file is found</span>
+<span class="pc bpc" id="L75" title="1 of 2 branches missed.">      if (is == null)</span>
+<span class="fc" id="L76">        return; // no configuration file is found</span>
 
       // Load property file
 <span class="nc" id="L79">      Properties props = new Properties();</span>
@@ -101,12 +101,12 @@ public class Utils {
    * @param buffer the bytebuffer to be freed.
    */
   public static void freeDirectBuffer(ByteBuffer buffer) {
-<span class="nc bnc" id="L104" title="All 2 branches missed.">    if (buffer instanceof sun.nio.ch.DirectBuffer) {</span>
-<span class="nc" id="L105">      final sun.misc.Cleaner bufferCleaner =</span>
+<span class="pc bpc" id="L104" title="1 of 2 branches missed.">    if (buffer instanceof sun.nio.ch.DirectBuffer) {</span>
+<span class="fc" id="L105">      final sun.misc.Cleaner bufferCleaner =</span>
           ((sun.nio.ch.DirectBuffer) buffer).cleaner();
-<span class="nc" id="L107">      bufferCleaner.clean();</span>
+<span class="fc" id="L107">      bufferCleaner.clean();</span>
     }
-<span class="nc" id="L109">  }</span>
+<span class="fc" id="L109">  }</span>
 
   /**
    * Reads crypto buffer size.
@@ -137,14 +137,14 @@ public class Utils {
    * @return the cipher class based on the props.
    */
   public static String getCipherClassString(Properties props) {
-<span class="nc" id="L140">    final String configName = COMMONS_CRYPTO_CIPHER_CLASSES_KEY;</span>
-<span class="nc bnc" id="L141" title="All 2 branches missed.">    String cipherClassString = props.getProperty(configName) != null ? props</span>
+<span class="fc" id="L140">    final String configName = COMMONS_CRYPTO_CIPHER_CLASSES_KEY;</span>
+<span class="fc bfc" id="L141" title="All 2 branches covered.">    String cipherClassString = props.getProperty(configName) != null ? props</span>
         .getProperty(configName, COMMONS_CRYPTO_CIPHER_CLASSES_DEFAULT) : System
         .getProperty(configName, COMMONS_CRYPTO_CIPHER_CLASSES_DEFAULT);
-<span class="nc bnc" id="L144" title="All 2 branches missed.">    if (cipherClassString.isEmpty()) {</span>
-<span class="nc" id="L145">      cipherClassString = COMMONS_CRYPTO_CIPHER_CLASSES_DEFAULT;</span>
+<span class="fc bfc" id="L144" title="All 2 branches covered.">    if (cipherClassString.isEmpty()) {</span>
+<span class="fc" id="L145">      cipherClassString = COMMONS_CRYPTO_CIPHER_CLASSES_DEFAULT;</span>
     }
-<span class="nc" id="L147">    return cipherClassString;</span>
+<span class="fc" id="L147">    return cipherClassString;</span>
   }
 
   /**
@@ -155,7 +155,7 @@ public class Utils {
    * @return the jce provider based on the props.
    */
   public static String getJCEProvider(Properties props) {
-<span class="nc bnc" id="L158" title="All 2 branches missed.">    return props.getProperty(COMMONS_CRYPTO_CIPHER_JCE_PROVIDER_KEY) != null ?</span>
+<span class="pc bpc" id="L158" title="1 of 2 branches missed.">    return props.getProperty(COMMONS_CRYPTO_CIPHER_JCE_PROVIDER_KEY) != null ?</span>
         props.getProperty(COMMONS_CRYPTO_CIPHER_JCE_PROVIDER_KEY) :
         System.getProperty(COMMONS_CRYPTO_CIPHER_JCE_PROVIDER_KEY);
   }
@@ -168,14 +168,14 @@ public class Utils {
    * @return the random device path based on the props.
    */
   public static String getRandomDevPath(Properties props) {
-<span class="nc" id="L171">    String devPath = props.getProperty(</span>
+<span class="fc" id="L171">    String devPath = props.getProperty(</span>
         COMMONS_CRYPTO_SECURE_RANDOM_DEVICE_FILE_PATH_KEY);
-<span class="nc bnc" id="L173" title="All 2 branches missed.">    if (devPath == null) {</span>
-<span class="nc" id="L174">      devPath = System.getProperty(</span>
+<span class="pc bpc" id="L173" title="1 of 2 branches missed.">    if (devPath == null) {</span>
+<span class="fc" id="L174">      devPath = System.getProperty(</span>
           COMMONS_CRYPTO_SECURE_RANDOM_DEVICE_FILE_PATH_KEY,
           COMMONS_CRYPTO_SECURE_RANDOM_DEVICE_FILE_PATH_DEFAULT);
     }
-<span class="nc" id="L178">    return devPath;</span>
+<span class="fc" id="L178">    return devPath;</span>
   }
 
   /**
@@ -184,7 +184,7 @@ public class Utils {
    * @return the path of native library.
    */
   public static String getLibPath() {
-<span class="nc" id="L187">    return System.getProperty(COMMONS_CRYPTO_LIB_PATH_KEY);</span>
+<span class="fc" id="L187">    return System.getProperty(COMMONS_CRYPTO_LIB_PATH_KEY);</span>
   }
 
   /**
@@ -193,7 +193,7 @@ public class Utils {
    * @return the file name of native library.
    */
   public static String getLibName() {
-<span class="nc" id="L196">    return System.getProperty(COMMONS_CRYPTO_LIB_NAME_KEY);</span>
+<span class="fc" id="L196">    return System.getProperty(COMMONS_CRYPTO_LIB_NAME_KEY);</span>
   }
 
   /**
@@ -202,7 +202,7 @@ public class Utils {
    * @return the temp directory.
    */
   public static String getTmpDir() {
-<span class="nc" id="L205">    return System.getProperty(COMMONS_CRYPTO_LIB_TEMPDIR_KEY,</span>
+<span class="fc" id="L205">    return System.getProperty(COMMONS_CRYPTO_LIB_TEMPDIR_KEY,</span>
         System.getProperty(&quot;java.io.tmpdir&quot;));
   }
 
@@ -213,10 +213,10 @@ public class Utils {
    * @throws IOException if an I/O error occurs.
    */
   public static void checkStreamCipher(Cipher cipher) throws IOException {
-<span class="nc bnc" id="L216" title="All 2 branches missed.">    if (cipher.getTransformation() != CipherTransformation.AES_CTR_NOPADDING) {</span>
+<span class="pc bpc" id="L216" title="1 of 2 branches missed.">    if (cipher.getTransformation() != CipherTransformation.AES_CTR_NOPADDING) {</span>
 <span class="nc" id="L217">      throw new IOException(&quot;AES/CTR/NoPadding is required&quot;);</span>
     }
-<span class="nc" id="L219">  }</span>
+<span class="fc" id="L219">  }</span>
 
   /**
    * Checks and floors buffer size.
@@ -226,9 +226,9 @@ public class Utils {
    * @return the remaining buffer size.
    */
   public static int checkBufferSize(Cipher cipher, int bufferSize) {
-<span class="nc bnc" id="L229" title="All 2 branches missed.">    checkArgument(bufferSize &gt;= MIN_BUFFER_SIZE,</span>
+<span class="pc bpc" id="L229" title="1 of 2 branches missed.">    checkArgument(bufferSize &gt;= MIN_BUFFER_SIZE,</span>
         &quot;Minimum value of buffer size is &quot; + MIN_BUFFER_SIZE + &quot;.&quot;);
-<span class="nc" id="L231">    return bufferSize - bufferSize % cipher.getTransformation()</span>
+<span class="fc" id="L231">    return bufferSize - bufferSize % cipher.getTransformation()</span>
         .getAlgorithmBlockSize();
   }
 
@@ -251,22 +251,22 @@ public class Utils {
    * @param IV the IV for input stream position
    */
   public static void calculateIV(byte[] initIV, long counter, byte[] IV) {
-<span class="nc bnc" id="L254" title="All 2 branches missed.">    checkArgument(initIV.length == AES_BLOCK_SIZE);</span>
-<span class="nc bnc" id="L255" title="All 2 branches missed.">    checkArgument(IV.length == AES_BLOCK_SIZE);</span>
+<span class="pc bpc" id="L254" title="1 of 2 branches missed.">    checkArgument(initIV.length == AES_BLOCK_SIZE);</span>
+<span class="pc bpc" id="L255" title="1 of 2 branches missed.">    checkArgument(IV.length == AES_BLOCK_SIZE);</span>
 
-<span class="nc" id="L257">    int i = IV.length; // IV length</span>
-<span class="nc" id="L258">    int j = 0; // counter bytes index</span>
-<span class="nc" id="L259">    int sum = 0;</span>
-<span class="nc bnc" id="L260" title="All 2 branches missed.">    while (i-- &gt; 0) {</span>
+<span class="fc" id="L257">    int i = IV.length; // IV length</span>
+<span class="fc" id="L258">    int j = 0; // counter bytes index</span>
+<span class="fc" id="L259">    int sum = 0;</span>
+<span class="fc bfc" id="L260" title="All 2 branches covered.">    while (i-- &gt; 0) {</span>
       // (sum &gt;&gt;&gt; Byte.SIZE) is the carry for addition
-<span class="nc" id="L262">      sum = (initIV[i] &amp; 0xff) + (sum &gt;&gt;&gt; Byte.SIZE);</span>
-<span class="nc bnc" id="L263" title="All 2 branches missed.">      if (j++ &lt; 8) { // Big-endian, and long is 8 bytes length</span>
-<span class="nc" id="L264">        sum += (byte) counter &amp; 0xff;</span>
-<span class="nc" id="L265">        counter &gt;&gt;&gt;= 8;</span>
+<span class="fc" id="L262">      sum = (initIV[i] &amp; 0xff) + (sum &gt;&gt;&gt; Byte.SIZE);</span>
+<span class="fc bfc" id="L263" title="All 2 branches covered.">      if (j++ &lt; 8) { // Big-endian, and long is 8 bytes length</span>
+<span class="fc" id="L264">        sum += (byte) counter &amp; 0xff;</span>
+<span class="fc" id="L265">        counter &gt;&gt;&gt;= 8;</span>
       }
-<span class="nc" id="L267">      IV[i] = (byte) sum;</span>
+<span class="fc" id="L267">      IV[i] = (byte) sum;</span>
     }
-<span class="nc" id="L269">  }</span>
+<span class="fc" id="L269">  }</span>
 
   /**
    * Helper method to create a Cipher instance and throws only IOException.
@@ -294,10 +294,10 @@ public class Utils {
    * @throws IllegalArgumentException if expression is false.
    */
   public static void checkArgument(boolean expression) {
-<span class="nc bnc" id="L297" title="All 2 branches missed.">    if(!expression) {</span>
+<span class="pc bpc" id="L297" title="1 of 2 branches missed.">    if(!expression) {</span>
 <span class="nc" id="L298">      throw new IllegalArgumentException();</span>
     }
-<span class="nc" id="L300">  }</span>
+<span class="fc" id="L300">  }</span>
 
   /**
    * Checks the truth of an expression.
@@ -309,10 +309,10 @@ public class Utils {
    * @throws IllegalArgumentException if expression is false.
    */
   public static void checkArgument(boolean expression, Object errorMessage) {
-<span class="nc bnc" id="L312" title="All 2 branches missed.">    if (!expression) {</span>
-<span class="nc" id="L313">      throw new IllegalArgumentException(String.valueOf(errorMessage));</span>
+<span class="fc bfc" id="L312" title="All 2 branches covered.">    if (!expression) {</span>
+<span class="fc" id="L313">      throw new IllegalArgumentException(String.valueOf(errorMessage));</span>
     }
-<span class="nc" id="L315">  }</span>
+<span class="fc" id="L315">  }</span>
 
   /**
    * Ensures that an object reference passed as a parameter to the calling
@@ -323,10 +323,10 @@ public class Utils {
    * @throws NullPointerException if reference is null.
    */
   public static &lt;T&gt; T checkNotNull(T reference) {
-<span class="nc bnc" id="L326" title="All 2 branches missed.">    if(reference == null) {</span>
+<span class="pc bpc" id="L326" title="1 of 2 branches missed.">    if(reference == null) {</span>
 <span class="nc" id="L327">      throw new NullPointerException();</span>
     } else {
-<span class="nc" id="L329">      return reference;</span>
+<span class="fc" id="L329">      return reference;</span>
     }
   }
 
@@ -338,10 +338,10 @@ public class Utils {
    * @throws IllegalStateException if expression is false.
    */
   public static void checkState(boolean expression) {
-<span class="nc bnc" id="L341" title="All 2 branches missed.">    if(!expression) {</span>
+<span class="pc bpc" id="L341" title="1 of 2 branches missed.">    if(!expression) {</span>
 <span class="nc" id="L342">      throw new IllegalStateException();</span>
     }
-<span class="nc" id="L344">  }</span>
+<span class="fc" id="L344">  }</span>
 
   /**
    * Splits class names sequence into substrings, Trim each substring into an
@@ -354,18 +354,18 @@ public class Utils {
    */
   public static List&lt;String&gt; splitClassNames(String clazzNames,
       String separator) {
-<span class="nc" id="L357">    List&lt;String&gt; res = new ArrayList&lt;String&gt;();</span>
-<span class="nc bnc" id="L358" title="All 4 branches missed.">    if (clazzNames == null || clazzNames.isEmpty()) {</span>
-<span class="nc" id="L359">      return res;</span>
+<span class="fc" id="L357">    List&lt;String&gt; res = new ArrayList&lt;String&gt;();</span>
+<span class="pc bpc" id="L358" title="1 of 4 branches missed.">    if (clazzNames == null || clazzNames.isEmpty()) {</span>
+<span class="fc" id="L359">      return res;</span>
     }
 
-<span class="nc bnc" id="L362" title="All 2 branches missed.">    for (String clazzName : clazzNames.split(separator)) {</span>
-<span class="nc" id="L363">      clazzName = clazzName.trim();</span>
-<span class="nc bnc" id="L364" title="All 2 branches missed.">      if (!clazzName.isEmpty()) {</span>
-<span class="nc" id="L365">        res.add(clazzName);</span>
+<span class="fc bfc" id="L362" title="All 2 branches covered.">    for (String clazzName : clazzNames.split(separator)) {</span>
+<span class="fc" id="L363">      clazzName = clazzName.trim();</span>
+<span class="pc bpc" id="L364" title="1 of 2 branches missed.">      if (!clazzName.isEmpty()) {</span>
+<span class="fc" id="L365">        res.add(clazzName);</span>
       }
     }
-<span class="nc" id="L368">    return res;</span>
+<span class="fc" id="L368">    return res;</span>
   }
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.eclemma.org/jacoco">JaCoCo</a> 0.7.5.201505241946</span></div></body></html>

@@ -48,13 +48,13 @@ public class PositionedCipherInputStream extends CTRCipherInputStream {
   /**
    * DirectBuffer pool
    */
-<span class="nc" id="L51">  private final Queue&lt;ByteBuffer&gt; bufferPool = new</span>
+<span class="fc" id="L51">  private final Queue&lt;ByteBuffer&gt; bufferPool = new</span>
       ConcurrentLinkedQueue&lt;ByteBuffer&gt;();
 
   /**
    * Cipher pool
    */
-<span class="nc" id="L57">  private final Queue&lt;CipherState&gt; cipherPool = new</span>
+<span class="fc" id="L57">  private final Queue&lt;CipherState&gt; cipherPool = new</span>
       ConcurrentLinkedQueue&lt;CipherState&gt;();
 
   public PositionedCipherInputStream(Properties props, Input in,
@@ -70,8 +70,8 @@ public class PositionedCipherInputStream extends CTRCipherInputStream {
       byte[] key,
       byte[] iv,
       long streamOffset) throws IOException {
-<span class="nc" id="L73">    super(input, cipher, bufferSize, key, iv, streamOffset);</span>
-<span class="nc" id="L74">  }</span>
+<span class="fc" id="L73">    super(input, cipher, bufferSize, key, iv, streamOffset);</span>
+<span class="fc" id="L74">  }</span>
 
   /**
    * Read upto the specified number of bytes from a given position
@@ -80,13 +80,13 @@ public class PositionedCipherInputStream extends CTRCipherInputStream {
    */
   public int read(long position, byte[] buffer, int offset, int length)
       throws IOException {
-<span class="nc" id="L83">    checkStream();</span>
-<span class="nc" id="L84">    final int n = input.read(position, buffer, offset, length);</span>
-<span class="nc bnc" id="L85" title="All 2 branches missed.">    if (n &gt; 0) {</span>
+<span class="fc" id="L83">    checkStream();</span>
+<span class="fc" id="L84">    final int n = input.read(position, buffer, offset, length);</span>
+<span class="fc bfc" id="L85" title="All 2 branches covered.">    if (n &gt; 0) {</span>
       // This operation does not change the current offset of the file
-<span class="nc" id="L87">      decrypt(position, buffer, offset, n);</span>
+<span class="fc" id="L87">      decrypt(position, buffer, offset, n);</span>
     }
-<span class="nc" id="L89">    return n;</span>
+<span class="fc" id="L89">    return n;</span>
   }
 
   /**
@@ -95,13 +95,13 @@ public class PositionedCipherInputStream extends CTRCipherInputStream {
    */
   public void readFully(long position, byte[] buffer, int offset, int length)
       throws IOException {
-<span class="nc" id="L98">    checkStream();</span>
-<span class="nc" id="L99">    IOUtils.readFully(input, position, buffer, offset, length);</span>
-<span class="nc bnc" id="L100" title="All 2 branches missed.">    if (length &gt; 0) {</span>
+<span class="fc" id="L98">    checkStream();</span>
+<span class="fc" id="L99">    IOUtils.readFully(input, position, buffer, offset, length);</span>
+<span class="pc bpc" id="L100" title="1 of 2 branches missed.">    if (length &gt; 0) {</span>
       // This operation does not change the current offset of the file
-<span class="nc" id="L102">      decrypt(position, buffer, offset, length);</span>
+<span class="fc" id="L102">      decrypt(position, buffer, offset, length);</span>
     }
-<span class="nc" id="L104">  }</span>
+<span class="fc" id="L104">  }</span>
 
   public void readFully(long position, byte[] buffer) throws IOException {
 <span class="nc" id="L107">    readFully(position, buffer, 0, buffer.length);</span>
@@ -113,34 +113,34 @@ public class PositionedCipherInputStream extends CTRCipherInputStream {
    */
   protected void decrypt(long position, byte[] buffer, int offset, int length)
       throws IOException {
-<span class="nc" id="L116">    ByteBuffer inBuffer = getBuffer();</span>
-<span class="nc" id="L117">    ByteBuffer outBuffer = getBuffer();</span>
-<span class="nc" id="L118">    CipherState state = null;</span>
+<span class="fc" id="L116">    ByteBuffer inBuffer = getBuffer();</span>
+<span class="fc" id="L117">    ByteBuffer outBuffer = getBuffer();</span>
+<span class="fc" id="L118">    CipherState state = null;</span>
     try {
-<span class="nc" id="L120">      state = getCipherState();</span>
-<span class="nc" id="L121">      byte[] iv = getInitIV().clone();</span>
-<span class="nc" id="L122">      resetCipher(state, position, iv);</span>
-<span class="nc" id="L123">      byte padding = getPadding(position);</span>
-<span class="nc" id="L124">      inBuffer.position(padding); // Set proper position for input data.</span>
+<span class="fc" id="L120">      state = getCipherState();</span>
+<span class="fc" id="L121">      byte[] iv = getInitIV().clone();</span>
+<span class="fc" id="L122">      resetCipher(state, position, iv);</span>
+<span class="fc" id="L123">      byte padding = getPadding(position);</span>
+<span class="fc" id="L124">      inBuffer.position(padding); // Set proper position for input data.</span>
 
-<span class="nc" id="L126">      int n = 0;</span>
-<span class="nc bnc" id="L127" title="All 2 branches missed.">      while (n &lt; length) {</span>
-<span class="nc" id="L128">        int toDecrypt = Math.min(length - n, inBuffer.remaining());</span>
-<span class="nc" id="L129">        inBuffer.put(buffer, offset + n, toDecrypt);</span>
+<span class="fc" id="L126">      int n = 0;</span>
+<span class="fc bfc" id="L127" title="All 2 branches covered.">      while (n &lt; length) {</span>
+<span class="fc" id="L128">        int toDecrypt = Math.min(length - n, inBuffer.remaining());</span>
+<span class="fc" id="L129">        inBuffer.put(buffer, offset + n, toDecrypt);</span>
 
         // Do decryption
-<span class="nc" id="L132">        decrypt(state, inBuffer, outBuffer, padding);</span>
+<span class="fc" id="L132">        decrypt(state, inBuffer, outBuffer, padding);</span>
 
-<span class="nc" id="L134">        outBuffer.get(buffer, offset + n, toDecrypt);</span>
-<span class="nc" id="L135">        n += toDecrypt;</span>
-<span class="nc" id="L136">        padding = postDecryption(state, inBuffer, position + n, iv);</span>
-<span class="nc" id="L137">      }</span>
+<span class="fc" id="L134">        outBuffer.get(buffer, offset + n, toDecrypt);</span>
+<span class="fc" id="L135">        n += toDecrypt;</span>
+<span class="fc" id="L136">        padding = postDecryption(state, inBuffer, position + n, iv);</span>
+<span class="fc" id="L137">      }</span>
     } finally {
-<span class="nc" id="L139">      returnBuffer(inBuffer);</span>
-<span class="nc" id="L140">      returnBuffer(outBuffer);</span>
-<span class="nc" id="L141">      returnCipherState(state);</span>
-<span class="nc" id="L142">    }</span>
-<span class="nc" id="L143">  }</span>
+<span class="pc" id="L139">      returnBuffer(inBuffer);</span>
+<span class="pc" id="L140">      returnBuffer(outBuffer);</span>
+<span class="pc" id="L141">      returnCipherState(state);</span>
+<span class="fc" id="L142">    }</span>
+<span class="fc" id="L143">  }</span>
 
   /**
    * Do the decryption using inBuffer as input and outBuffer as output.
@@ -149,31 +149,31 @@ public class PositionedCipherInputStream extends CTRCipherInputStream {
    */
   private void decrypt(CipherState state, ByteBuffer inBuffer,
       ByteBuffer outBuffer, byte padding) throws IOException {
-<span class="nc bnc" id="L152" title="All 2 branches missed.">    Utils.checkState(inBuffer.position() &gt;= padding);</span>
-<span class="nc bnc" id="L153" title="All 2 branches missed.">    if(inBuffer.position() == padding) {</span>
+<span class="pc bpc" id="L152" title="1 of 2 branches missed.">    Utils.checkState(inBuffer.position() &gt;= padding);</span>
+<span class="pc bpc" id="L153" title="1 of 2 branches missed.">    if(inBuffer.position() == padding) {</span>
       // There is no real data in inBuffer.
 <span class="nc" id="L155">      return;</span>
     }
-<span class="nc" id="L157">    inBuffer.flip();</span>
-<span class="nc" id="L158">    outBuffer.clear();</span>
-<span class="nc" id="L159">    decryptBuffer(state, inBuffer, outBuffer);</span>
-<span class="nc" id="L160">    inBuffer.clear();</span>
-<span class="nc" id="L161">    outBuffer.flip();</span>
-<span class="nc bnc" id="L162" title="All 2 branches missed.">    if (padding &gt; 0) {</span>
+<span class="fc" id="L157">    inBuffer.flip();</span>
+<span class="fc" id="L158">    outBuffer.clear();</span>
+<span class="fc" id="L159">    decryptBuffer(state, inBuffer, outBuffer);</span>
+<span class="fc" id="L160">    inBuffer.clear();</span>
+<span class="fc" id="L161">    outBuffer.flip();</span>
+<span class="fc bfc" id="L162" title="All 2 branches covered.">    if (padding &gt; 0) {</span>
       /*
        * The plain text and cipher text have a 1:1 mapping, they start at the
        * same position.
        */
-<span class="nc" id="L167">      outBuffer.position(padding);</span>
+<span class="fc" id="L167">      outBuffer.position(padding);</span>
     }
-<span class="nc" id="L169">  }</span>
+<span class="fc" id="L169">  }</span>
 
   private void decryptBuffer(CipherState state, ByteBuffer inBuffer, ByteBuffer outBuffer)
       throws IOException {
-<span class="nc" id="L173">    int inputSize = inBuffer.remaining();</span>
+<span class="fc" id="L173">    int inputSize = inBuffer.remaining();</span>
     try {
-<span class="nc" id="L175">      int n = state.getCipher().update(inBuffer, outBuffer);</span>
-<span class="nc bnc" id="L176" title="All 2 branches missed.">      if (n &lt; inputSize) {</span>
+<span class="fc" id="L175">      int n = state.getCipher().update(inBuffer, outBuffer);</span>
+<span class="pc bpc" id="L176" title="1 of 2 branches missed.">      if (n &lt; inputSize) {</span>
         /**
          * Typically code will not get here. Cipher#update will consume all
          * input data and put result in outBuffer.
@@ -188,8 +188,8 @@ public class PositionedCipherInputStream extends CTRCipherInputStream {
 <span class="nc" id="L188">      throw new IOException(e);</span>
 <span class="nc" id="L189">    } catch (BadPaddingException e) {</span>
 <span class="nc" id="L190">      throw new IOException(e);</span>
-<span class="nc" id="L191">    }</span>
-<span class="nc" id="L192">  }</span>
+<span class="fc" id="L191">    }</span>
+<span class="fc" id="L192">  }</span>
 
   /**
    * This method is executed immediately after decryption. Check whether
@@ -197,8 +197,8 @@ public class PositionedCipherInputStream extends CTRCipherInputStream {
    */
   private byte postDecryption(CipherState state, ByteBuffer inBuffer,
       long position, byte[] iv) throws IOException {
-<span class="nc" id="L200">    byte padding = 0;</span>
-<span class="nc bnc" id="L201" title="All 2 branches missed.">    if (state.isReset()) {</span>
+<span class="fc" id="L200">    byte padding = 0;</span>
+<span class="pc bpc" id="L201" title="1 of 2 branches missed.">    if (state.isReset()) {</span>
       /*
        * This code is generally not executed since the cipher usually
        * maintains cipher context (e.g. the counter) internally. However,
@@ -209,104 +209,104 @@ public class PositionedCipherInputStream extends CTRCipherInputStream {
 <span class="nc" id="L209">      padding = getPadding(position);</span>
 <span class="nc" id="L210">      inBuffer.position(padding);</span>
     }
-<span class="nc" id="L212">    return padding;</span>
+<span class="fc" id="L212">    return padding;</span>
   }
 
   /** Calculate the counter and iv, reset the cipher. */
   private void resetCipher(CipherState state, long position, byte[] iv)
       throws IOException {
-<span class="nc" id="L218">    final long counter = getCounter(position);</span>
-<span class="nc" id="L219">    Utils.calculateIV(getInitIV(), counter, iv);</span>
+<span class="fc" id="L218">    final long counter = getCounter(position);</span>
+<span class="fc" id="L219">    Utils.calculateIV(getInitIV(), counter, iv);</span>
     try {
-<span class="nc" id="L221">      state.getCipher().init(Cipher.DECRYPT_MODE, getKey(), iv);</span>
+<span class="fc" id="L221">      state.getCipher().init(Cipher.DECRYPT_MODE, getKey(), iv);</span>
 <span class="nc" id="L222">    } catch (InvalidKeyException e) {</span>
 <span class="nc" id="L223">      throw new IOException(e);</span>
 <span class="nc" id="L224">    } catch (InvalidAlgorithmParameterException e) {</span>
 <span class="nc" id="L225">      throw new IOException(e);</span>
-<span class="nc" id="L226">    }</span>
-<span class="nc" id="L227">    state.reset(false);</span>
-<span class="nc" id="L228">  }</span>
+<span class="fc" id="L226">    }</span>
+<span class="fc" id="L227">    state.reset(false);</span>
+<span class="fc" id="L228">  }</span>
 
   /** Get Cipher from pool */
   private CipherState getCipherState() throws IOException {
-<span class="nc" id="L232">    CipherState state = cipherPool.poll();</span>
-<span class="nc bnc" id="L233" title="All 2 branches missed.">    if (state == null) {</span>
+<span class="fc" id="L232">    CipherState state = cipherPool.poll();</span>
+<span class="fc bfc" id="L233" title="All 2 branches covered.">    if (state == null) {</span>
       Cipher cipher;
       try {
-<span class="nc" id="L236">        cipher = CipherFactory.getInstance(getCipher().getTransformation(),</span>
+<span class="fc" id="L236">        cipher = CipherFactory.getInstance(getCipher().getTransformation(),</span>
             getCipher().getProperties());
 <span class="nc" id="L238">      } catch (GeneralSecurityException e) {</span>
 <span class="nc" id="L239">        throw new IOException(e);</span>
-<span class="nc" id="L240">      }</span>
-<span class="nc" id="L241">      state = new CipherState(cipher);</span>
+<span class="fc" id="L240">      }</span>
+<span class="fc" id="L241">      state = new CipherState(cipher);</span>
     }
 
-<span class="nc" id="L244">    return state;</span>
+<span class="fc" id="L244">    return state;</span>
   }
 
   /** Return Cipher to pool */
   private void returnCipherState(CipherState state) {
-<span class="nc bnc" id="L249" title="All 2 branches missed.">    if (state != null) {</span>
-<span class="nc" id="L250">      cipherPool.add(state);</span>
+<span class="pc bpc" id="L249" title="1 of 2 branches missed.">    if (state != null) {</span>
+<span class="fc" id="L250">      cipherPool.add(state);</span>
     }
-<span class="nc" id="L252">  }</span>
+<span class="fc" id="L252">  }</span>
 
   /** Get direct buffer from pool */
   private ByteBuffer getBuffer() {
-<span class="nc" id="L256">    ByteBuffer buffer = bufferPool.poll();</span>
-<span class="nc bnc" id="L257" title="All 2 branches missed.">    if (buffer == null) {</span>
-<span class="nc" id="L258">      buffer = ByteBuffer.allocateDirect(getBufferSize());</span>
+<span class="fc" id="L256">    ByteBuffer buffer = bufferPool.poll();</span>
+<span class="fc bfc" id="L257" title="All 2 branches covered.">    if (buffer == null) {</span>
+<span class="fc" id="L258">      buffer = ByteBuffer.allocateDirect(getBufferSize());</span>
     }
 
-<span class="nc" id="L261">    return buffer;</span>
+<span class="fc" id="L261">    return buffer;</span>
   }
 
   /** Return direct buffer to pool */
   private void returnBuffer(ByteBuffer buf) {
-<span class="nc bnc" id="L266" title="All 2 branches missed.">    if (buf != null) {</span>
-<span class="nc" id="L267">      buf.clear();</span>
-<span class="nc" id="L268">      bufferPool.add(buf);</span>
+<span class="pc bpc" id="L266" title="1 of 2 branches missed.">    if (buf != null) {</span>
+<span class="fc" id="L267">      buf.clear();</span>
+<span class="fc" id="L268">      bufferPool.add(buf);</span>
     }
-<span class="nc" id="L270">  }</span>
+<span class="fc" id="L270">  }</span>
 
   @Override
   public void close() throws IOException {
-<span class="nc bnc" id="L274" title="All 2 branches missed.">    if (!isOpen()) {</span>
+<span class="pc bpc" id="L274" title="1 of 2 branches missed.">    if (!isOpen()) {</span>
 <span class="nc" id="L275">      return;</span>
     }
 
-<span class="nc" id="L278">    cleanBufferPool();</span>
-<span class="nc" id="L279">    super.close();</span>
-<span class="nc" id="L280">  }</span>
+<span class="fc" id="L278">    cleanBufferPool();</span>
+<span class="fc" id="L279">    super.close();</span>
+<span class="fc" id="L280">  }</span>
 
   /** Clean direct buffer pool */
   private void cleanBufferPool() {
     ByteBuffer buf;
-<span class="nc bnc" id="L285" title="All 2 branches missed.">    while ((buf = bufferPool.poll()) != null) {</span>
-<span class="nc" id="L286">      Utils.freeDirectBuffer(buf);</span>
+<span class="fc bfc" id="L285" title="All 2 branches covered.">    while ((buf = bufferPool.poll()) != null) {</span>
+<span class="fc" id="L286">      Utils.freeDirectBuffer(buf);</span>
     }
-<span class="nc" id="L288">  }</span>
+<span class="fc" id="L288">  }</span>
 
   private class CipherState {
     private Cipher cipher;
     private boolean reset;
 
-<span class="nc" id="L294">    public CipherState(Cipher cipher) {</span>
-<span class="nc" id="L295">      this.cipher = cipher;</span>
-<span class="nc" id="L296">      this.reset = false;</span>
-<span class="nc" id="L297">    }</span>
+<span class="fc" id="L294">    public CipherState(Cipher cipher) {</span>
+<span class="fc" id="L295">      this.cipher = cipher;</span>
+<span class="fc" id="L296">      this.reset = false;</span>
+<span class="fc" id="L297">    }</span>
 
     public Cipher getCipher() {
-<span class="nc" id="L300">      return cipher;</span>
+<span class="fc" id="L300">      return cipher;</span>
     }
 
     public boolean isReset() {
-<span class="nc" id="L304">      return reset;</span>
+<span class="fc" id="L304">      return reset;</span>
     }
 
     public void reset(boolean reset) {
-<span class="nc" id="L308">      this.reset = reset;</span>
-<span class="nc" id="L309">    }</span>
+<span class="fc" id="L308">      this.reset = reset;</span>
+<span class="fc" id="L309">    }</span>
   }
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.eclemma.org/jacoco">JaCoCo</a> 0.7.5.201505241946</span></div></body></html>
